@@ -1,0 +1,47 @@
+* {
+    position: absolute;
+}
+
+.slider-box {
+    background-image: url("../src/assets/bg_img1.png");
+	width: 1280px;
+    height: 480px;
+} 
+ 
+img  {
+    width: 254.83px;
+    height: 276px;
+    border-radius: 50px;
+    position: absolute;
+    left: 109px;
+    top: 58px;
+}
+
+span {
+    width: 700px;
+    left: 447px;
+    top: 58px;
+    font-size: 48px;
+    font-family: overpass;
+}
+
+.Doc {
+    position: absolute;
+    left: 236.85px;
+    top: 360px;
+    background-color: #F6E7AE;
+    width: 274.09px;
+    height: 75px;
+    border-radius: 11px;
+}
+
+.start {
+    position: absolute;
+    left: 718.49px;
+    top: 360px;
+
+    background-color: #F6E7AE;
+    width: 274.09px;
+    height: 75px;
+    border-radius: 11px;
+}
