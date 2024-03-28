@@ -1,48 +1,43 @@
-import "./LeftPanel.css"
 
 function LeftPanel() {
     return (
-        <div className="Leftpanel" style={{ width: 137, height: 476}}>
-            <div className="Categorias" style={{ width: 137, height: 165, left: 0, top: 0, position: 'absolute' }}>
-                <div className="Categories" style={{ left: 0, top: 0, position: 'absolute', color: '#9B9B9B', fontSize: 18, fontFamily: 'Overpass', fontWeight: '600', wordWrap: 'break-word' }}>Categories</div>
-                <div className="Novedades" style={{ width: 81, height: 23, left: 0, top: 56, position: 'absolute' }}>
-                    <div className="News" style={{ left: 37, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>News</div>
-                    <div className="Vector" style={{ width: 18, height: 17.12, left: 0, top: 1, position: 'absolute', background: '#2C9585' }}></div>
+        <div className="Leftpanel w-[144.11px] h-[476px] relative">
+            <div className="Categorias w-[144.11px] h-[165px] left-0 top-0 absolute">
+                <div className="Categories left-[7.11px] top-0 absolute text-neutral-400 text-lg font-semibold font-['Overpass']">Categories</div>
+                <div className="Novedades w-[88.11px] h-[23px] left-0 top-[56px] absolute">
+                    <div className="News left-[44.11px] top-0 absolute text-black text-lg font-normal font-['Overpass']">News</div>
                 </div>
-                <div className="Mejorvalorados" style={{ width: 119, height: 23, left: 0, top: 99, position: 'absolute' }}>
-                    <div className="BestRated" style={{ left: 37, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>best rated</div>
-                    <div className="Vector" style={{ width: 18, height: 16.51, left: 0, top: 2, position: 'absolute', background: '#2C9585' }}></div>
+                <div className="Mejorvalorados w-[126.11px] h-[23px] left-0 top-[99px] absolute">
+                    <div className="BestRated left-[44.11px] top-0 absolute text-black text-lg font-normal font-['Overpass']">best rated</div>
                 </div>
-                <div className="Comentados" style={{ width: 137, height: 23, left: 0, top: 142, position: 'absolute' }}>
-                    <div className="Commented" style={{ left: 37, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>Commented</div>
-                    <div className="Vector" style={{ width: 18, height: 18, left: 0, top: 2, position: 'absolute', background: '#2C9585' }}></div>
+                <div className="Comentados w-[144.11px] h-[23px] left-0 top-[142px] absolute">
+                    <div className="Commented left-[44.11px] top-0 absolute text-black text-lg font-normal font-['Overpass']">Commented</div>
                 </div>
             </div>
-            <div className="Generos" style={{ width: 121, height: 281, left: 0, top: 195, position: 'absolute' }}>
-                <div className="GNeros" style={{ left: 0, top: 0, position: 'absolute', color: '#9B9B9B', fontSize: 18, fontFamily: 'Overpass', fontWeight: '600', wordWrap: 'break-word' }}>Géneros</div>
-                <div className="Accion" style={{ width: 87, height: 23, left: 2, top: 43, position: 'absolute' }}>
-                    <div className="Action" style={{ left: 35, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>Action</div>
-                    <img className="Image1" style={{ width: 18, height: 18, left: 0, top: 5, position: 'absolute' }} src="src/assets/image_1.png" />
+            <div className="Generos w-[126.33px] h-[281px] left-[1.78px] top-[195px] absolute">
+                <div className="GNeros left-[5.33px] top-0 absolute text-neutral-400 text-lg font-semibold font-['Overpass']">Géneros</div>
+                <div className="Accion w-[94.33px] h-[23px] left-0 top-[43px] absolute">
+                    <div className="Action left-[42.33px] top-0 absolute text-black text-lg font-normal font-['Overpass']">Action</div>
+                    <img className="Image1 w-4 h-[18px] left-0 top-[5px] absolute" src="https://via.placeholder.com/16x18" />
                 </div>
-                <div className="Aventura" style={{ width: 119, height: 23, left: 2, top: 86, position: 'absolute' }}>
-                    <img className="Image2" style={{ width: 18, height: 18, left: 0, top: 5, position: 'absolute' }} src="src/assets/image_2.png" />
-                    <div className="Adventure" style={{ left: 35, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>Adventure</div>
+                <div className="Aventura w-[119px] h-[23px] left-[7.33px] top-[86px] absolute">
+                    <img className="Image2 w-[18px] h-[18px] left-0 top-[5px] absolute" src="https://via.placeholder.com/18x18" />
+                    <div className="Adventure left-[35px] top-0 absolute text-black text-lg font-normal font-['Overpass']">Adventure</div>
                 </div>
-                <div className="Classic" style={{ width: 92, height: 23, left: 2, top: 129, position: 'absolute' }}>
-                    <div className="Classic" style={{ left: 35, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>Classic</div>
-                    <img className="Image3" style={{ width: 18, height: 18, left: 0, top: 5, position: 'absolute' }} src="src/assets/image_3.png" />
+                <div className="Classic w-[92px] h-[23px] left-[7.33px] top-[129px] absolute">
+                    <div className="Classic left-[35px] top-0 absolute text-black text-lg font-normal font-['Overpass']">Classic</div>
+                    <img className="Image3 w-[18px] h-[18px] left-0 top-[5px] absolute" src="https://via.placeholder.com/18x18" />
                 </div>
-                <div className="Misterio" style={{ width: 101, height: 23, left: 2, top: 172, position: 'absolute' }}>
-                    <div className="Mystery" style={{ left: 35, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>Mystery</div>
-                    <img className="Image4" style={{ width: 18, height: 18, left: 0, top: 5, position: 'absolute' }} src="src/assets/image_4.png" />
+                <div className="Misterio w-[101px] h-[23px] left-[7.33px] top-[172px] absolute">
+                    <div className="Mystery left-[35px] top-0 absolute text-black text-lg font-normal font-['Overpass']">Mystery</div>
+                    <img className="Image4 w-[18px] h-[18px] left-0 top-[5px] absolute" src="https://via.placeholder.com/18x18" />
                 </div>
-                <div className="Fantasia" style={{ width: 83, height: 23, left: 2, top: 215, position: 'absolute' }}>
-                    <div className="Fancy" style={{ left: 35, top: 0, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>Fancy</div>
-                    <img className="Image5" style={{ width: 18, height: 18, left: 0, top: 2, position: 'absolute' }} src="src/assets/image_5.png" />
+                <div className="Fantasia w-[83px] h-[23px] left-[7.33px] top-[215px] absolute">
+                    <div className="Fancy left-[35px] top-0 absolute text-black text-lg font-normal font-['Overpass']">Fancy</div>
+                    <img className="Image5 w-[18px] h-[18px] left-0 top-[2px] absolute" src="https://via.placeholder.com/18x18" />
                 </div>
-                <div className="Allgenres" style={{ width: 116, height: 23, left: 2, top: 258, position: 'absolute' }}>
-                    <div className="AllGenres" style={{ left: 35, top: 0, position: 'absolute', color: '#9B9B9B', fontSize: 18, fontFamily: 'Overpass', fontWeight: '400', wordWrap: 'break-word' }}>All genres</div>
-                    <div className="Vector" style={{ width: 14, height: 7.41, left: 0, top: 10, position: 'absolute', background: '#9B9B9B' }}></div>
+                <div className="Allgenres w-[123.33px] h-[23px] left-0 top-[258px] absolute">
+                    <div className="AllGenres left-[42.33px] top-0 absolute text-neutral-400 text-lg font-normal font-['Overpass']">All genres</div>
                 </div>
             </div>
         </div>

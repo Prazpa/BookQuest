@@ -4,7 +4,7 @@ export const Slider = () => {
 
   return (
     <div className="w-[1260px] h-[500px] bg-[url('src/assets/bg_img1.png')]">
-      <div className="mx-[109px] my-[59px] w-[1099px] h-[422px] relative">
+      <div className="mx-[109px] my-[59px] w-[1099px] h-[422px] absolute">
         <img 
           className="w-[254px] h-[270px] top-[7px] absolute rounded-[50px]" 
           src="src/assets/logo_1.png"
@@ -27,7 +27,7 @@ export const Slider = () => {
 
         <Button className="w-[274.09px] h-[75px] left-[609.49px] top-[310px] absolute bg-orange-200 rounded-[11px] text-center text-[32px] font-medium font-['Overpass']">
             <a href="http://localhost:5173/Detailpage" className="text-black">Get Started</a>
-        </Button>  
+        </Button>
       </div>
     </div>
   );

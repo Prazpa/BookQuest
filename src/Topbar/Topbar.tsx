@@ -1,6 +1,7 @@
+import Account from "./Accont"
+import Explore_btn from "./Explorebtn"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage, } from "@/components/ui/avatar"
 
 export const Topbar = () => {
     return (
@@ -22,35 +23,10 @@ export const Topbar = () => {
                 </div>
 
                 {/* Explore-btn*/}
-                <div className="left-[900px] top-[13px] absolute text-lg font-normal font-['Overpass']">
-                    <ul>
-                        <li>
-                            <a href="" className="text-black">Explore</a>
-                        </li>
-                    </ul>
-                </div>
+                <Explore_btn/>
 
                 {/* Accont-section*/}
-                <div className="w-[180px] h-[50px] left-[1014px] top-0 absolute">
-                    <ul className="top-[13px] absolute text-lg font-normal font-['Overpass']">
-                        <li>
-                            <a href="" className="text-black ">Sign&nbsp;in</a>
-                        </li>
-                    </ul>
-
-                    <div>
-                        <ul>
-                            <li>
-                                <a href="" className="left-[100px] top-[5px] absolute">
-                                    <Avatar>
-                                        <AvatarImage src="https://github.com/shadcn.png" />
-                                        <AvatarFallback>CN</AvatarFallback>
-                                    </Avatar>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <Account/>
             </div>
         </nav>
     )

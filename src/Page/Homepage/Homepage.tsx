@@ -4,11 +4,9 @@ import {Slider}  from '../../Slider/Slider'
 
 function Homepage() {
   return (
-    <div className='box'>
+    <div>
         <Topbar/>
-        <div className="slider-container">
-          <Slider/>
-        </div>
+        <Slider/>
     </div>
   )
 }

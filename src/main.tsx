@@ -7,7 +7,7 @@ import Detailpage from "./Page/Detailpage/Detailpage"
 
 const router = createBrowserRouter([
   {
-    path: "/Homepage",
+    path: "/",
     element: <Homepage/>,
   },
 
