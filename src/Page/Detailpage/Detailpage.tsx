@@ -1,12 +1,12 @@
 import '../../App.css'
 import { Topbar } from '../../Topbar/Topbar'
-import LeftPanel  from "../../LeftPanel/LeftPanel";
+import Resizepage from '@/Resizepage/Resize';
 
 function Detailpage() {
   return (
-    <div className='box'>
+    <div className='relative'>
         <Topbar/>
-        <LeftPanel/>
+        <Resizepage/>
     </div>
   )
 }
