@@ -1,6 +1,5 @@
-import '../../App.css'
-import { Topbar } from '../../Topbar/Topbar'
-import {Slider}  from '../../Slider/Slider'
+import Topbar  from '../../Topbar/Topbar'
+import Slider  from '../../Slider/Slider'
 
 function Homepage() {
   return (

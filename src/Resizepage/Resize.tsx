@@ -1,44 +1,52 @@
-import LeftPanel from "@/LeftPanel/LeftPanel"
 import {
     ResizableHandle,
     ResizablePanel,
     ResizablePanelGroup,
-} from "@/components/ui/resizable"
+} from "@/components/ui/resizable";
+import LeftPanel from "../Resizepage/LeftPanel/LeftPanel";
+import RightPanel from "../Resizepage/RightPanel/RightPanel";
+import Cover from "../Resizepage/MidPanel/Cover"
 
-function Resizepage() {
+
+const Resizepage = () => {
     return (
-        <div className="relative">
-            <ResizablePanelGroup
-                direction="horizontal"
-                className="w-[1216px] rounded"
-            >
-                <ResizablePanel>
-                    <div className="flex border-r-4 border-green-500 overflow-hidden h-auto">
-                        <LeftPanel/>
+        <ResizablePanelGroup direction="horizontal">
+
+            {/* LeftPanel */}
+            <ResizablePanel defaultSize={10}>
+                <div className="flex border-r-4 border-green-500 overflow-x-hidden">
+                    <LeftPanel/>
+                </div>
+            </ResizablePanel>
+            <ResizableHandle/>
+
+            {/* MidPanel */}
+            <ResizablePanel defaultSize={20}>
+                <div className="px-[10px] overflow-hidden gap-[10px] ">
+                    {/* Headline*/}
+                    <div className="w-[652px] h-[23.79px] relative">
+                        <span className="w-[250px] h-[25px] absolute text-black text-2xl font-semibold font-['Overpass']">Books of the day</span>
+                        <span className="w-[100px] h-[25px] left-[500px] top-[5.55px] absolute text-neutral-400 text-lg font-normal font-['Overpass']">see more</span>
                     </div>
-                </ResizablePanel>
 
-                <ResizableHandle />
-
-                <ResizablePanel>
-                    <div className="flex h-[200px] justify-center ">
-                        <span className="font-semibold">One</span>
+                    {/* CoverBook */}
+                    <div className="flex my-[20px]">
+                        <Cover/>
                     </div>
-                </ResizablePanel>
+                </div>
+            </ResizablePanel>
+            <ResizableHandle/>
 
-                <ResizableHandle />
-                <ResizablePanel >
-                    <div className="flex h-[200px] border-l-4 border-green-500">
-                        <span className="font-semibold">One</span>
-                    </div>
-                </ResizablePanel>
+            {/* RightPanel */}
+            <ResizablePanel defaultSize={10}>
+                <div className="px-[10px] flex border-l-4 border-green-500 overflow-hidden h-auto">
+                    <RightPanel/>
+                </div>
+            </ResizablePanel>
 
-            </ResizablePanelGroup>
-        </div>
+        </ResizablePanelGroup>
 
-
-
-    )
+    );
 }
 
-export default Resizepage
+export default Resizepage;

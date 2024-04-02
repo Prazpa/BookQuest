@@ -2,7 +2,6 @@ import {
     Drawer,
     DrawerClose,
     DrawerContent,
-    DrawerDescription,
     DrawerFooter,
     DrawerHeader,
     DrawerTitle,
@@ -12,15 +11,11 @@ import {
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 
-import { Button } from "@/components/ui/button";
-
-export default function Explore_btn() {
+const Explore_btn = () => {
     return (
         <div className="relative">
             <div className="absolute left-[900px] top-[13px] text-lg font-normal font-['Overpass']">
@@ -63,7 +58,7 @@ export default function Explore_btn() {
 
                         <DrawerFooter>
                             <DrawerClose>
-                                <Button variant="outline" className="rounded bg-black text-white text-md">Okay!</Button>
+                                <button className="rounded bg-black text-white text-md">Okay!</button>
                             </DrawerClose>
                         </DrawerFooter>
                     </DrawerContent>
@@ -72,3 +67,5 @@ export default function Explore_btn() {
 
     );
 }
+
+export default Explore_btn
