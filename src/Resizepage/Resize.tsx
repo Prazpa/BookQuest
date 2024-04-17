@@ -5,7 +5,8 @@ import {
 } from "@/components/ui/resizable";
 import LeftPanel from "../Resizepage/LeftPanel/LeftPanel";
 import RightPanel from "../Resizepage/RightPanel/RightPanel";
-import Cover from "../Resizepage/MidPanel/Cover"
+import Cover from "./MidPanel/Cover"
+
 
 
 const Resizepage = () => {
@@ -30,7 +31,10 @@ const Resizepage = () => {
                     </div>
 
                     {/* CoverBook */}
-                    <div className="flex my-[20px]">
+                    <div className="flex my-[20px] gap-2">
+                        <Cover/>
+                        <Cover/>
+                        <Cover/>
                         <Cover/>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 const Logoname = () => {
   return (
     <div className="top-[7px] absolute text-teal-600 text-2xl font-bold font-['Overpass']">
-      BookQuest
+      <a href="http://localhost:5173/">BookQuest</a>
     </div>
   )
 }
