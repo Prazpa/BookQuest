@@ -5,11 +5,13 @@ import {
 } from "@/components/ui/resizable";
 import LeftPanel from "../Resizepage/LeftPanel/LeftPanel";
 import RightPanel from "../Resizepage/RightPanel/RightPanel";
-import Cover from "./MidPanel/Cover"
-
+import Cover from "./MidPanel/Cover";
 
 
 const Resizepage = () => {
+
+    
+
     return (
         <ResizablePanelGroup direction="horizontal">
 
@@ -31,12 +33,11 @@ const Resizepage = () => {
                     </div>
 
                     {/* CoverBook */}
-                    <div className="flex my-[20px] gap-2">
-                        <Cover/>
-                        <Cover/>
-                        <Cover/>
-                        <Cover/>
+                    <div className="flex my-[20px] gap-2 overflow-y-auto">
+                        <Cover/>    
                     </div>
+
+                
                 </div>
             </ResizablePanel>
             <ResizableHandle/>

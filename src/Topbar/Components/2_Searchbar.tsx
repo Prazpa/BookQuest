@@ -16,6 +16,7 @@ const Searchbar = () => {
   // State
   const [inputSearch, setInputSearch] = useState('');
   const [slicedata, setSlicedata] = useState([]);
+  const [loading, setLoading] = useState(false); // Loading state
 
   // Update Input
   const handleInputChange = (e) => {
@@ -24,6 +25,7 @@ const Searchbar = () => {
 
   // Fetch Data
   const fetchData = async () => {
+    setLoading(true); // Set loading to true before making the request
     try {
       const response = await axios.get(
         `https://openlibrary.org/search.json?q=${inputSearch}`
@@ -36,7 +38,7 @@ const Searchbar = () => {
       // Cut data for faster
       let slicedData = [];
       if (result.length >= 20) {
-        slicedData = result.slice(0, 5);
+        slicedData = result.slice(0, 20);
         console.log(slicedata);
       } else {
         slicedData = result;
@@ -45,6 +47,8 @@ const Searchbar = () => {
       setSlicedata(slicedData);
     } catch (error) {
       console.error('Error fetching data:', error);
+    } finally {
+      setLoading(false); // Set loading to false after the request is completed
     }
   };
 
@@ -91,18 +95,22 @@ const Searchbar = () => {
               </DialogDescription>
             </DialogHeader>
             <div className="flex flex-wrap justify-center overflow-scroll">
-              {slicedata.map((book, index) => (
-                <div key={index} className="m-4">
-                  {book.isbn &&
-                    <img
-                      src={`https://covers.openlibrary.org/b/isbn/${book.isbn[0]}-L.jpg`}
-                      alt={`cover_${index}`}
-                      width={200}
-                      height={300}
-                    />
-                  }
-                </div>
-              ))}
+              {loading ? ( // Display loading indicator if loading is true
+                <div>Loading...</div>
+              ) : (
+                slicedata.map((book, index) => (
+                  <div key={index} className="m-4">
+                    {book.isbn &&
+                      <img
+                        src={`https://covers.openlibrary.org/b/isbn/${book.isbn[0]}-L.jpg`}
+                        alt={`cover_${index}`}
+                        width={200}
+                        height={300}
+                      />
+                    }
+                  </div>
+                ))
+              )}
             </div>
           </DialogContent>
         </Dialog>

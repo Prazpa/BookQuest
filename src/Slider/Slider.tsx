@@ -28,7 +28,6 @@ const Slider = () => {
 
   return (
     <div className="w-full">
-      <div className="absolute">
         <Carousel
           plugins={[plugin.current]}
           className="w-[1024px] mx-[120px] h-[485px]"
@@ -51,7 +50,6 @@ const Slider = () => {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-      </div>
     </div>
   );
 };
