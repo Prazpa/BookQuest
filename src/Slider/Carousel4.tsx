@@ -1,8 +1,10 @@
-function Carousel4() {
+import React from 'react';
+
+const Carousel4: React.FC = () => {
     return (
         <div className="flex">
             <img
-                src="src/assets/img_slider3.jpg"
+                src="src/assets/img_slider3.jpg" // Consider using `require` or `import` for image paths
                 alt="bookSlider1"
                 className="w-[400px] h-[500px] mx-[-30px]"
             />
@@ -12,13 +14,12 @@ function Carousel4() {
                     Share
                 </span>
 
-                <p className="py-[10px] text-xl font-['Overpass'] ">
+                <p className="py-[10px] text-xl font-['Overpass']">
                     Unlock Your Story: Share the Book That Speaks to You!
                 </p>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
-export default Carousel4
+export default Carousel4;

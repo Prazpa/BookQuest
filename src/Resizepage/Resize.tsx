@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
     ResizableHandle,
     ResizablePanel,
@@ -7,51 +8,51 @@ import LeftPanel from "../Resizepage/LeftPanel/LeftPanel";
 import RightPanel from "../Resizepage/RightPanel/RightPanel";
 import Cover from "./MidPanel/Cover";
 
+const Resizepage: React.FC = () => {
+    const [selectedBook, setSelectedBook] = useState<string | null>(null);
 
-const Resizepage = () => {
-
-    
+    const handleBookClick = (title: string) => {
+        setSelectedBook(title);
+    };
 
     return (
         <ResizablePanelGroup direction="horizontal">
-
             {/* LeftPanel */}
-            <ResizablePanel defaultSize={10}>
-                <div className="flex border-r-4 border-green-500 overflow-x-hidden">
-                    <LeftPanel/>
-                </div>
+            <ResizablePanel
+                defaultSize={20}
+                className="flex border-r-4 border-[#14B8A9] overflow-x-hidden"
+            >
+                <LeftPanel />
             </ResizablePanel>
-            <ResizableHandle/>
+            <ResizableHandle />
 
             {/* MidPanel */}
-            <ResizablePanel defaultSize={20}>
-                <div className="px-[10px] overflow-hidden gap-[10px] ">
+            <ResizablePanel defaultSize={55}>
+                <div className="px-[10px] gap-[10px]">
                     {/* Headline*/}
                     <div className="w-[652px] h-[23.79px] relative">
-                        <span className="w-[250px] h-[25px] absolute text-black text-2xl font-semibold font-['Overpass']">Books of the day</span>
-                        <span className="w-[100px] h-[25px] left-[500px] top-[5.55px] absolute text-neutral-400 text-lg font-normal font-['Overpass']">see more</span>
+                        <span className="w-[250px] h-[25px] absolute text-black text-2xl font-semibold font-['Overpass']">
+                            Books of the day
+                        </span>
                     </div>
 
                     {/* CoverBook */}
-                    <div className="flex my-[20px] gap-2 overflow-y-auto">
-                        <Cover/>    
+                    <div className="flex my-[20px] gap-2 ">
+                        <Cover onBookClick={handleBookClick} />
                     </div>
-
-                
                 </div>
             </ResizablePanel>
-            <ResizableHandle/>
+            <ResizableHandle />
 
             {/* RightPanel */}
-            <ResizablePanel defaultSize={10}>
-                <div className="px-[10px] flex border-l-4 border-green-500 overflow-hidden h-auto">
-                    <RightPanel/>
-                </div>
+            <ResizablePanel
+                defaultSize={25}
+                className="flex border-l-4 border-[#14B8A9] overflow-hidden h-auto"
+            >
+                <RightPanel selectedBook={selectedBook} />
             </ResizablePanel>
-
         </ResizablePanelGroup>
-
     );
-}
+};
 
 export default Resizepage;

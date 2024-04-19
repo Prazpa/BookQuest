@@ -1,21 +1,51 @@
+// RightPanel.tsx
 
-const RightPanel = () => {
-    return (
-        <div className="w-[315px] h-[442px] relative">
+import React, { useState, useEffect } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
-            {/* Reading */}
-            <div className="w-[315px] h-[30px] absolute">
-                <span className="absolute text-black text-2xl font-semibold font-['Overpass']">Reading</span>
-                <span className="left-[175px] top-[7px] absolute text-neutral-400 text-md font-normal font-['Overpass']">See more</span>
-            </div>
-            
-            {/* Completed */}
-            <div className="w-[315px] h-[30px] left-0 top-[338px] absolute">
-                <span className="labsolute text-black text-2xl font-semibold font-['Overpass']">Completed</span>
-                <span className="left-[175px] top-[7px] absolute text-neutral-400 text-md font-normal font-['Overpass']">See more</span>           
-            </div>
-        </div>
-    )
+interface RightPanelProps {
+  selectedBook: string | null;
 }
 
-export default RightPanel
+const RightPanel: React.FC<RightPanelProps> = ({ selectedBook }) => {
+  const [recentlyViewedBooks, setRecentlyViewedBooks] = useState<string[]>([]);
+
+  // Update recently viewed books when selectedBook changes
+  useEffect(() => {
+    if (selectedBook) {
+      setRecentlyViewedBooks(prevBooks => [...prevBooks, selectedBook]);
+    }
+  }, [selectedBook]);
+
+  return (
+    <div>
+      <h1>Recently Viewed</h1>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Title</TableHead>
+            <TableHead>ISBN</TableHead>
+            <TableHead>Author</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {recentlyViewedBooks.map((book, index) => (
+            <TableRow key={index}>
+              <TableCell>{book}</TableCell>
+
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
+}
+
+export default RightPanel;

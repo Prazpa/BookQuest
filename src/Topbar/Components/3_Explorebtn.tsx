@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     Drawer,
     DrawerClose,
@@ -6,16 +7,16 @@ import {
     DrawerHeader,
     DrawerTitle,
     DrawerTrigger,
-} from "@/components/ui/drawer"
+} from '@/components/ui/drawer';
 
 import {
     Card,
     CardContent,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card"
+} from '@/components/ui/card';
 
-const Explore_btn = () => {
+const ExploreBtn: React.FC = () => {
     return (
         <div className="relative">
             <div className="absolute left-[900px] top-[13px] text-lg font-normal font-['Overpass']">
@@ -63,9 +64,9 @@ const Explore_btn = () => {
                         </DrawerFooter>
                     </DrawerContent>
                 </Drawer>
-            </div></div>
-
+            </div>
+        </div>
     );
 }
 
-export default Explore_btn
+export default ExploreBtn;
