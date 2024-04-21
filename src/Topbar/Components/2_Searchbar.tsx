@@ -16,7 +16,7 @@ interface Book {
   // Add more properties if needed
 }
 
-const Searchbar: React.FC = () => {
+const Searchbar = () => {
   // State
   const [inputSearch, setInputSearch] = useState<string>('');
   const [slicedData, setSlicedata] = useState<Book[]>([]);

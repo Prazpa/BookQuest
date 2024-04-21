@@ -1,79 +1,51 @@
 
-import React, { useEffect, useState } from 'react';
-import fetchData from "@/FetchData/Fetchdata"; 
-import './loader.css';
+import { useEffect, useState } from 'react';
+import { BASE_URL } from "@/FetchData/Fetchdata"; 
+import axios from 'axios';
+import Loader from '@/Loader/Loader';
 
-interface CoverProps {
-    onBookClick: (title: string, isbn: string) => void;
-}
-
-const Cover: React.FC<CoverProps> = ({ onBookClick }) => {
-    const [coverUrls, setCoverUrls] = useState<string[]>([]);
-    const [error, setError] = useState<string | null>(null);
-    const [titles, setTitles] = useState<string[]>([]);
-    const [isbn, setIsbn] = useState<string[]>([]);
-    const [author, setAuthor] = useState<string[]>([]);
+const Cover = () => {
     const [loading, setLoading] = useState<boolean>(true);
-
+    const [response,setResponse] = useState<any[]>([])
+     
+    const fetchData = async () => {
+        const fetchdataResponse = await axios.get(`${BASE_URL}/trending/now.json`);
+        const trendingBooksData = fetchdataResponse.data;
+        // console.log("test",trendingBooksData.works);
+        setResponse(trendingBooksData.works)
+        setLoading(false)
+    } 
+    
     useEffect(() => {
-        fetchData()
-            .then((data) => {
-                if (data && data.isbns && data.isbns.length > 0) {
-                    const urls = data.isbns.map(isbn => `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`);
-                    setCoverUrls(urls);
-                    setTitles(data.titles);
-                    setIsbn(data.isbns);
-                  
-                    setLoading(false); // Data fetched successfully, loading is complete
-                } else {
-                    setError('Error: No valid ISBNs found for the trending books.');
-                    setLoading(false); // Loading failed
-                }
-            })
-            .catch((error) => {
-                setError('Error fetching data from the server.');
-                console.error('Error fetching data:', error);
-                setLoading(false); // Loading failed
-            });
-    }, []);
+        fetchData();
+    },[])
 
-    const handleClick = (title: string, isbn: string) => {
-        console.log("Clicked on book:", title);
-        onBookClick(title,isbn); // Pass the clicked book title to the parent component
+    const handleClick = (items: object) => {
+        console.log("Clicked on book:", items);
     }; 
 
     return (
+
         <div>
             {loading ? (
                 // Loader animation while data is being fetched
-                <div className="lds-roller flex justify-center items-center align-middle">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+                <Loader/>
             ) : (
                 // Display cover images
                 <div className="flex flex-wrap justify-center">
-                    {coverUrls.map((url, index) => (
+                    {response.map((items, index) => (
                         <img
                             key={index}
-                            src={url}
+                            src={`https://covers.openlibrary.org/b/id/${items.cover_i}-M.jpg`}
                             alt={`Cover Image ${index + 1}`}
                             width={200}
                             height={250}
                             className="m-1 cursor-pointer"
-                            onClick={() => handleClick(titles[index], isbn[index])}
+                            onClick={() => handleClick(items)}
                         />
                     ))}
                 </div>
             )}
-
-            {error && <div>{error}</div>}
         </div>
     );
 }

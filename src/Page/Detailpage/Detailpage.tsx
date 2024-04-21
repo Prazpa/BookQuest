@@ -4,10 +4,10 @@ import Footer from '@/Footer/Footer';
 
 function Detailpage() {
   return (
-    <div>
+    <div className=''>
         <Topbar/>
         <Resizepage/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

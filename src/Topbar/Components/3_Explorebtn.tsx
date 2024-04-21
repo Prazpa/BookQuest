@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     Drawer,
     DrawerClose,
@@ -16,7 +15,7 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 
-const ExploreBtn: React.FC = () => {
+const ExploreBtn = () => {
     return (
         <div className="relative">
             <div className="absolute left-[900px] top-[13px] text-lg font-normal font-['Overpass']">

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     Avatar,
     AvatarFallback,
@@ -17,7 +16,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const Account: React.FC = () => {
+const Account = () => {
     return (
         <div className="w-[180px] h-[50px] left-[1014px] top-[19px] absolute">
             <Dialog>

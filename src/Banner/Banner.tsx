@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -13,7 +13,7 @@ import Carousel2 from "./Carousel2";
 import Carousel3 from "./Carousel3";
 import Carousel4 from "./Carousel4";
 
-const Slider: React.FC = () => {
+const Banner = () => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   const carouselContent = [<Carousel1 />, <Carousel2 />, <Carousel3 />, <Carousel4 />];
 
@@ -41,4 +41,4 @@ const Slider: React.FC = () => {
   );
 };
 
-export default Slider;
+export default Banner;
