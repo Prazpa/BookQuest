@@ -2,7 +2,7 @@ import "./Loader.css"
 
 function Loader() {
     return (
-        <div className="lds-roller flex justify-center items-center align-middle">
+        <div className="lds-roller absolute right-[450px] top-[400px]">
             <div></div>
             <div></div>
             <div></div>

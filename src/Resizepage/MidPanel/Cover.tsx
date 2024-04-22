@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { BASE_URL } from "@/FetchData/Fetchdata"; 
 import axios from 'axios';
 import Loader from '@/Loader/Loader';
+import "./scrollbar.css"
 
 const Cover = () => {
     const [loading, setLoading] = useState<boolean>(true);
@@ -26,13 +27,13 @@ const Cover = () => {
 
     return (
 
-        <div>
+        <div className='flex items-center'>
             {loading ? (
                 // Loader animation while data is being fetched
                 <Loader/>
             ) : (
                 // Display cover images
-                <div className="flex flex-wrap justify-center">
+                <div className="scrollbar-container flex flex-wrap  h-[600px] overflow-y-auto">
                     {response.map((items, index) => (
                         <img
                             key={index}

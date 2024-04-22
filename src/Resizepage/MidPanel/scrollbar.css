@@ -1,0 +1,12 @@
+.scrollbar-container::-webkit-scrollbar {
+    width: 1em;
+}
+
+.scrollbar-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(179, 178, 178, 0.3);
+}
+
+.scrollbar-container::-webkit-scrollbar-thumb {
+    background-color: #99F6EE;
+    outline: 1px solid rgb(96, 236, 175);
+}

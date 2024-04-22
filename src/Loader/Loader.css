@@ -1,8 +1,6 @@
 
 
 .lds-roller {
-  
-  position: relative;
   width: 80px;
   height: 80px;
 }
@@ -12,7 +10,6 @@
 }
 .lds-roller div:after {
   content: " ";
-  display: block;
   position: absolute;
   width: 7.2px;
   height: 7.2px;

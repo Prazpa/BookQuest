@@ -21,7 +21,7 @@ const Resizepage = () => {
 
             {/* MidPanel */}
             <ResizablePanel defaultSize={75}>
-                <div className="px-[10px] gap-[10px]">
+                <div className="px-[40px] gap-[10px]">
                     {/* Headline*/}
                     <div className="w-[652px] h-[23.79px] relative">
                         <span className="w-[250px] h-[25px] absolute text-black text-2xl font-semibold font-['Overpass']">

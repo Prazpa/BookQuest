@@ -7,7 +7,7 @@ function Detailpage() {
     <div className=''>
         <Topbar/>
         <Resizepage/>
-        {/* <Footer/> */}
+        <Footer/>
     </div>
   )
 }
