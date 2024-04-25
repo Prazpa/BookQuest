@@ -17,11 +17,14 @@ const Banner = () => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   const carouselContent = [<Carousel1 />, <Carousel2 />, <Carousel3 />, <Carousel4 />];
 
+  const layout = `w-[1030px] mx-[120px] h-[485px]`
+  // lg:w-[800px] md:w-[550px] sm:w-[450px] sm:mx-[100px]
   return (
+
     <div className="w-full">
       <Carousel
         plugins={[plugin.current]}
-        className="w-[1024px] mx-[120px] h-[485px]"
+        className={`${layout}`}
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >

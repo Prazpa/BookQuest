@@ -1,10 +1,12 @@
 import Topbar from '../../Topbar/Topbar'
 import Resizepage from '../../Resizepage/Resize';
-import Footer from '@/Footer/Footer';
+import Footer from '../../Footer/Footer';
+
 
 function Detailpage() {
+
   return (
-    <div className=''>
+    <div>
         <Topbar/>
         <Resizepage/>
         <Footer/>

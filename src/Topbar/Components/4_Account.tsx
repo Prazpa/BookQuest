@@ -17,11 +17,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 const Account = () => {
+    
+    const reponsive = ``
+    const customtext = `text-black text-lg font-normal font-['Overpass']`
+
     return (
-        <div className="w-[180px] h-[50px] left-[1014px] top-[19px] absolute">
+        <div className={`flex ${reponsive}`}>
             <Dialog>
                 <DialogTrigger >
-                    <Button className="top-[-13px] left-[-15px] text-black absolute text-lg font-normal font-['Overpass']" >Sign in</Button>
+                    <Button className={`${customtext}`} >Sign in</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] bg-white ">
                     <DialogHeader>
@@ -57,7 +61,8 @@ const Account = () => {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
-            <div className="left-[90px] top-[-10px] absolute">
+
+            <div className="">
                 <Avatar>
                     <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCdfaz8GPft5te6NT-ZzlFahCsp5K9aw_1AA&usqp=CAU" />
                     <AvatarFallback>User_img</AvatarFallback>
