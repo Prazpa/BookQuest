@@ -1,9 +1,4 @@
-import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
+//import shadcn/ui component
 import {
     Dialog,
     DialogContent,
@@ -13,19 +8,17 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 const Account = () => {
-    
-    const reponsive = ``
-    const customtext = `text-black text-lg font-normal font-['Overpass']`
-
+    const customtext = `text-[16px] font-medium `
     return (
-        <div className={`flex ${reponsive}`}>
+        <div className='flex items-center'>
             <Dialog>
-                <DialogTrigger >
-                    <Button className={`${customtext}`} >Sign in</Button>
+                <DialogTrigger>
+                    <div className={`${customtext}`}>Sign in</div>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] bg-white ">
                     <DialogHeader>
@@ -61,13 +54,6 @@ const Account = () => {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
-
-            <div className="">
-                <Avatar>
-                    <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCdfaz8GPft5te6NT-ZzlFahCsp5K9aw_1AA&usqp=CAU" />
-                    <AvatarFallback>User_img</AvatarFallback>
-                </Avatar>
-            </div>
         </div>
     );
 };
