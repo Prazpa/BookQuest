@@ -2,7 +2,7 @@
 import Footer from "@/MainComponent/Footer/Footer";
 import Topbar from "../../MainComponent/Topbar/Topbar";
 import LeftPanel from "../Detailpage/Resizepage/LeftPanel/LeftPanel";
-import CatagoriesCover from "./CatagoriesCover/CatagoriesCover";
+import Cover from "@/Page/Searchpage/Cover/Cover";
 
 //import shadcn/ui component
 import {
@@ -11,7 +11,7 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-function Catagoriespage() {
+function Searchpage() {
   return (
     <div>
       <Topbar />
@@ -25,7 +25,7 @@ function Catagoriespage() {
             </ResizablePanel>
             <ResizableHandle />
             <ResizablePanel defaultSize={78}>
-                <CatagoriesCover/>
+                <Cover/>
             </ResizablePanel>
         </ResizablePanelGroup>
       </div>
@@ -34,4 +34,4 @@ function Catagoriespage() {
   );
 }
 
-export default Catagoriespage
+export default Searchpage;
