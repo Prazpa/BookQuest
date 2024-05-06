@@ -23,26 +23,30 @@ import { ColContext } from '@/App';
 import { useContext } from 'react';
 
 const Banner = () => {
-  
   //Receive value from app.tsx
   const { darkMode } = useContext(ColContext);
 
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  //auto slide
+  // const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  
+  //mini component in each slide
   const carouselContent = [<Carousel1 />, <Carousel2 />, <Carousel3 />, <Carousel4 />];
 
   return (
-
     <div className="">
       <Carousel
-        plugins={[plugin.current]}
-        className={`min-w-lg mx-[80px] h-[400px] bg-[rgba(255,255,255,0.6)] border border-white  ${darkMode ? 'bg-[rgba(255,255,255,0.9)]' : ''}` }
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
+        // plugins={[plugin.current]}
+        className={`
+          mx-[80px] h-[400px] flex content-center
+          border border-white  
+          ${darkMode ? 'bg-[rgba(255,255,255,0.9)]' : 'bg-[rgba(255,255,255,0.6)]'}` }
+        // onMouseEnter={plugin.current.stop}
+        // onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
           {carouselContent.map((content, index) => (
             <CarouselItem key={index}>
-              <Card className="h-[400px] flex">
+              <Card>
                 <CardContent>{content}</CardContent>
               </Card>
             </CarouselItem>

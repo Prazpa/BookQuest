@@ -1,8 +1,8 @@
 //Page Component
-import HomePage from './Page/Homepage/Homepage';
-import DetailPage from './Page/Detailpage/Detailpage';
-import Catagoriespage from './Page/Catagoriespage/Catagoriespage';
-import Searchpage from './Page/Searchpage/Searchpage';
+import HomePage from './Page/1_Homepage/Homepage';
+import DetailPage from './Page/2_Detailpage/Detailpage';
+import Catagoriespage from './Page/3_Catagoriespage/Catagoriespage';
+import Searchpage from './Page/4_Searchpage/Searchpage';
 
 //React component and State
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -36,7 +36,11 @@ function App() {
             element: <HomePage />,
         },
         {
-            path: "/detailpage",
+            path: "/detailpage/",
+            element: <DetailPage />,
+        },
+        {
+            path: "/detailpage/:time",
             element: <DetailPage />,
         },
         {

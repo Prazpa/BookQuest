@@ -20,7 +20,7 @@ const Account = () => {
     //Receive value from app.tsx
     const { darkMode } = useContext(ColContext);
 
-    const customtext = ` text-[16px] font-medium `
+    const customtext = `text-[16px] font-medium `
     return (
         <div className='flex items-center'>
             <Dialog>

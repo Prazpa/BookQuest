@@ -19,11 +19,7 @@ const Topbar = () => {
     py-[10px] px-[10px] h-auto
     xs:w-full xs:grid xs:place-items-center  
     xr:grid xr:grid-cols-2 xr:place-items-center xr:px-0      
-    sm:w-full sm:flex sm:justify-around sm:px-1
-    md:w-full md:flex md:justify-around
-    lg:w-full lg:flex lg:justify-around
-    xl:w-full xl:flex xl:justify-around
-    2xl:w-full 2xl:flex 2xl:justify-around
+    sm:w-full sm:flex sm:justify-around 
   `;
 
   return (

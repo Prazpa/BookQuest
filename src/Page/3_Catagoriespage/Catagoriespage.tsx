@@ -1,7 +1,7 @@
 //import Detail Component
-import Footer from "@/MainComponent/Footer/Footer";
-import Topbar from "../../MainComponent/Topbar/Topbar";
-import LeftPanel from "../Detailpage/Resizepage/LeftPanel/LeftPanel";
+import Footer from "@/MainComponent/3_Footer/Footer";
+import Topbar from "../../MainComponent/1_Topbar/Topbar";
+import LeftPanel from "../2_Detailpage/Contentpage/LeftPanel/LeftPanel";
 import CatagoriesCover from "./CatagoriesCover/CatagoriesCover";
 
 //import shadcn/ui component

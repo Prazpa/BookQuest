@@ -1,7 +1,8 @@
 //import Detail component
-import Topbar from '../../MainComponent/Topbar/Topbar'
+import Topbar from '../../MainComponent/1_Topbar/Topbar'
+import Footer from '../../MainComponent/3_Footer/Footer'
 import Banner from './Banner/Banner'
-import Footer from '../../MainComponent/Footer/Footer'
+
 
 //import for Darkmode 
 import { ColContext } from '@/App';

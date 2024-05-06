@@ -1,31 +1,43 @@
-//import Detail component
-import "./scrollbar.css"
-import Loader from '../../../../MainComponent/Loader/Loader';
-import fetchTrendingData from '@/FetchData/Fetchtrending'; 
+//import React state
+import { useContext, useEffect, useState } from "react";
 
-//imoport state
-import { useEffect, useState } from 'react';
+//import axios for fetching data 
+import axios from "axios";
+
+//import Detail component
+import { BASE_URL } from "@/FetchData/BaseURL";
+import Loader from "../../../MainComponent/2_Loader/Loader";
 
 //import shadcn/ui component
-import { Badge } from "@/components/ui/badge"
-import { Button } from '@/components/ui/button';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
-interface Book {
-    cover_i: number;
-    title: string;
-    first_publish_year: number;
-    author_name: string[];
-    language: string[];
-}
+//import App context for recieve data
+import { AppContext } from "../../../App";
 
-const Trending = () => {
+function Cover() {
+    //receive data from app.tsx 
+    const { data } = useContext(AppContext);
+
+    //set state for loading animation and response
     const [loading, setLoading] = useState<boolean>(true);
-    const [response, setResponse] = useState<Book[]>([])
+    const [response, setResponse] = useState<any>([]);
+
+    //fetchdata
+    const fetchSearchData = async (): Promise<any> => {
+        try {
+            const response = await axios.get(`${BASE_URL}/search.json?q=${data}`);
+            return response.data.docs;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            throw new Error('Failed to fetch data');
+        }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await fetchTrendingData();
+                const data = await fetchSearchData();
                 setResponse(data || []);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -34,19 +46,21 @@ const Trending = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [data]);
 
-    const handleClick = (item: Book) => {
+
+    //check which book is selected
+    const handleClick = (item: any) => {
         console.log("Clicked on book:", item);
     };
 
     return (
-        <div className='flex items-center'>
+        <div>
             {loading ? (
                 <Loader />
             ) : (
                 <div className="scrollbar-container flex flex-wrap h-[600px] overflow-y-auto gap-2">
-                    {response.map((item, index) => (
+                    {response.map((item: any, index: any) => (
                         <div key={index} className="flex bg-[#F6E7AE] w-[800px] rounded gap-y-10">
                             <img
                                 src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
@@ -70,4 +84,4 @@ const Trending = () => {
     );
 }
 
-export default Trending;
+export default Cover;

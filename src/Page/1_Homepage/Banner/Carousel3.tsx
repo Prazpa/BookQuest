@@ -1,14 +1,22 @@
 const Carousel3 = () => {
     return (
-        <div className="flex">
+        <div className="flex items-center">
             <img
                 src="src/assets/img_slider2.jpg" 
                 alt="bookSlider1"
-                className="w-[400px] h-[400px] mx-[-30px]"
+                className={` 
+                    h-[400px] mx-[-30px]
+                    xs:hidden
+                    xr:hidden
+                    sm:w-[250px] sm:h-[350px]
+                    md:w-[300px] 
+                    lg:w-[300px]
+                    xl:w-[400px]
+            `}
             />
 
-            <div className="mx-[50px] mt-[150px]">
-                <span className="text-teal-600 text-3xl font-bold font-['Overpass']">
+            <div className="mx-[50px]">
+                <span className="text-teal-600 text-2xl font-bold font-['Overpass']">
                     Discover
                 </span>
 
