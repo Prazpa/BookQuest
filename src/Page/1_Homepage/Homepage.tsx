@@ -20,7 +20,7 @@ function Homepage() {
   const { darkMode } = useContext(ColContext);
 
   return (
-      <div className={`${darkMode ? 'bg-black' : 'bg-white'}`}>
+      <div className={`${darkMode ? 'bg-black' : 'bg-white'} h-auto`}>
         {/* Topbar section*/}
         <Topbar />
 
@@ -29,7 +29,7 @@ function Homepage() {
           <Banner />
           <div className="flex justify-center h-[200px]">
             <Button variant="link" className={`w-64 h-16 bg-[#042F2B] text-white rounded-full my-[20px] ${darkMode ? 'invert' : 'bg-[#042F2B]'}`}>
-              <Link to={'/Detailpage'} className='text-[20px]'>Get Started</Link>
+              <Link to={'/detailpage/'} className='text-[20px]'>Get Started</Link>
             </Button>
           </div>
         </div>

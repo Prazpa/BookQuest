@@ -27,7 +27,7 @@ const Banner = () => {
   const { darkMode } = useContext(ColContext);
 
   //auto slide
-  // const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   
   //mini component in each slide
   const carouselContent = [<Carousel1 />, <Carousel2 />, <Carousel3 />, <Carousel4 />];
@@ -35,13 +35,13 @@ const Banner = () => {
   return (
     <div className="">
       <Carousel
-        // plugins={[plugin.current]}
+        plugins={[plugin.current]}
         className={`
           mx-[80px] h-[400px] flex content-center
           border border-white  
           ${darkMode ? 'bg-[rgba(255,255,255,0.9)]' : 'bg-[rgba(255,255,255,0.6)]'}` }
-        // onMouseEnter={plugin.current.stop}
-        // onMouseLeave={plugin.current.reset}
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
           {carouselContent.map((content, index) => (

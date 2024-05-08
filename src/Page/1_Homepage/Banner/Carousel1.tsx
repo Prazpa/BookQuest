@@ -8,7 +8,7 @@ const Carousel1 = () => {
 
   return (
     <div className={`
-      flex items-center justify-center gap-5 h-[400px] overflow-scroll
+      flex items-center justify-center gap-5 h-[400px]
       xs:flex-col 
       xr:flex-col
       sm:flex-row 

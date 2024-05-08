@@ -17,10 +17,10 @@ const Carousel2 = () => {
                 src="src/assets/img_slider1.jpg"
                 alt="bookSlider1"
                 className={` 
-                    
                     xs:w-[100px] xs:h-[100px] xs:rounded-md    
                     xr:w-[150px] xr:h-[150px] 
-                    sm:w-[250px] sm:h-[400px] 
+                    sm:w-[250px] sm:h-[400px]
+                    md:w-[300px] 
                 `}
             />
 

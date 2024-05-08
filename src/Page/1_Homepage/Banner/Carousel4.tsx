@@ -5,13 +5,10 @@ const Carousel4 = () => {
                 src="src/assets/img_slider3.jpg" 
                 alt="bookSlider1"
                 className={` 
-                    h-[400px] mx-[-30px]
-                    xs:hidden
-                    xr:hidden
-                    sm:w-[250px] sm:h-[350px]
-                    md:w-[300px] 
-                    lg:w-[300px]
-                    xl:w-[400px]
+                    xs:w-[100px] xs:h-[100px] xs:rounded-md    
+                    xr:w-[150px] xr:h-[150px] 
+                    sm:w-[250px] sm:h-[400px]
+                    md:w-[300px]
             `}
             />
 
