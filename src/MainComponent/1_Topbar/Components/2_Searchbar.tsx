@@ -34,7 +34,7 @@ const Searchbar = () => {
 
   return (
     <div>
-      <form id="testform" className='flex items-center'>
+      <form className='flex items-center'>
         <Input
           className={`
             h-[50px]

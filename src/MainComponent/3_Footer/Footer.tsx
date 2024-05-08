@@ -37,12 +37,12 @@ function Footer() {
             <div className="flex flex-col items-start">
                 <h2 className="text-lg font-semibold mb-2">Resources</h2>
                 <ul className="list-disc pl-6 grid grid-rows-3 grid-flow-col gap-x-10">
-                    <li className="mb-2">APIs: <a href="https://openlibrary.org/developers/api" target="blank">Openlibrary.org</a></li>
-                    <li className="mb-2">Component UI: <a href="https://ui.shadcn.com/" target="blank">shadcn/ui</a></li>
-                    <li className="mb-2">CSS: <a href="https://tailwindui.com/" target="blank">tailwindcss</a></li>
-                    <li className="mb-2">Design Prototype: <a href="https://www.figma.com/community/file/1339948781745184318/handleit" target="blank">Handlelt (Figma)</a></li>
-                    <li className="mb-2">Colors: <a href="https://uicolors.app/create" target="blank">UI Colors</a></li>
-                    <li className="mb-2">Image: <a href="https://copilot.microsoft.com/" target="blank">Microsoft Copilot (AI)</a></li>
+                    <li className="mb-2">APIs: <a href="https://openlibrary.org/developers/api" target="blank" className="hover:underline">Openlibrary.org</a></li>
+                    <li className="mb-2">Component UI: <a href="https://ui.shadcn.com/" target="blank" className="hover:underline">shadcn/ui</a></li>
+                    <li className="mb-2">CSS: <a href="https://tailwindui.com/" target="blank" className="hover:underline">tailwindcss</a></li>
+                    <li className="mb-2">Design Prototype: <a href="https://www.figma.com/community/file/1339948781745184318/handleit" target="blank" className="hover:underline">Handlelt (Figma)</a></li>
+                    <li className="mb-2">Colors: <a href="https://uicolors.app/create" target="blank" className="hover:underline">UI Colors</a></li>
+                    <li className="mb-2">Image: <a href="https://copilot.microsoft.com/" target="blank" className="hover:underline">Microsoft Copilot (AI)</a></li>
                 </ul>
             </div>
         </div>
