@@ -10,25 +10,46 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { Link } from "react-router-dom";
 
 function Catagoriespage() {
+
   return (
     <div>
-      <Topbar />
-      <div>
+       {/* Topbar section*/}
+       <Topbar />
+
       <ResizablePanelGroup direction="horizontal">
-            <ResizablePanel
-                defaultSize={22}
-                className="flex border-r-4 border-[#14B8A9] overflow-x-hidden lg-w-[500px]"
-            >
-                <LeftPanel />
-            </ResizablePanel>
-            <ResizableHandle />
-            <ResizablePanel defaultSize={78}>
-                <CatagoriesCover/>
-            </ResizablePanel>
-        </ResizablePanelGroup>
-      </div>
+        {/* Leftpanel */}
+        <ResizablePanel
+          defaultSize={22}
+          className="flex border-r-4 border-[#14B8A9] overflow-x-hidden lg-w-[500px]"
+        >
+          <LeftPanel />
+        </ResizablePanel>
+        <ResizableHandle />
+
+        {/* Rightpanel */}
+        <ResizablePanel defaultSize={78} >
+          <div className="px-[20px] gap-[10px]">
+            {/* Headline */}
+            <div className="flex justify-between">
+                <span className="w-[250px] h-[25px] text-black text-2xl font-semibold">
+                  Catagories
+                </span>
+
+                <span className="w-[250px] h-[25px] text-black text-xl font-semibold">
+                  <Link to={`/detailpage/`}>Back</Link>
+                </span>
+            </div>
+            
+            <div className="py-[20px]">
+              <CatagoriesCover />
+            </div>
+          </div>
+        </ResizablePanel>
+      </ResizablePanelGroup>
+
       <Footer />
     </div>
   );

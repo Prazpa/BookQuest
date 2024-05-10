@@ -12,17 +12,15 @@ const Logoname = () => {
   return (
     <div 
       className={`
-        text-2xl font-bold font-['Overpass'] 
+        font-bold font-['Overpass'] 
         flex items-center
         xs-text-lg
-        xr:text-lg
-        sm:text-lg 
-        md:text-lg 
         lg:text-xl 
-        2xl:
-        `
-      }>
-      <Link to={`/`} className={`${darkMode ? 'text-[#940d18] hover:text-[#FF5A67]': 'text-[#0D9488] hover:text-[#2DD4C5]'}`}>BookQuest</Link>
+      `}>
+      <Link to={`/`} 
+        className={`
+          ${darkMode ? 'text-[#940d18] hover:text-[#FF5A67]': 'text-[#0D9488] hover:text-[#2DD4C5]'}
+        `}>BookQuest</Link>
     </div>
   );
 };

@@ -1,26 +1,28 @@
 //import Detail Component
-import Topbar from '../../MainComponent/1_Topbar/Topbar'
+import Topbar from '@/MainComponent/1_Topbar/Topbar';
 import Contentpage from './Contentpage/Contentpage';
 import Footer from '../../MainComponent/3_Footer/Footer';
 
 //import useContext for sent value
-import { createContext, useState } from 'react';
+import { useContext} from 'react';
 
-//Default setting of value and export to another file
-export const ValueContext = createContext<any>('');
+//import for Darkmode
+import { ColContext } from "@/App";
+
 
 
 function Detailpage() {
-  //set state for value
-  const [value, setValue] = useState<any>("")
+  //Receive value from app.tsx
+  const { darkMode } = useContext(ColContext);
 
   return (
-    <div>
-      <ValueContext.Provider value={{value, setValue}}>
-        <Topbar />
-        <Contentpage />
+    <div className={`${darkMode ? 'bg-black': ''}`}>
+         {/* Topbar section*/}
+         <Topbar />
+
+        <Contentpage /> 
+        
         <Footer />
-      </ValueContext.Provider>
     </div>
   )
 }

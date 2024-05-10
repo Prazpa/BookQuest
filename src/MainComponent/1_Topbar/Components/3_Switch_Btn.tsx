@@ -17,8 +17,8 @@ const Switch_Btn = () => {
 
     return (
         <div className={`flex items-center space-x-2 ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`} onClick={toggleDarkMode}>
-            <Switch className={`${darkMode ? 'border-zinc-300 bg-white': 'border-black'}`}/>
-            <Label className={`sm:space-x-1 text-[16px] font-medium ${darkMode ? 'hover:text-[#FF5A67]': 'hover:text-[#2DD4C5]'}`}>{darkMode ? "Light mode" : "Dark mode"}</Label>
+            <Switch id="darkModeSwitch" className={`${darkMode ? 'border-zinc-300 bg-white': 'border-black'}`}/>
+            <Label htmlFor="darkModeSwitch" className={`sm:space-x-1 text-[16px] font-medium ${darkMode ? 'hover:text-[#FF5A67]': 'hover:text-[#2DD4C5]'}`}>{darkMode ? "Light mode" : "Dark mode"}</Label>
         </div>
     );
 }

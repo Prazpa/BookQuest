@@ -10,22 +10,45 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
-//import for Darkmode
-import { ColContext } from '@/App';
-import { useContext } from 'react';
+//import for useContext
+import { ColContext, NameContext } from '@/App';
+import { useContext, useState } from 'react';
 
 const Account = () => {
     //Receive value from app.tsx
     const { darkMode } = useContext(ColContext);
-
+    const {username, setUsername} = useContext(NameContext);
+    
     const customtext = `text-[16px] font-medium `
+
+    const [formData, setFormData] = useState({
+        name: "Name",
+        username: "Username"
+    });
+
+    const handleInputChange = (e: any) => {
+        const { id, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [id]: value
+        }));
+    };
+
+
+    const handleSaveChanges = () => {
+        setUsername(formData.username); // อัพเดตชื่อ username จาก state ที่เก็บข้อมูลใหม่
+    };
+
     return (
         <div className='flex items-center'>
-            <Dialog>
+            <Dialog >
                 <DialogTrigger>
-                    <div className={`${customtext} ${darkMode ? 'hover:text-[#FF5A67]': 'hover:text-[#2DD4C5]'}`}>Sign in</div>
+                    {username ? (
+                        <div className={`${customtext} ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>{username}</div>
+                    ) : (
+                        <div className={`${customtext} ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>Sign in</div>
+                    )}
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] bg-white ">
                     <DialogHeader>
@@ -36,28 +59,28 @@ const Account = () => {
                     </DialogHeader>
                     <form id="testform2" className="grid gap-4 py-4">
                         <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                Name
-                            </Label>
                             <Input
                                 id="name"
-                                defaultValue="Username"
+                                value={formData.name}
+                                onChange={handleInputChange}
                                 className="col-span-3"
+                                placeholder='Name'
                             />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="username" className="text-right">
-                                Username
-                            </Label>
                             <Input
                                 id="username"
-                                defaultValue="@Username669"
+                                value={formData.username}
+                                onChange={handleInputChange}
                                 className="col-span-3"
+                                placeholder='Username'
                             />
                         </div>
                     </form>
                     <DialogFooter>
-                        <Button type="submit" className="bg-black text-white rounded">Save changes</Button>
+                        <Button type="submit" className="bg-black text-white rounded" onClick={handleSaveChanges}>
+                            Save changes
+                        </Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

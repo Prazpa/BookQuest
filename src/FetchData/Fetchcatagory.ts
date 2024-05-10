@@ -5,6 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "./BaseURL";
 
 const fetchCategory = async (category: string) => {
+    //receive value from Leftpanel and try to real fetch
     try {
         let fetchdataResponse;
 

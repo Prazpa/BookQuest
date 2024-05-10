@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 
 //import App context for recieve data
 import { AppContext } from "../../../App";
+import Cover_btn from "@/MainComponent/4_BookCover/Cover_btn";
 
 function Cover() {
     //receive data from app.tsx 
@@ -72,8 +73,9 @@ function Cover() {
                                 <h1><b>Years:</b> {item.first_publish_year}</h1>
                                 <h1><b>Author:</b> {item.author_name}</h1>
                                 <Badge className='bg-black text-white'>{item.language}</Badge>
+                                
                                 <div>
-                                    <Button variant="secondary" className='bg-[#0D9488] rounded' onClick={() => handleClick(item)}>View</Button>
+                                    <Cover_btn book={item}/>
                                 </div>
                             </div>
                         </div>

@@ -1,3 +1,4 @@
+//create object for Leftpanel
 const catagories : object = {
   "Arts": [
     { "title": "Architecture", "value": "architecture" },

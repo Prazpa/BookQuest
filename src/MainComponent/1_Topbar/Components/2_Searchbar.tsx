@@ -27,8 +27,8 @@ const Searchbar = () => {
     setData(e.target.value);
   };
 
+  //sent data
   const handleSubmit = async () => {
-    console.log("Form submitted!", data);
     return data
   };
 
@@ -36,6 +36,7 @@ const Searchbar = () => {
     <div>
       <form className='flex items-center'>
         <Input
+          id="searchInput" 
           className={`
             h-[50px]
             border-2 border-zinc-300 rounded-[30px]
