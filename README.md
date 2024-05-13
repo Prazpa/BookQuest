@@ -1,3 +1,15 @@
+# BookQuest Platform for everyone who want to find a book 
+This project made by using openlibrary for fetching detail about book in library.
+You can explore, search and share the book that you want.
+To see all of detail, You can clone and install node-module first by using
+1. git clone [\[url\]](https://github.com/Prazpa/BookQuest.git)
+2. npm install 
+3. npm run dev BookQuest
+
+That all off my project
+
+Happy Clonning!!
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
