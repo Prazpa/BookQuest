@@ -1,10 +1,15 @@
-// Cover_btn component
+//Component
+import { BASE_URL } from '@/FetchData/BaseURL';
+import axios from "axios";
+
+//useContext
 import { useState, useContext } from 'react';
+import { PickContext } from "@/AppType/PickType";
+
+//shadcn/ui component
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from "@/components/ui/button";
-import axios from "axios";
-import { BASE_URL } from '@/FetchData/BaseURL';
-import { PickContext } from "@/App";
+
 
 interface Book {
     cover_i: number;
@@ -26,6 +31,8 @@ const Cover_btn = ({ book }: { book: Book }) => {
             const url = `${BASE_URL}${book.key}.json`;
             const response = await axios.get(url);
             const item = response.data;
+            console.log(item);
+            
             setResponseData([item]);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -41,17 +48,19 @@ const Cover_btn = ({ book }: { book: Book }) => {
     const handlePick = (item: any) => {
         if (!pick.includes(item)) {
             setPick([...pick, item]);
+        
+            
         }
     };
 
     return (
-        <div>
+        <div className='flex gap-x-3 p-[10px]'>
             <Dialog>
                 <DialogTrigger
-                    className="bg-white rounded-full h-[50px] w-[80px] text-semibold"
+                    className="bg-[white] rounded-full h-[50px] w-[80px] font-medium hover:bg-accent hover:text-accent-foreground"
                     onClick={handleViewClick}
                 >
-                    <span>View</span>
+                    <span className='text-[16px] text-bold'>View</span>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[1200px] h-[500px] bg-white overflow-y-scroll">
                     <DialogHeader>
@@ -59,28 +68,23 @@ const Cover_btn = ({ book }: { book: Book }) => {
                         <DialogDescription>
                             {loading && <div>Loading...</div>}
                             {!loading && responseData.map((item, index) => (
-                                <div key={index}>
+                                <div key={index} className='flex '>
                                     <img
-                                        src={`https://covers.openlibrary.org/b/id/${item.cover || item.cover_id }-M.jpg`}
+                                        src={`https://covers.openlibrary.org/b/id/${item.covers || item.covers[0]}-M.jpg`}
                                         alt={`Cover Image ${index + 1}`}
-                                        className="m-1 cursor-pointer w-[150px] h-[200px]"
+                                        className="cursor-pointer"
                                     />
                                     <div>
                                         <h1><b>Title:</b> {item.title}</h1>
                                         <h1><b>Years:</b> {item.first_publish_year}</h1>
                                         <h1><b>Author:</b> {item.author_name}</h1>
                                         <h1>{item.key}</h1>
+                                        <div>
+                                            {item.description && <h1><b>Description:</b> {item.description.value}</h1>}
+                                        </div>
                                     </div>
-                                    <div>
-                                        {item.description && <h1><b>Description:</b> {item.description.value}</h1>}
-                                    </div>
+                                    
 
-                                    <Button
-                                        className="bg-white rounded-full"
-                                        onClick={() => handlePick(item)}
-                                    >
-                                        Pick
-                                    </Button>
                                 </div>
                             ))}
                         </DialogDescription>
@@ -88,14 +92,14 @@ const Cover_btn = ({ book }: { book: Book }) => {
                 </DialogContent>
             </Dialog>
 
-            <Button className="bg-white rounded-full" onClick={() => handlePick(book)}>Pick</Button>
+            <Button className="bg-[white]  rounded-full text-[16px] text-normal" onClick={() => handlePick(book)}>Pick</Button>
             
             <Dialog>
                 <DialogTrigger
-                    className="bg-white rounded-full h-[50px] w-[80px] text-bold"
+                    className="bg-[white] rounded-full h-[50px] w-[80px] font-medium hover:bg-accent hover:text-accent-foreground"
                     onClick={handleViewClick}
                 >
-                    <span>Shared</span>
+                    <span className='text-[16px]'>Shared</span>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] bg-white overflow-y-scroll">
                     <DialogHeader>

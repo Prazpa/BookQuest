@@ -7,18 +7,22 @@ import axios from "axios";
 //import Detail component
 import { BASE_URL } from "@/FetchData/BaseURL";
 import Loader from "../../../MainComponent/2_Loader/Loader";
+import Cover_btn from "@/MainComponent/4_BookCover/Cover_btn";
 
 //import shadcn/ui component
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 //import App context for recieve data
-import { AppContext } from "../../../App";
-import Cover_btn from "@/MainComponent/4_BookCover/Cover_btn";
+import { ColContext } from '@/AppType/ColType';
+import { DataContext } from "@/AppType/DataType";
+
 
 function Cover() {
     //receive data from app.tsx 
-    const { data } = useContext(AppContext);
+    const { data } = useContext(DataContext);
+
+    //Receive value from app.tsx
+    const { darkMode } = useContext(ColContext);
 
     //set state for loading animation and response
     const [loading, setLoading] = useState<boolean>(true);
@@ -50,11 +54,6 @@ function Cover() {
     }, [data]);
 
 
-    //check which book is selected
-    const handleClick = (item: any) => {
-        console.log("Clicked on book:", item);
-    };
-
     return (
         <div>
             {loading ? (
@@ -62,7 +61,11 @@ function Cover() {
             ) : (
                 <div className="scrollbar-container flex flex-wrap h-[600px] overflow-y-auto gap-2">
                     {response.map((item: any, index: any) => (
-                        <div key={index} className="flex bg-[#F6E7AE] w-[800px] rounded gap-y-10">
+                        <div key={index}
+                            className={`
+                                flex justify-around w-[450px] rounded gap-y-10 
+                                ${darkMode ? 'bg-[#d8aef6]' : 'bg-[#F6E7AE] '}
+                            `}>
                             <img
                                 src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
                                 alt={`Cover Image ${index + 1}`}
@@ -73,9 +76,9 @@ function Cover() {
                                 <h1><b>Years:</b> {item.first_publish_year}</h1>
                                 <h1><b>Author:</b> {item.author_name}</h1>
                                 <Badge className='bg-black text-white'>{item.language}</Badge>
-                                
+
                                 <div>
-                                    <Cover_btn book={item}/>
+                                    <Cover_btn book={item} />
                                 </div>
                             </div>
                         </div>

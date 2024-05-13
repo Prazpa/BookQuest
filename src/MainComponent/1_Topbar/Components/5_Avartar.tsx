@@ -1,3 +1,4 @@
+//import shadcn/ui component
 import {
     Dialog,
     DialogContent,
@@ -11,22 +12,35 @@ import {
     AvatarFallback,
     AvatarImage,
 } from '@/components/ui/avatar';
-
-import { ColContext } from '@/App';
-import { useContext, useState } from 'react';
 import { Button } from '@/components/ui/button';
+
+//import for useContext
+import { ColContext } from '@/AppType/ColType';
+import { AvartarContext } from '@/AppType/AvartarType';
+import { useContext } from 'react';
 
 function AvatarComponent() {
     // Receive value from app.tsx
     const { darkMode } = useContext(ColContext);
-    const [file, setFile] = useState(null);
-    const [imageUrl, setImageUrl] = useState(""); // State to store the URL of the uploaded image
+    
+    // State to store the URL of the uploaded image
+    const { imageUrl, setImageUrl } = useContext(AvartarContext); 
 
+    // save images
     const handleSaveChanges = (e:any) => {
+        const saveButton = document.getElementById("saveButton");
+        if (saveButton) {
+            saveButton.innerText = "Saved";
+        } 
+        
         const selectedFile = e.target.files[0];
-        const objectUrl = URL.createObjectURL(selectedFile); // Create a URL for the uploaded file
-        setFile(selectedFile);
-        setImageUrl(objectUrl); // Set the URL of the uploaded image
+        
+        // Create a URL for the uploaded file
+        const objectUrl = URL.createObjectURL(selectedFile);
+        
+        // Set the URL of the uploaded image
+        setImageUrl(objectUrl);
+        
     };
 
     return (
@@ -41,7 +55,6 @@ function AvatarComponent() {
                                 <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCdfaz8GPft5te6NT-ZzlFahCsp5K9aw_1AA&usqp=CAU" />
                                 <AvatarFallback>User_img</AvatarFallback>
                             </div>
-                            
                         )}
                     </Avatar>
                 </DialogTrigger>
@@ -49,13 +62,14 @@ function AvatarComponent() {
                     <DialogHeader>
                         <DialogTitle>Your img profile</DialogTitle>
                     </DialogHeader>
-                    <div>
+                    <div className='flex-row'>
                         <h2>Add Image:</h2>
                         <input type="file" onChange={handleSaveChanges} />
-                        {imageUrl && <img src={imageUrl} alt="Uploaded" />} {/* Display the uploaded image */}
+                        {/* Display the uploaded image */}
+                        {imageUrl && <img src={imageUrl} alt="Uploaded" width={`200px`} height={"300px"} />} 
                     </div>
                     <DialogFooter>
-                        <Button type="submit" className="bg-black text-white rounded">
+                        <Button id="saveButton" type="submit" className="bg-black text-white rounded" onClick={handleSaveChanges}>
                             Save changes
                         </Button>
                     </DialogFooter>

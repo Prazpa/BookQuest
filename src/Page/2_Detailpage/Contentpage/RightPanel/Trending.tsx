@@ -1,9 +1,16 @@
-import { useEffect, useState, useContext } from 'react';
-import axios from "axios";
-import { BASE_URL } from "../../../../FetchData/BaseURL";
-import { ColContext, KeyContext } from "@/App";
+//Detail component
 import Loader from '@/MainComponent/2_Loader/Loader';
 import Cover_btn from '@/MainComponent/4_BookCover/Cover_btn';
+import { BASE_URL } from "../../../../FetchData/BaseURL";
+
+//useContext
+import { ColContext } from '@/AppType/ColType'; 
+import { KeyContext } from "@/AppType/KeyType";
+import { useEffect, useState, useContext } from 'react';
+
+//import for fetching
+import axios from "axios";
+
 interface Book {
     cover_i: number;
     title: string;
@@ -49,13 +56,17 @@ const Trending = () => {
             {loading ? (
                 <Loader />
             ) : (
-                <div className="scrollbar-container flex flex-wrap h-[600px] overflow-y-auto gap-2">
+                <div className="flex flex-wrap h-[600px] overflow-y-auto gap-2">
                     {response.map((item, index) => (
-                        <div key={index} className="flex bg-[#F6E7AE] w-full rounded gap-y-10">
+                        <div key={index} 
+                            className={`
+                                flex justify-around w-[450px] rounded  
+                                ${darkMode ? 'bg-[#d8aef6]' : 'bg-[#F6E7AE] '}
+                            `}>
                             <img
                                 src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
                                 alt={`Cover Image ${index + 1}`}
-                                className="m-1 cursor-pointer w-[150px] h-[200px]"
+                                className="cursor-pointer w-[150px] h-[200px] px-2"
                             />
 
                             <div>

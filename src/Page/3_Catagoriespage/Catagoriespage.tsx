@@ -12,37 +12,49 @@ import {
 } from "@/components/ui/resizable";
 import { Link } from "react-router-dom";
 
+//import for useContext
+import { ColContext } from '@/AppType/ColType';
+import { useContext } from 'react';
+
 function Catagoriespage() {
+  //Receive value from app.tsx
+  const { darkMode } = useContext(ColContext);
 
   return (
-    <div>
-       {/* Topbar section*/}
-       <Topbar />
+    <div className={`${darkMode ? 'bg-black' : ''}`}>
+      {/* Topbar section*/}
+      <Topbar />
 
       <ResizablePanelGroup direction="horizontal">
         {/* Leftpanel */}
         <ResizablePanel
-          defaultSize={22}
-          className="flex border-r-4 border-[#14B8A9] overflow-x-hidden lg-w-[500px]"
+          defaultSize={20}
+          className={`flex border-r-4 overflow-x-hidden lg-w-[500px]
+                    ${darkMode ? 'border-[#FF5A67]' : 'border-[#14B8A9]'}
+                `}
         >
           <LeftPanel />
         </ResizablePanel>
         <ResizableHandle />
 
         {/* Rightpanel */}
-        <ResizablePanel defaultSize={78} >
+        <ResizablePanel defaultSize={80} >
           <div className="px-[20px] gap-[10px]">
             {/* Headline */}
-            <div className="flex justify-between">
-                <span className="w-[250px] h-[25px] text-black text-2xl font-semibold">
-                  Catagories
-                </span>
+            <div className="flex justify-between w-full">
+              <span className={`w-[250px] h-[25px] text-black text-[30px] font-semibold
+                ${darkMode ? 'text-white' : 'text-black '}
+              `}>
+                Catagories
+              </span>
 
-                <span className="w-[250px] h-[25px] text-black text-xl font-semibold">
+              <span className={`w-[250px] h-[25px] text-black text-[30px] font-semibold
+                ${darkMode ? 'text-white' : 'text-black '}
+              `}>
                   <Link to={`/detailpage/`}>Back</Link>
-                </span>
+              </span>
             </div>
-            
+
             <div className="py-[20px]">
               <CatagoriesCover />
             </div>

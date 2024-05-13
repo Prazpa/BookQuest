@@ -1,9 +1,11 @@
+//Detail component
 import Topbar from '@/MainComponent/1_Topbar/Topbar'
 import Footer from '@/MainComponent/3_Footer/Footer'
 import Trending_btn from '../Trending_btn';
-import { BASE_URL } from '@/FetchData/BaseURL';
 import Loader from '@/MainComponent/2_Loader/Loader';
 import LeftPanel from '../../LeftPanel/LeftPanel';
+import { BASE_URL } from '@/FetchData/BaseURL';
+import Cover_btn from '@/MainComponent/4_BookCover/Cover_btn';
 
 //import shadcn/ui component
 import {
@@ -11,16 +13,15 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { Button } from "@/components/ui/button";
 import { Badge } from '@/components/ui/badge';
 
-//import for Trending
+//import for fetching
 import { useContext, useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
-import { ValueContext } from '@/App';
-import Cover_btn from '@/MainComponent/4_BookCover/Cover_btn';
-
+//import for useContext
+import { ColContext } from '@/AppType/ColType';
+import { ValueContext } from '@/AppType/ValueType';
 
 interface Book {
     cover_i: number;
@@ -37,7 +38,10 @@ interface TrendingData {
 function TrendingAnypage() {
     //Receive value from detailpage.tsx
     const { value } = useContext(ValueContext);
-    
+
+    //Receive value from app.tsx
+    const { darkMode } = useContext(ColContext);
+
     //set state for loading and response
     const [loading, setLoading] = useState<boolean>(true);
     const [response, setResponse] = useState<Book[]>([])
@@ -63,7 +67,7 @@ function TrendingAnypage() {
         if (value !== undefined) {
             fetchTrendingData();
         }
-        
+
     }, [value]);
 
     if (value === undefined) {
@@ -72,23 +76,27 @@ function TrendingAnypage() {
             <div>404 no data</div>
         )
     }
-    
+
     return (
-        <div>
+        <div className={`${darkMode ? 'bg-black' : ''}`}>
             <Topbar />
             <ResizablePanelGroup direction="horizontal">
                 <ResizablePanel
-                    defaultSize={22}
-                    className="flex border-r-4 border-[#14B8A9] overflow-x-hidden lg-w-[500px]"
+                    defaultSize={20}
+                    className={`flex border-r-4 overflow-x-hidden lg-w-[500px]
+                    ${darkMode ? 'border-[#FF5A67]' : 'border-[#14B8A9]'}
+                `}
                 >
                     <LeftPanel />
                 </ResizablePanel>
                 <ResizableHandle />
-                <ResizablePanel defaultSize={78}>
+                <ResizablePanel defaultSize={80}>
                     <div className="px-[20px] gap-[10px]">
                         {/* Headline */}
-                        <div className="w-[652px] h-[23.79px]">
-                            <span className="w-[250px] h-[25px] text-black text-2xl font-semibold">
+                        <div className="w-[652px] h-[25px]">
+                            <span className={`w-[250px] h-[25px] text-black text-[30px] font-semibold
+                                ${darkMode ? 'text-white' : 'text-black '}
+                            `}>
                                 Trending
                             </span>
                         </div>
@@ -106,19 +114,23 @@ function TrendingAnypage() {
                                 ) : (
                                     <div className="scrollbar-container flex flex-wrap h-[600px] overflow-y-auto gap-2">
                                         {response.map((item, index) => (
-                                            <div key={index} className="flex bg-[#F6E7AE] w-[800px] rounded gap-y-10">
+                                            <div key={index}
+                                                className={`
+                                                flex justify-around w-[450px] rounded gap-y-10 
+                                                ${darkMode ? 'bg-[#d8aef6]' : 'bg-[#F6E7AE] '}
+                                            `}>
                                                 <img
                                                     src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
                                                     alt={`Cover Image ${index + 1}`}
-                                                    className="m-1 cursor-pointer w-[150px] h-[200px]"
+                                                    className="cursor-pointer max-w-[150px] h-[200px]"
                                                 />
                                                 <div className='p-[10px]'>
                                                     <h1><b>Title:</b> {item.title}</h1>
                                                     <h1><b>Years:</b> {item.first_publish_year}</h1>
                                                     <h1><b>Author:</b> {item.author_name}</h1>
                                                     <Badge className='bg-black text-white'>{item.language}</Badge>
-                                                    
-                                                        <div>
+
+                                                    <div>
                                                         <Cover_btn book={item} />
                                                     </div>
                                                 </div>

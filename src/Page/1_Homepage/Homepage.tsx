@@ -5,7 +5,7 @@ import Banner from './Banner/Banner'
 
 
 //import for Darkmode 
-import { ColContext } from '@/App';
+import { ColContext } from '@/AppType/ColType';
 import { useContext } from 'react';
 
 //import for Router

@@ -12,21 +12,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 //import for useContext
-import { ColContext, NameContext } from '@/App';
+import { ColContext } from '@/AppType/ColType';
+import { NameContext } from '@/AppType/NameType';
 import { useContext, useState } from 'react';
 
 const Account = () => {
     //Receive value from app.tsx
     const { darkMode } = useContext(ColContext);
-    const {username, setUsername} = useContext(NameContext);
+    const { username, setUsername } = useContext(NameContext);
     
-    const customtext = `text-[16px] font-medium `
-
+    //set Default name
     const [formData, setFormData] = useState({
-        name: "Name",
-        username: "Username"
+        name: "",
+        username: ""
     });
 
+    //track whay i type and set to name and user
     const handleInputChange = (e: any) => {
         const { id, value } = e.target;
         setFormData(prevState => ({
@@ -35,9 +36,14 @@ const Account = () => {
         }));
     };
 
-
+    // อัพเดตชื่อ username จาก state ที่เก็บข้อมูลใหม่
     const handleSaveChanges = () => {
-        setUsername(formData.username); // อัพเดตชื่อ username จาก state ที่เก็บข้อมูลใหม่
+        setUsername(formData.username);
+        // เมื่อกดปุ่ม Save changes เปลี่ยนข้อความเป็น "Saved"
+        const saveButton = document.getElementById("saveButton");
+        if (saveButton) {
+            saveButton.innerText = "Saved";
+        }
     };
 
     return (
@@ -45,9 +51,9 @@ const Account = () => {
             <Dialog >
                 <DialogTrigger>
                     {username ? (
-                        <div className={`${customtext} ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>{username}</div>
+                        <div className={`text-[16px] font-medium ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>{username}</div>
                     ) : (
-                        <div className={`${customtext} ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>Sign in</div>
+                        <div className={`text-[16px] font-medium ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>Sign in</div>
                     )}
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] bg-white ">
@@ -78,7 +84,7 @@ const Account = () => {
                         </div>
                     </form>
                     <DialogFooter>
-                        <Button type="submit" className="bg-black text-white rounded" onClick={handleSaveChanges}>
+                        <Button id="saveButton" type="submit" className="bg-black text-white rounded" onClick={handleSaveChanges}>
                             Save changes
                         </Button>
                     </DialogFooter>

@@ -1,5 +1,86 @@
+export interface catagoriesListType {
+  Arts: Art[]
+  Animals: Animal[]
+  Fiction: Fiction[]
+  "Science and Mathematics": Mathematic[]
+  "Business and Finance": BusinessAndFinance[]
+  "Children's": GeneratedType[]
+  History: History[]
+  "Health and Wellness": Wellness[]
+  Biography: Biography[]
+  "Social Sciences": Science[]
+  Places: Place[]
+  Textbooks: Textbook[]
+  Language: Language[]
+}
+
+export interface Art {
+  title: string
+  value: string
+}
+
+export interface Animal {
+  title: string
+  value: string
+}
+
+export interface Fiction {
+  title: string
+  value: string
+}
+
+export interface Mathematic {
+  title: string
+  value: string
+}
+
+export interface BusinessAndFinance {
+  title: string
+  value: string
+}
+
+export interface GeneratedType {
+  title: string
+  value: string
+}
+
+export interface History {
+  title: string
+  value: string
+}
+
+export interface Wellness {
+  title: string
+  value: string
+}
+
+export interface Biography {
+  title: string
+  value: string
+}
+
+export interface Science {
+  title: string
+  value: string
+}
+
+export interface Place {
+  title: string
+  value: string
+}
+
+export interface Textbook {
+  title: string
+  value: string
+}
+
+export interface Language {
+  title: string
+  value: string
+}
+
 //create object for Leftpanel
-const catagories : object = {
+const catagories : catagoriesListType = {
   "Arts": [
     { "title": "Architecture", "value": "architecture" },
     { "title": "Art Instruction", "value": "art__art_instruction" },

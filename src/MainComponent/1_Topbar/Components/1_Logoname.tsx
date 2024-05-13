@@ -1,5 +1,5 @@
 //import for Darkmode
-import { ColContext } from "@/App";
+import { ColContext } from "@/AppType/ColType";
 import { useContext } from "react";
 
 //import for Router
@@ -11,16 +11,11 @@ const Logoname = () => {
   
   return (
     <div 
-      className={`
-        font-bold font-['Overpass'] 
-        flex items-center
-        xs-text-lg
-        lg:text-xl 
-      `}>
-      <Link to={`/`} 
-        className={`
-          ${darkMode ? 'text-[#940d18] hover:text-[#FF5A67]': 'text-[#0D9488] hover:text-[#2DD4C5]'}
-        `}>BookQuest</Link>
+      className={`font-bold font-['Overpass'] flex items-center xs-text-lg lg:text-xl `}>
+      <Link to={`/`} className={`
+        ${darkMode ? 'text-[#940d18] hover:text-[#FF5A67]': 'text-[#0D9488] hover:text-[#2DD4C5]'}
+      `}>BookQuest
+      </Link>
     </div>
   );
 };

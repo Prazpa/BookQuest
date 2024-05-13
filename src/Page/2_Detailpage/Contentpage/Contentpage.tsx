@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/resizable";
 
 //import for Darkmode
-import { ColContext } from "@/App";
+import { ColContext } from '@/AppType/ColType';
 import { useContext } from "react";
 
 const Contentpage = () => {
@@ -21,7 +21,7 @@ const Contentpage = () => {
     return (
         <ResizablePanelGroup direction="horizontal">
             <ResizablePanel
-                defaultSize={22}
+                defaultSize={20}
                 className={`flex border-r-4 overflow-x-hidden lg-w-[500px]
                     ${darkMode ?  'border-[#FF5A67]': 'border-[#14B8A9]'}
                 `}
@@ -29,11 +29,11 @@ const Contentpage = () => {
                 <LeftPanel />
             </ResizablePanel>
             <ResizableHandle />
-            <ResizablePanel defaultSize={78}>
+            <ResizablePanel defaultSize={80}>
                 <div className="px-[20px] gap-[10px]">
                     {/* Headline */}
-                    <div className="w-[652px] h-[23.79px]">
-                        <span className={`w-[250px] h-[25px] text-2xl font-semibold ${darkMode ?  'text-white': 'text-black '}`}>
+                    <div className="w-[600px] h-[25px]">
+                        <span className={`w-[250px] text-[30px] font-semibold ${darkMode ?  'text-white': 'text-black '}`}>
                             Trending
                         </span>
                     </div>

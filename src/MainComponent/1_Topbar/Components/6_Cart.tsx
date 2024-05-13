@@ -7,9 +7,14 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Button } from "@/components/ui/button"
-import { ColContext, PickContext, NameContext } from '@/App';
-import { useContext } from 'react';
 import { BASE_URL } from '@/FetchData/BaseURL';
+
+//useContext
+import { ColContext} from '@/AppType/ColType';
+import { PickContext } from '@/AppType/PickType';
+import { NameContext } from '@/AppType/NameType';
+import { useContext } from 'react';
+
 
 function Cart() {
   const { darkMode } = useContext(ColContext);
@@ -40,18 +45,21 @@ function Cart() {
           <span className={`text-[16px] font-medium ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>Saved</span>
         </div>
       </DialogTrigger>
-      <DialogContent className="w-[800px] bg-white overflow-y-scroll">
+      <DialogContent className="w-[800px] max-h-[500px] bg-white overflow-y-scroll">
         <DialogHeader>
           <DialogTitle>{username} Lists</DialogTitle>
           <DialogDescription>
-            <span>
-              <span>That book what you picked</span>
-              <ul>
+            <div>
+              <div>
+                <span>That book what you picked</span>
+              </div>
+              <div>
+                <ul>
                 {pick.map((book: any, index: number) => (
                   <li key={index}>
                     <div className='flex justify-between'>
                       <img
-                        src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+                        src={`https://covers.openlibrary.org/b/id/${book.covers}}-M.jpg`}
                         alt={`Cover Image ${index + 1}`}
                         className="m-1 cursor-pointer w-[150px] h-[200px]"
                       />
@@ -64,8 +72,13 @@ function Cart() {
                   </li>
                 ))}
               </ul>
-            </span>
-            <Button className='bg-black text-white rounded' onClick={handleClear}>Clear all</Button>
+              </div>
+              
+            </div>
+            
+            <div>
+              <Button className='bg-black text-white rounded' onClick={handleClear}>Clear all</Button>
+            </div>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

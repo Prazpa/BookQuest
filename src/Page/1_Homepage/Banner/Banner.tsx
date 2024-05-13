@@ -19,7 +19,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 
 //import for Darkmode 
-import { ColContext } from '@/App';
+import { ColContext } from '@/AppType/ColType';
 import { useContext } from 'react';
 
 const Banner = () => {

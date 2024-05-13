@@ -7,7 +7,7 @@ import Avartar from './Components/5_Avartar';
 import Cart from './Components/6_Cart';
 
 //import for Darkmode 
-import { ColContext } from '@/App';
+import { ColContext } from '@/AppType/ColType';
 import { useContext } from 'react';
 
 
@@ -23,11 +23,7 @@ const Topbar = () => {
   `;
 
   return (
-    <div 
-      className={`
-        ${resposive}
-        ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`
-      }>
+    <div className={`${resposive} ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Logoname />
       <Searchbar />
       <Switch_Btn />

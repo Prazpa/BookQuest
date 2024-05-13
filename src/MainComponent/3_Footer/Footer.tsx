@@ -2,7 +2,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 //import for Darkmode
-import { ColContext } from "@/App";
+import { ColContext } from "@/AppType/ColType";
 import { useContext } from "react";
 
 function Footer() {

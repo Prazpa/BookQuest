@@ -1,5 +1,5 @@
 //import for Darkmode 
-import { ColContext } from '@/App';
+import { ColContext } from '@/AppType/ColType';
 import { useContext } from 'react'; 
 
 const Carousel1 = () => {

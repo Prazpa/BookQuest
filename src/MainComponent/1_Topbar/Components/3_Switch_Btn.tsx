@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 
 //import for Darkmode
-import { ColContext } from '@/App';
+import { ColContext } from '@/AppType/ColType';
 import { useContext } from 'react';
 
 const Switch_Btn = () => {

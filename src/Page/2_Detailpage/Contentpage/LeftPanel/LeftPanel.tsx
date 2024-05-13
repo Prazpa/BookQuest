@@ -2,8 +2,8 @@
 import { useContext, useEffect, useCallback, useState } from "react";
 
 //import for Darkmode and Catagories
-import { ColContext } from "@/App";
-import { CatagoriesContext } from "@/App";
+import { ColContext } from '@/AppType/ColType';
+import { CatagoriesContext } from "@/AppType/CatagoriesType";
 
 //import fetch component
 import categories from "../../../../FetchData/Catagories"; 
@@ -57,14 +57,14 @@ const LeftPanel = () => {
     }, [selectedCategory, handleCategoryChange]);
 
     return (
-        <div className="mx-[15px] h-auto  pb-10">
+        <div className="mx-[15px] h-auto pb-10">
             <div>
                 {/*Bring Object from Categories.ts for map*/}
                 {Object.entries(categories).map(([category, items]) => (
                     //put them to each catagories
                     <Select key={category} onValueChange={onSelectChange}>
                         <SelectTrigger className={`
-                            w-[250px] rounded text-[16px]
+                            w-[230px] rounded text-[14px] 
                             ${darkMode ? 'bg-[#AE0614] border-black hover:bg-[#d8aef6] hover:text-black text-white': 'hover:bg-[#F6E7AE]'}
                         `}>
                             <SelectValue placeholder={category} />
@@ -72,7 +72,7 @@ const LeftPanel = () => {
                         
                         {/* each catagories have subcatagories map again*/}
                         <SelectContent className={`rounded
-                            ${darkMode ? 'bg-black text-white': 'bg-[white] text-black'}
+                            ${darkMode ? 'bg-[#AE0614] text-white': 'bg-[white] text-black'}
                         `}>
                             
                             <SelectGroup>
@@ -80,14 +80,13 @@ const LeftPanel = () => {
                                     <SelectItem key={item.value} value={item.value}>
                                         <Link 
                                             to={`Catagoriespage/${item.title}`}
-                                            className={`${darkMode ? 'bg-black hover:bg-[#FF5A67] text-white': 'hover:bg-[#F6E7AE]'}`}
+                                            className={`text-[14px]  ${darkMode ? 'bg-[#AE0614] hover:bg-[#FF5A67] text-white': 'hover:bg-[#F6E7AE]'}`}
                                         >
                                             {item.title}
                                         </Link>
                                     </SelectItem>
                                 ))}
-                            </SelectGroup>
-                            
+                            </SelectGroup>      
                         </SelectContent>
                     </Select>
                 ))}

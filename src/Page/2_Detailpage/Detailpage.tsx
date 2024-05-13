@@ -7,9 +7,7 @@ import Footer from '../../MainComponent/3_Footer/Footer';
 import { useContext} from 'react';
 
 //import for Darkmode
-import { ColContext } from "@/App";
-
-
+import { ColContext } from '@/AppType/ColType';
 
 function Detailpage() {
   //Receive value from app.tsx
@@ -17,11 +15,9 @@ function Detailpage() {
 
   return (
     <div className={`${darkMode ? 'bg-black': ''}`}>
-         {/* Topbar section*/}
-         <Topbar />
-
+        {/* Topbar section*/}
+        <Topbar />
         <Contentpage /> 
-        
         <Footer />
     </div>
   )

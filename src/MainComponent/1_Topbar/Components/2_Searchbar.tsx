@@ -1,26 +1,23 @@
-//React component and State/axios 
+//React 
 import React from 'react';
-// import axios from 'axios';
 
 //import shadcn/ui component
 import { Input } from '@/components/ui/input';
 
 //import for Darkmode
-import { ColContext } from "@/App";
+import { ColContext} from "@/AppType/ColType";
+import { DataContext } from "@/AppType/DataType";
 import { useContext } from "react";
 
 //import for Router
 import { Link } from 'react-router-dom';
-
-//import for receive data
-import { AppContext } from '../../../App';
 
 const Searchbar = () => {
   //Receive value from app.tsx
   const { darkMode } = useContext(ColContext);
 
   //set state for input to check result of typing
-  const { data, setData } = useContext(AppContext);
+  const { data, setData } = useContext(DataContext);
 
   //see result after click at serach-btn
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
