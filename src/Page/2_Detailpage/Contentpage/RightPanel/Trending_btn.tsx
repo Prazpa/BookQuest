@@ -6,13 +6,13 @@ import { Button } from '@/components/ui/button';
 
 //import for useContext
 import { ColContext } from '@/AppType/ColType'; 
-import { ValueContext  } from '@/AppType/ValueType';
+import { ContentContext  } from '@/AppType/ContentType';
 import { useContext } from 'react';
 
 function Trending_btn() {
-    //Receive value from app.tsx
+    //useContext
     const { darkMode } = useContext(ColContext);
-    const { setValue } = useContext(ValueContext);
+    const { setValue } = useContext(ContentContext);
 
     //Additional navigate to next page
     const router = useNavigate();

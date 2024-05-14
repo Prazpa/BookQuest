@@ -3,13 +3,6 @@ import LeftPanel from "./LeftPanel/LeftPanel";
 import Trending from "./RightPanel/Trending";
 import Trending_btn from "./RightPanel/Trending_btn";
 
-//import shadcn/ui component
-import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup,
-} from "@/components/ui/resizable";
-
 //import for Darkmode
 import { ColContext } from '@/AppType/ColType';
 import { useContext } from "react";
@@ -19,18 +12,15 @@ const Contentpage = () => {
     const { darkMode } = useContext(ColContext);
 
     return (
-        <ResizablePanelGroup direction="horizontal">
-            <ResizablePanel
-                defaultSize={20}
-                className={`flex border-r-4 overflow-x-hidden lg-w-[500px]
-                    ${darkMode ?  'border-[#FF5A67]': 'border-[#14B8A9]'}
-                `}
-            >
+        <div className="flex">
+            <div className={`flex border-r-4 overflow-x-hidden w-[250px]
+                ${darkMode ?  'border-[#FF5A67]': 'border-[#14B8A9]'}
+            `}>
                 <LeftPanel />
-            </ResizablePanel>
-            <ResizableHandle />
-            <ResizablePanel defaultSize={80}>
-                <div className="px-[20px] gap-[10px]">
+            </div>
+            
+        
+                <div className="px-[20px] gap-[10px] w-[1030px]">
                     {/* Headline */}
                     <div className="w-[600px] h-[25px]">
                         <span className={`w-[250px] text-[30px] font-semibold ${darkMode ?  'text-white': 'text-black '}`}>
@@ -48,8 +38,8 @@ const Contentpage = () => {
                         <Trending />
                     </div>
                 </div>
-            </ResizablePanel>
-        </ResizablePanelGroup>
+            
+        </div>
 
     );
 };

@@ -1,6 +1,6 @@
 //import useContext
 import { useContext } from "react";
-import { CatagoriesContext } from "@/AppType/CatagoriesType";
+import { ContentContext } from "@/AppType/ContentType";
 
 //import shadcn/ui component
 import Cover_btn from "@/MainComponent/4_BookCover/Cover_btn";
@@ -14,7 +14,7 @@ function CatagoriesCover() {
     const { darkMode } = useContext(ColContext);
 
     //recieve value from Leftpanel
-    const { catagoriesValue } = useContext(CatagoriesContext);
+    const { catagoriesValue } = useContext(ContentContext);
 
     // Check if data is available
     if (!catagoriesValue || !Array.isArray(catagoriesValue) || catagoriesValue.length === 0) {

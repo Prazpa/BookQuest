@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 
 //import for Darkmode
 import { ColContext} from "@/AppType/ColType";
-import { DataContext } from "@/AppType/DataType";
+import { ContentContext } from "@/AppType/ContentType";
 import { useContext } from "react";
 
 //import for Router
@@ -17,7 +17,7 @@ const Searchbar = () => {
   const { darkMode } = useContext(ColContext);
 
   //set state for input to check result of typing
-  const { data, setData } = useContext(DataContext);
+  const { data, setData } = useContext(ContentContext);
 
   //see result after click at serach-btn
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button';
 
 //import for useContext
 import { ColContext } from '@/AppType/ColType';
-import { AvartarContext } from '@/AppType/AvartarType';
+import { UserContext } from '@/AppType/UserType';
 import { useContext } from 'react';
 
 function AvatarComponent() {
@@ -24,7 +24,7 @@ function AvatarComponent() {
     const { darkMode } = useContext(ColContext);
     
     // State to store the URL of the uploaded image
-    const { imageUrl, setImageUrl } = useContext(AvartarContext); 
+    const { imageUrl, setImageUrl } = useContext(UserContext); 
 
     // save images
     const handleSaveChanges = (e:any) => {

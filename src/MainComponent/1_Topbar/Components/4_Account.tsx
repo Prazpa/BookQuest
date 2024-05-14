@@ -13,13 +13,13 @@ import { Input } from '@/components/ui/input';
 
 //import for useContext
 import { ColContext } from '@/AppType/ColType';
-import { NameContext } from '@/AppType/NameType';
+import { UserContext } from '@/AppType/UserType';
 import { useContext, useState } from 'react';
 
 const Account = () => {
     //Receive value from app.tsx
     const { darkMode } = useContext(ColContext);
-    const { username, setUsername } = useContext(NameContext);
+    const { username, setUsername } = useContext(UserContext);
     
     //set Default name
     const [formData, setFormData] = useState({

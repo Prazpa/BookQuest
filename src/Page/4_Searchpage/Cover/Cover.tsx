@@ -14,12 +14,12 @@ import { Badge } from "@/components/ui/badge";
 
 //import App context for recieve data
 import { ColContext } from '@/AppType/ColType';
-import { DataContext } from "@/AppType/DataType";
+import { ContentContext } from "@/AppType/ContentType";
 
 
 function Cover() {
     //receive data from app.tsx 
-    const { data } = useContext(DataContext);
+    const { data } = useContext(ContentContext);
 
     //Receive value from app.tsx
     const { darkMode } = useContext(ColContext);

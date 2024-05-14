@@ -3,7 +3,7 @@ import { useContext, useEffect, useCallback, useState } from "react";
 
 //import for Darkmode and Catagories
 import { ColContext } from '@/AppType/ColType';
-import { CatagoriesContext } from "@/AppType/CatagoriesType";
+import { ContentContext } from "@/AppType/ContentType";
 
 //import fetch component
 import categories from "../../../../FetchData/Catagories"; 
@@ -20,7 +20,7 @@ const LeftPanel = () => {
     const router = useNavigate();
     
     //set state for useContext to send another file
-    const { setCatagoriesValue } = useContext(CatagoriesContext);
+    const { setCatagoriesValue } = useContext(ContentContext);
 
     //Receive value from app.tsx
     const { darkMode } = useContext(ColContext);

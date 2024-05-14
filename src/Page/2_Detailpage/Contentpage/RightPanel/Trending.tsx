@@ -1,40 +1,25 @@
-//Detail component
+import axios from "axios";
 import Loader from '@/MainComponent/2_Loader/Loader';
 import Cover_btn from '@/MainComponent/4_BookCover/Cover_btn';
 import { BASE_URL } from "../../../../FetchData/BaseURL";
-
-//useContext
-import { ColContext } from '@/AppType/ColType'; 
-import { KeyContext } from "@/AppType/KeyType";
+import { Book } from './BookType';
+import { ColContext } from '@/AppType/ColType';
+import { SelectedContext } from "@/AppType/SelectedType";
 import { useEffect, useState, useContext } from 'react';
-
-//import for fetching
-import axios from "axios";
-
-interface Book {
-    cover_i: number;
-    title: string;
-    first_publish_year: number;
-    author_name: string[];
-    language: string[];
-    key: any;
-}
-
-interface TrendingData {
-    works: Book[];
-}
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const Trending = () => {
     const { darkMode } = useContext(ColContext);
-    const { setKeyBook } = useContext(KeyContext);
+    const { setKeyBook } = useContext(SelectedContext);
+
     const [loading, setLoading] = useState<boolean>(true);
     const [response, setResponse] = useState<Book[]>([])
 
     useEffect(() => {
-        const fetchTrendingData = async (): Promise<Book[] | undefined> => {
+        const fetchTrendingData = async () => {
             try {
-                const response = await axios.get<TrendingData>(`${BASE_URL}/trending/now.json`);
-                const trendingBooksData: TrendingData = response.data;
+                const response = await axios.get(`${BASE_URL}/trending/now.json`);
+                const trendingBooksData = response.data;
                 setResponse(trendingBooksData.works)
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -56,31 +41,35 @@ const Trending = () => {
             {loading ? (
                 <Loader />
             ) : (
-                <div className="flex flex-wrap h-[600px] overflow-y-auto gap-2">
+                <div className="flex flex-wrap h-[520px] overflow-y-auto justify-center gap-5">
                     {response.map((item, index) => (
-                        <div key={index} 
-                            className={`
-                                flex justify-around w-[450px] rounded  
-                                ${darkMode ? 'bg-[#d8aef6]' : 'bg-[#F6E7AE] '}
-                            `}>
-                            <img
-                                src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
-                                alt={`Cover Image ${index + 1}`}
-                                className="cursor-pointer w-[150px] h-[200px] px-2"
-                            />
-
-                            <div>
-                                <div className='p-[10px] text-[16px]'>
-                                    <h1><b>Title:</b> {item.title}</h1>
-                                    <h1><b>Years:</b> {item.first_publish_year}</h1>
-                                    <h1><b>Author:</b> {item.author_name}</h1>
+                        <Dialog key={index}>
+                            <DialogTrigger>
+                                <div className={`
+                                    flex-col w-[200px] h-[320px] rounded-lg align-middle overflow-hidden
+                                    ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}
+                                `}>
+                                    <img
+                                        src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
+                                        alt={`Cover Image ${index + 1}`}
+                                        className="cursor-pointer w-[150px] h-[220px] mx-[23px] my-[15px]"
+                                    />
+                                    <div>
+                                        <div className='text-[16px] text-center'>
+                                            <span>{item.title}</span>
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
                                 </div>
-
+                            </DialogTrigger>
+                            <DialogContent className="bg-white max-w-[1000px] h-[550px] overflow-y-scroll">
                                 <div>
-                                    <Cover_btn book={item} />
+                                    <Cover_btn book={item}/> 
                                 </div>
-                            </div>
-                        </div>
+                            </DialogContent>
+                        </Dialog>
                     ))}
                 </div>
             )}
@@ -89,4 +78,3 @@ const Trending = () => {
 }
 
 export default Trending;
-

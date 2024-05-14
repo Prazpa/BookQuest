@@ -11,18 +11,19 @@ import { BASE_URL } from '@/FetchData/BaseURL';
 
 //useContext
 import { ColContext} from '@/AppType/ColType';
-import { PickContext } from '@/AppType/PickType';
-import { NameContext } from '@/AppType/NameType';
+import { SelectedContext } from '@/AppType/SelectedType';
+import { UserContext } from '@/AppType/UserType';
 import { useContext } from 'react';
+import { Book } from '@/Page/2_Detailpage/Contentpage/RightPanel/BookType';
 
 
 function Cart() {
   const { darkMode } = useContext(ColContext);
-  const { pick, setPick } = useContext(PickContext);
-  const { username } = useContext(NameContext);
+  const { pick, setPick } = useContext(SelectedContext);
+  const { username } = useContext(UserContext);
 
   const handleRemoveBook = (indexToRemove: number) => {
-    setPick((prevPick: any) => prevPick.filter((_: any, index: any) => index !== indexToRemove));
+    setPick((prevPick: any) => prevPick.filter((_: any, index: number) => index !== indexToRemove));
   };
 
   const handleClear = () => {
@@ -55,11 +56,11 @@ function Cart() {
               </div>
               <div>
                 <ul>
-                {pick.map((book: any, index: number) => (
+                {pick.map((book: Book, index: number) => (
                   <li key={index}>
                     <div className='flex justify-between'>
                       <img
-                        src={`https://covers.openlibrary.org/b/id/${book.covers}}-M.jpg`}
+                        src={`https://covers.openlibrary.org/b/id/${book.cover_i}}-M.jpg`}
                         alt={`Cover Image ${index + 1}`}
                         className="m-1 cursor-pointer w-[150px] h-[200px]"
                       />

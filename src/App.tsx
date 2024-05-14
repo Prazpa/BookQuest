@@ -10,40 +10,30 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
 
 //type
-import { ColContext } from '@/AppType/ColType'; 
-import { DataContext } from '@/AppType/DataType';  
-import { CatagoriesContext } from '@/AppType/CatagoriesType'   
-import { ValueContext } from '@/AppType/ValueType'     
-import { PickContext } from '@/AppType/PickType'    
-import { NameContext } from '@/AppType/NameType'  
-import { KeyContext } from '@/AppType/KeyType' 
-import { AvartarContext } from '@/AppType/AvartarType' ;
+import { ColContext } from '@/AppType/ColType';
+import { ContentContext } from './AppType/ContentType';
+import { SelectedContext } from '@/AppType/SelectedType'
+import { UserContext } from '@/AppType/UserType'
+
 
 function App() {
     //set state for darkmode
     const [darkMode, setDarkMode] = useState(false);
 
-    //set state for Topbar
-    const [data, setData] = useState('');
+    //search content
+    const [data, setData] = useState(''); //set state for Topbar
+    const [catagoriesValue, setCatagoriesValue] = useState('') //set state for Leftpanel
+    const [value, setValue] = useState(""); //set state for Trending
 
-    //set state for Leftpanel
-    const [catagoriesValue, setCatagoriesValue] = useState('')
 
-    //set state for Trending
-    const [value, setValue] = useState("");
+    //user content
+    const [username, setUsername] = useState(""); //set state for sign in
+    const [imageUrl, setImageUrl] = useState(""); // State to store the URL of the uploaded image
 
-    //set state for Picking
-    const [pick, setPick] = useState([]);
-
-    //set state for sign in
-    const [username, setUsername] = useState("");
-
-    //set state for cover_btn
-    const [keyBook, setKeyBook] = useState([]);
-
-    // State to store the URL of the uploaded image
-    const [imageUrl, setImageUrl] = useState(""); 
-
+    //selected
+    const [pick, setPick] = useState([]); //set state for Picking
+    const [keyBook, setKeyBook] = useState([]); //set state for cover_btn
+    
     //set router for any page
     const router = createBrowserRouter([
         {
@@ -76,21 +66,13 @@ function App() {
         <div className="bg-[url('/images/list_bg.jpg')] min-h-[100vh]">
             {/* Sent value to all file */}
             <ColContext.Provider value={{ darkMode, setDarkMode }}>
-            <DataContext.Provider value={{ data, setData }}>
-            <CatagoriesContext.Provider value={{ catagoriesValue, setCatagoriesValue }}>
-            <ValueContext.Provider value={{ value, setValue }}>
-            <PickContext.Provider value={{pick, setPick}}>
-            <NameContext.Provider value={{username, setUsername}}>
-            <KeyContext.Provider value={{keyBook, setKeyBook}}>
-            <AvartarContext.Provider value={{imageUrl, setImageUrl}}>
-                <RouterProvider router={router} />
-            </AvartarContext.Provider>
-            </KeyContext.Provider>
-            </NameContext.Provider>
-            </PickContext.Provider>
-            </ValueContext.Provider>
-            </CatagoriesContext.Provider>
-            </DataContext.Provider>
+                <ContentContext.Provider value={{ data, setData, catagoriesValue, setCatagoriesValue, value, setValue }}>
+                    <UserContext.Provider value={{ username, setUsername, imageUrl, setImageUrl }}>
+                        <SelectedContext.Provider value={{ pick, setPick, keyBook, setKeyBook }}>
+                            <RouterProvider router={router} />
+                        </SelectedContext.Provider>
+                    </UserContext.Provider>
+                </ContentContext.Provider>
             </ColContext.Provider>
         </div>
     );

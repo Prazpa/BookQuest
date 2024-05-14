@@ -4,8 +4,9 @@ import Footer from '@/MainComponent/3_Footer/Footer'
 import Trending_btn from '../Trending_btn';
 import Loader from '@/MainComponent/2_Loader/Loader';
 import LeftPanel from '../../LeftPanel/LeftPanel';
-import { BASE_URL } from '@/FetchData/BaseURL';
 import Cover_btn from '@/MainComponent/4_BookCover/Cover_btn';
+import { BASE_URL } from '@/FetchData/BaseURL';
+import { Book } from '../BookType'
 
 //import shadcn/ui component
 import {
@@ -18,31 +19,18 @@ import { Badge } from '@/components/ui/badge';
 //import for fetching
 import { useContext, useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
+;
 
 //import for useContext
 import { ColContext } from '@/AppType/ColType';
-import { ValueContext } from '@/AppType/ValueType';
-
-interface Book {
-    cover_i: number;
-    title: string;
-    first_publish_year: number;
-    author_name: string[];
-    language: string[];
-}
-
-interface TrendingData {
-    works: Book[];
-}
+import { ContentContext } from '@/AppType/ContentType';
 
 function TrendingAnypage() {
-    //Receive value from detailpage.tsx
-    const { value } = useContext(ValueContext);
-
-    //Receive value from app.tsx
+    //useContext
+    const { value } = useContext(ContentContext);
     const { darkMode } = useContext(ColContext);
 
-    //set state for loading and response
+    //set state
     const [loading, setLoading] = useState<boolean>(true);
     const [response, setResponse] = useState<Book[]>([])
 
@@ -52,10 +40,10 @@ function TrendingAnypage() {
         const fetchTrendingData = async (): Promise<void> => {
             try {
                 setLoading(true);
-                const response: AxiosResponse<TrendingData> = await axios.get<TrendingData>(`${BASE_URL}/trending/${value}.json`);
-                const trendingBooksData: TrendingData = response.data;
+                const response: AxiosResponse = await axios.get(`${BASE_URL}/trending/${value}.json`);
+                const trendingBooksData = response.data;
                 setResponse(trendingBooksData.works)
-                console.log(`fetch by : ${value}`, trendingBooksData.works);
+                // console.log(`fetch by : ${value}`, trendingBooksData.works);
             } catch (error) {
                 console.error('Error fetching data:', error);
             } finally {
@@ -107,44 +95,40 @@ function TrendingAnypage() {
                         </div>
 
                         {/* Cover book of trending(default by any)*/}
-                        <div className="flex my-[20px] gap-2">
-                            <div className='flex items-center'>
-                                {loading ? (
-                                    <Loader />
-                                ) : (
-                                    <div className="scrollbar-container flex flex-wrap h-[600px] overflow-y-auto gap-2">
-                                        {response.map((item, index) => (
-                                            <div key={index}
-                                                className={`
-                                                flex justify-around w-[450px] rounded gap-y-10 
-                                                ${darkMode ? 'bg-[#d8aef6]' : 'bg-[#F6E7AE] '}
-                                            `}>
-                                                <img
-                                                    src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
-                                                    alt={`Cover Image ${index + 1}`}
-                                                    className="cursor-pointer max-w-[150px] h-[200px]"
-                                                />
-                                                <div className='p-[10px]'>
-                                                    <h1><b>Title:</b> {item.title}</h1>
-                                                    <h1><b>Years:</b> {item.first_publish_year}</h1>
-                                                    <h1><b>Author:</b> {item.author_name}</h1>
-                                                    <Badge className='bg-black text-white'>{item.language}</Badge>
+                        <div className='flex items-center'>
+                            {loading ? (
+                                <Loader />
+                            ) : (
+                                <div className="flex flex-wrap h-[520px] overflow-y-auto justify-center gap-5">
+                                    {response.map((item, index) => (
+                                        <div key={index}
+                                            className={`
+                                flex-col w-[200px] h-[320px] rounded-lg align-middle overflow-hidden
+                                ${darkMode ? 'bg-[#d8aef6]' : 'bg-[#F7F7F7] '}
+                        `}>
+                                            <img
+                                                src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
+                                                alt={`Cover Image ${index + 1}`}
+                                                className="cursor-pointer w-[150px] h-[220px] mx-[23px] my-[15px]"
+                                            />
 
-                                                    <div>
-                                                        <Cover_btn book={item} />
-                                                    </div>
+                                            <div>
+                                                <div className='text-[16px] text-center'>
+                                                    <span>{item.title}</span>
+                                                </div>
+
+                                                <div>
+                                                    {/* <Cover_btn book={item}/> */}
                                                 </div>
                                             </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </ResizablePanel>
             </ResizablePanelGroup>
-
 
             <Footer />
         </div>
