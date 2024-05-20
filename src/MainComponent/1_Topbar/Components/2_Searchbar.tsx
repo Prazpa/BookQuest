@@ -42,8 +42,8 @@ const Searchbar = () => {
             xr:w-[150px] xr:text-[14px]
             sm:w-[155px]
             md:w-[250px]
-            lg:w-[400px] 
-            xl:w-[600px]
+            lg:w-[350px] 
+            xl:w-[450px]
             2xl:w-[800px]
           `}
           type="text"

@@ -14,7 +14,7 @@ import { ColContext} from '@/AppType/ColType';
 import { SelectedContext } from '@/AppType/SelectedType';
 import { UserContext } from '@/AppType/UserType';
 import { useContext } from 'react';
-import { Book } from '@/Page/2_Detailpage/Contentpage/RightPanel/BookType';
+import { Book } from '@/Page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
 
 
 function Cart() {
@@ -60,7 +60,7 @@ function Cart() {
                   <li key={index}>
                     <div className='flex justify-between'>
                       <img
-                        src={`https://covers.openlibrary.org/b/id/${book.cover_i}}-M.jpg`}
+                        src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
                         alt={`Cover Image ${index + 1}`}
                         className="m-1 cursor-pointer w-[150px] h-[200px]"
                       />

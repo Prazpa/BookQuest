@@ -5,11 +5,6 @@ import LeftPanel from "../2_Detailpage/Contentpage/LeftPanel/LeftPanel";
 import CatagoriesCover from "./CatagoriesCover/CatagoriesCover";
 
 //import shadcn/ui component
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
 import { Link } from "react-router-dom";
 
 //import for useContext
@@ -25,20 +20,17 @@ function Catagoriespage() {
       {/* Topbar section*/}
       <Topbar />
 
-      <ResizablePanelGroup direction="horizontal">
+      <div>
         {/* Leftpanel */}
-        <ResizablePanel
-          defaultSize={20}
-          className={`flex border-r-4 overflow-x-hidden lg-w-[500px]
-                    ${darkMode ? 'border-[#FF5A67]' : 'border-[#14B8A9]'}
-                `}
+        <div className={`flex border-r-4 overflow-x-hidden lg-w-[500px]
+            ${darkMode ? 'border-[#FF5A67]' : 'border-[#14B8A9]'}
+        `}
         >
           <LeftPanel />
-        </ResizablePanel>
-        <ResizableHandle />
-
+        </div>
+        
         {/* Rightpanel */}
-        <ResizablePanel defaultSize={80} >
+        <div>
           <div className="px-[20px] gap-[10px]">
             {/* Headline */}
             <div className="flex justify-between w-full">
@@ -59,8 +51,8 @@ function Catagoriespage() {
               <CatagoriesCover />
             </div>
           </div>
-        </ResizablePanel>
-      </ResizablePanelGroup>
+        </div>
+      </div>
 
       <Footer />
     </div>

@@ -27,11 +27,13 @@ const Topbar = () => {
       <Logoname />
       <Searchbar />
       <Switch_Btn />
+      
       <div className='flex gap-2'>
         <Account />
-        <Avartar/>
-        <Cart/>
+        <Avartar/>  
       </div>
+      
+      <Cart/>
     </div>
   );
 };

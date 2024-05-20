@@ -1,12 +1,11 @@
 //Detail component
 import Topbar from '@/MainComponent/1_Topbar/Topbar'
 import Footer from '@/MainComponent/3_Footer/Footer'
-import Trending_btn from '../Trending_btn';
+import Trending_btn from '../Trending/Trending_btn';
 import Loader from '@/MainComponent/2_Loader/Loader';
 import LeftPanel from '../../LeftPanel/LeftPanel';
-import Cover_btn from '@/MainComponent/4_BookCover/Cover_btn';
 import { BASE_URL } from '@/FetchData/BaseURL';
-import { Book } from '../BookType'
+import { Book } from '../Trending/BookType'
 
 //import shadcn/ui component
 import {
@@ -14,7 +13,6 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { Badge } from '@/components/ui/badge';
 
 //import for fetching
 import { useContext, useEffect, useState } from 'react';

@@ -28,8 +28,8 @@ function Homepage() {
         <div className="h-auto bg-[url('src/assets/bg_img1.png')]">
           <Banner />
           <div className="flex justify-center h-[200px]">
-            <Button variant="link" className={`w-64 h-16 bg-[#042F2B]  rounded-full my-[20px] ${darkMode ? 'invert' : ''}`}>
-              <Link to={'/detailpage/'} className='text-[20px] text-white'>Get Started</Link>
+            <Button variant="link" className={`w-64 h-16 rounded-full my-[20px] ${darkMode ? 'bg-[#FBD0D4] text-black hover:bg-[rgb(255,90,103)]' : 'bg-[#042F2B] text-white hover:bg-[#14b8a9]'}`}>
+              <Link to={'/detailpage/'} className='text-[20px]'>Get Started</Link>
             </Button>
           </div>
         </div>

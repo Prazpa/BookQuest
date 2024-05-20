@@ -68,7 +68,7 @@ function App() {
             <ColContext.Provider value={{ darkMode, setDarkMode }}>
                 <ContentContext.Provider value={{ data, setData, catagoriesValue, setCatagoriesValue, value, setValue }}>
                     <UserContext.Provider value={{ username, setUsername, imageUrl, setImageUrl }}>
-                        <SelectedContext.Provider value={{ pick, setPick, keyBook, setKeyBook }}>
+                        <SelectedContext.Provider value={{ pick, setPick, keyBook, setKeyBook}}>
                             <RouterProvider router={router} />
                         </SelectedContext.Provider>
                     </UserContext.Provider>

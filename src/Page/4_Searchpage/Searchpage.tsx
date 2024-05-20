@@ -22,20 +22,15 @@ function Searchpage() {
     <div className={`${darkMode ? 'bg-black' : ''}`}>
       <Topbar />
       <div>
-        <ResizablePanelGroup direction="horizontal">
-          <ResizablePanel
-            defaultSize={20}
-            className={`flex border-r-4 overflow-x-hidden lg-w-[500px]
-                    ${darkMode ? 'border-[#FF5A67]' : 'border-[#14B8A9]'}
-                `}
-          >
+          <div
+            className={`flex border-r-4 overflow-x-hidden lg-w-[500px]`}>
             <LeftPanel />
-          </ResizablePanel>
-          <ResizableHandle />
-          <ResizablePanel defaultSize={80}>
+          </div>
+          
+          <div>
             <Cover />
-          </ResizablePanel>
-        </ResizablePanelGroup>
+          <div/>
+        </div>
       </div>
       <Footer />
     </div>

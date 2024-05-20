@@ -1,7 +1,7 @@
 import axios from "axios";
 import Loader from '@/MainComponent/2_Loader/Loader';
 import Cover_btn from '@/MainComponent/4_BookCover/Cover_btn';
-import { BASE_URL } from "../../../../FetchData/BaseURL";
+import { BASE_URL } from "../../../../../FetchData/BaseURL";
 import { Book } from './BookType';
 import { ColContext } from '@/AppType/ColType';
 import { SelectedContext } from "@/AppType/SelectedType";
@@ -57,9 +57,6 @@ const Trending = () => {
                                     <div>
                                         <div className='text-[16px] text-center'>
                                             <span>{item.title}</span>
-                                        </div>
-                                        <div>
-                                            
                                         </div>
                                     </div>
                                 </div>

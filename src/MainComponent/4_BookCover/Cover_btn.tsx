@@ -1,7 +1,7 @@
 //Component
 import { BASE_URL } from '@/FetchData/BaseURL';
 import axios from "axios";
-import { Book } from '../../Page/2_Detailpage/Contentpage/RightPanel/BookType';
+import { Book } from '../../Page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
 import { BookKeyType } from './BookKeyType';
 
 //useContext
@@ -15,6 +15,7 @@ import Loader from '../2_Loader/Loader';
 const Cover_btn = ({ book }: { book: Book }) => {
     //useContext
     const { pick, setPick } = useContext(SelectedContext);
+    
 
     //state
     const [responseData, setResponseData] = useState<BookKeyType[]>([]);
@@ -64,9 +65,9 @@ const Cover_btn = ({ book }: { book: Book }) => {
 
                         <div>
                             {item.description ? (
-                                <h1><b>Description:</b> {item.description.value}</h1>
+                                <h1><b>Description:</b>{item.description.value}</h1>
                             ) : (
-                                <h1><b>Description:</b> -</h1>
+                                <h1><b>Description:</b>-</h1>
                             )}
 
                             {/* <h1><b>Subject:</b>{item.subjects.join(", ")}</h1> */}

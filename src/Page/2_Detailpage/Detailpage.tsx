@@ -1,6 +1,5 @@
 //import Detail Component
 import Topbar from '@/MainComponent/1_Topbar/Topbar';
-import Contentpage from './Contentpage/Contentpage';
 import Footer from '../../MainComponent/3_Footer/Footer';
 
 //import useContext for sent value
@@ -8,6 +7,8 @@ import { useContext} from 'react';
 
 //import for Darkmode
 import { ColContext } from '@/AppType/ColType';
+import LeftPanel from './Contentpage/LeftPanel/LeftPanel';
+import RightPanel from './Contentpage/RightPanel/RightPanel';
 
 function Detailpage() {
   //Receive value from app.tsx
@@ -17,7 +18,10 @@ function Detailpage() {
     <div className={`${darkMode ? 'bg-black': ''}`}>
         {/* Topbar section*/}
         <Topbar />
-        <Contentpage /> 
+        <div className='flex'>
+          <LeftPanel />
+          <RightPanel/>
+        </div> 
         <Footer />
     </div>
   )
