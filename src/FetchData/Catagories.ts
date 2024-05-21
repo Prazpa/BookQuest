@@ -79,7 +79,6 @@ export interface Language {
   value: string
 }
 
-//create object for Leftpanel
 const catagories : catagoriesListType = {
   "Arts": [
     { "title": "Architecture", "value": "architecture" },

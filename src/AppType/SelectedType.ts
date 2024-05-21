@@ -1,15 +1,14 @@
 import { createContext } from "react";
 
 interface SelectedType {
-    pick: any,
-    setPick: React.Dispatch<React.SetStateAction<any>>,
+    pick: object,
+    setPick: React.Dispatch<React.SetStateAction<object>>,
     keyBook: object,
-    setKeyBook: Function,
+    setKeyBook: React.Dispatch<React.SetStateAction<object>>,
 }
 
-//Default setting of pick and export to another file
 export const SelectedContext = createContext<SelectedType>({
-    pick: [],
+    pick: {},
     setPick: () => {},
     keyBook: [],
     setKeyBook: () => {},

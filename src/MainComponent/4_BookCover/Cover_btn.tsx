@@ -40,10 +40,9 @@ const Cover_btn = ({ book }: { book: Book }) => {
         fetchDetailData();
     }, [])
 
-    const handlePick = (item: any) => {
-        if (!pick.includes(item)) {
+    const handlePick = (item: object) => {
+        if (Array.isArray(pick) && !pick.includes(item)) {
             setPick([...pick, item]);
-            console.log(item.title);
         }
     };
 

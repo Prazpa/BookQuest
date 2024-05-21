@@ -1,67 +1,27 @@
-//import state 
-import { useContext, useEffect, useCallback, useState } from "react";
-
-//import for Darkmode and Catagories
+import { useContext } from "react";
 import { ColContext } from '@/AppType/ColType';
 import { ContentContext } from "@/AppType/ContentType";
-
-//import fetch component
 import categories from "../../../../FetchData/Catagories"; 
-import fetchCategory from "../../../../FetchData/Fetchcatagory";
-
-//import shadcn/ui component
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
-//import Router
 import { Link, useNavigate} from "react-router-dom";
 
 const LeftPanel = () => {
-    //set router for go to next page
     const router = useNavigate();
     
-    //set state for useContext to send another file
-    const { setCatagoriesValue } = useContext(ContentContext);
-
-    //Receive value from app.tsx
     const { darkMode } = useContext(ColContext);
+    const { setCatagoriesValue } = useContext(ContentContext);
     
-    //set state for tell that selected  
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-    
-    //track what i selected and go to next page
+;    
     const onSelectChange = async (value: string) => {
-        console.log("You choose", value);
-        
-        //set state first and navigate after
-        await setSelectedCategory(value);
+        console.log("You choose", value);    
+        setCatagoriesValue(value);
         router(`/Catagoriespage/${value}`);
     };
-
-    //fetchdata
-    const handleCategoryChange = useCallback(async (value: string) => {
-        try {
-            //receive value that i clicked and fetch 
-            const dataCatagory = await fetchCategory(value);
-            setCatagoriesValue(dataCatagory);
-            console.log("Categories fetched", dataCatagory);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-    }, [setCatagoriesValue]);
-
-    //check if i choose in <Select> tag 
-    useEffect(() => {
-        if (selectedCategory !== null) {
-            handleCategoryChange(selectedCategory)
-        }
-    }, [selectedCategory, handleCategoryChange]);
 
     return (
         <div className="mx-[15px] h-auto pb-10">
             <div>
-                {/*Bring Object from Categories.ts for map*/}
                 {Object.entries(categories).map(([category, items]) => (
-                    //put them to each catagories
                     <Select key={category} onValueChange={onSelectChange}>
                         <SelectTrigger className={`
                             w-[230px] rounded text-[14px] 
@@ -70,7 +30,6 @@ const LeftPanel = () => {
                             <SelectValue placeholder={category} />
                         </SelectTrigger>
                         
-                        {/* each catagories have subcatagories map again*/}
                         <SelectContent className={`rounded
                             ${darkMode ? 'bg-[#AE0614] text-white': 'bg-[white] text-black'}
                         `}>

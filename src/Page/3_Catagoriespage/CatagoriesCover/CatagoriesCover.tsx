@@ -1,49 +1,68 @@
-//import useContext
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import fetchCategory from "@/FetchData/Fetchcatagory";
 import { ContentContext } from "@/AppType/ContentType";
-
-//import shadcn/ui component
-import Cover_btn from "@/MainComponent/4_BookCover/Cover_btn";
-
-//import for useContext
 import { ColContext } from '@/AppType/ColType';
-
+import { Link } from "react-router-dom";
+import { Catagoriestype } from "./Catagoriestype";
+import Loader from "@/MainComponent/2_Loader/Loader";
 
 function CatagoriesCover() {
-    //Receive value from app.tsx
+
     const { darkMode } = useContext(ColContext);
-
-    //recieve value from Leftpanel
     const { catagoriesValue } = useContext(ContentContext);
+    const [saveData, setSavedata] = useState([])
+    const [loading, setLoading] = useState<boolean>(true);
 
-    // Check if data is available
-    if (!catagoriesValue || !Array.isArray(catagoriesValue) || catagoriesValue.length === 0) {
+    useEffect(() => {
+        const handleCategoryChange = async () => {
+            try {
+                const dataCatagory = await fetchCategory(catagoriesValue);
+                console.log("Categories fetched", dataCatagory);
+                setSavedata(dataCatagory)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        handleCategoryChange();
+    }, [])
+
+
+    if (!catagoriesValue || catagoriesValue.length === 0) {
         return <div>No data available. Please click agian</div>;
     }
 
     return (
-        <div className="scrollbar-container flex flex-wrap h-[600px] overflow-y-auto gap-2">
-            {catagoriesValue.map((item: any, index: any) => (
-                <div key={index}
-                    className={`
-                        flex justify-around w-[450px] rounded gap-y-10 
-                        ${darkMode ? 'bg-[#d8aef6]' : 'bg-[#F6E7AE] '}
-                    `}>
-                    <img
-                        src={`https://covers.openlibrary.org/b/id/${item.cover_id}-M.jpg`}
-                        alt={`Cover Image ${index + 1}`}
-                        className="m-1 cursor-pointer w-[150px] h-[200px]"
-                    />
-                    <div className='p-[10px]'>
-                        <h1><b>Title:</b> {item.title}</h1>
-                        <h1><b>Years:</b> {item.first_publish_year}</h1>
+        <div className="h-[600px] w-[1030px] overflow-y-scroll">
 
+            <div className="flex justify-between">
+                <h1>Catagories : {catagoriesValue}</h1>
 
-                        <Cover_btn book={item} />
+                <h1><Link to={`/detailpage/`}>Back</Link></h1>
+            </div>
 
-                    </div>
-                </div>
-            ))}
+            <div className="flex flex-wrap">
+                {loading ? (
+                    <Loader />
+                ) : (
+                    saveData.map((item: Catagoriestype, index: number) => (
+                        <div key={index} className={`flex-col w-[200px] h-[320px] rounded-lg align-middle overflow-hidden ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}`}>
+                            <img
+                                src={`https://covers.openlibrary.org/b/id/${item.cover_id}-M.jpg`}
+                                alt={`Cover Image ${index + 1}`}
+                                className="cursor-pointer w-[150px] h-[220px] mx-[23px] my-[15px]"
+                            />
+                            <div>
+                                <div className='text-[16px] text-center'>
+                                    <span>{item.title}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                )}
+            </div>
+
         </div>
     );
 }

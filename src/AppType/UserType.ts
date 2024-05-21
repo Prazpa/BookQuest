@@ -7,7 +7,6 @@ interface UserType {
     setImageUrl: React.Dispatch<React.SetStateAction<string>>,
 }
 
-//Default setting of name and export to another file
 export const UserContext = createContext<UserType>({
     username: '',
     setUsername: () => {},
