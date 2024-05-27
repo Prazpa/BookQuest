@@ -41,30 +41,23 @@ const Trending = () => {
             {loading ? (
                 <Loader />
             ) : (
-                <div className="flex flex-wrap h-[520px] overflow-y-auto justify-center gap-5">
+                <div className="flex flex-wrap gap-3 w-[1000px]">
                     {response.map((item, index) => (
                         <Dialog key={index}>
                             <DialogTrigger>
-                                <div className={`
-                                    flex-col w-[200px] h-[320px] rounded-lg align-middle overflow-hidden
-                                    ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}
-                                `}>
+                                <div className={`w-[150px] h-[220px] rounded align-middle overflow-hidden ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}`}>
                                     <img
                                         src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
                                         alt={`Cover Image ${index + 1}`}
-                                        className="cursor-pointer w-[150px] h-[220px] mx-[23px] my-[15px]"
+                                        className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
                                     />
-                                    <div>
-                                        <div className='text-[16px] text-center'>
-                                            <span>{item.title}</span>
-                                        </div>
+                                    <div className='text-[12px] text-center'>
+                                        <span className="font-semibold">{item.title}</span>
                                     </div>
                                 </div>
                             </DialogTrigger>
                             <DialogContent className="bg-white max-w-[1000px] h-[550px] overflow-y-scroll">
-                                <div>
-                                    <Cover_btn book={item}/> 
-                                </div>
+                                <Cover_btn book={item}/> 
                             </DialogContent>
                         </Dialog>
                     ))}

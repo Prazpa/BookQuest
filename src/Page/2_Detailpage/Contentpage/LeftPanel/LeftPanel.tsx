@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { ColContext } from '@/AppType/ColType';
 import { ContentContext } from "@/AppType/ContentType";
-import categories from "../../../../FetchData/Catagories"; 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import categories, { Art, Animal, Fiction, Mathematic, BusinessAndFinance, GeneratedType, History, Wellness, Biography, Science, Place, Textbook, Language } from "../../../../FetchData/Catagories"; 
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { Link, useNavigate} from "react-router-dom";
 
 const LeftPanel = () => {
@@ -11,7 +11,6 @@ const LeftPanel = () => {
     const { darkMode } = useContext(ColContext);
     const { setCatagoriesValue } = useContext(ContentContext);
     
-;    
     const onSelectChange = async (value: string) => {
         console.log("You choose", value);    
         setCatagoriesValue(value);
@@ -19,28 +18,20 @@ const LeftPanel = () => {
     };
 
     return (
-        <div className="mx-[15px] h-auto pb-10">
+        <div className="mx-[35px] h-auto">
             <div>
+                <span className="text-[14px] font-semibold">Department</span>
                 {Object.entries(categories).map(([category, items]) => (
                     <Select key={category} onValueChange={onSelectChange}>
-                        <SelectTrigger className={`
-                            w-[230px] rounded text-[14px] 
-                            ${darkMode ? 'bg-[#AE0614] border-black hover:bg-[#d8aef6] hover:text-black text-white': 'hover:bg-[#F6E7AE]'}
-                        `}>
-                            <SelectValue placeholder={category} />
+                        <SelectTrigger className={`w-[180px] rounded-full text-[12px] ${darkMode ? 'bg-[#AE0614] border-black hover:bg-[#d8aef6] hover:text-black text-white': 'hover:bg-[#F6E7AE]'}`}>
+                            <a>{category}</a>
                         </SelectTrigger>
                         
-                        <SelectContent className={`rounded
-                            ${darkMode ? 'bg-[#AE0614] text-white': 'bg-[white] text-black'}
-                        `}>
-                            
+                        <SelectContent className={`${darkMode ? 'bg-[#AE0614] text-white': 'bg-[white] text-black'}`}>
                             <SelectGroup>
-                                {items.map((item: any) => (
+                                {items.map((item: Art | Animal | Fiction | Mathematic | BusinessAndFinance | GeneratedType | History | Wellness | Biography | Science | Place | Textbook | Language) => (
                                     <SelectItem key={item.value} value={item.value}>
-                                        <Link 
-                                            to={`Catagoriespage/${item.title}`}
-                                            className={`text-[14px]  ${darkMode ? 'bg-[#AE0614] hover:bg-[#FF5A67] text-white': 'hover:bg-[#F6E7AE]'}`}
-                                        >
+                                        <Link to={`Catagoriespage/${item.title}`} className={`text-[14px] ${darkMode ? 'bg-[#AE0614] hover:bg-[#FF5A67] text-white': 'hover:bg-[#F6E7AE]'}`}>
                                             {item.title}
                                         </Link>
                                     </SelectItem>

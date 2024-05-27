@@ -8,9 +8,9 @@ import { useContext } from 'react';
 function Searchpage() {
   const { darkMode } = useContext(ColContext);
   return (
-    <div className={`${darkMode ? 'bg-black' : ''}`}>
+    <div className={`${darkMode ? 'bg-black' : 'bg-white'}`}>
       <Topbar />
-      <div>          
+      <div className="flex">          
         <LeftPanel />
         <Cover />
       </div>

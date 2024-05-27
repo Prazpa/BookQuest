@@ -1,51 +1,28 @@
-//React 
 import React from 'react';
-
-//import shadcn/ui component
 import { Input } from '@/components/ui/input';
-
-//import for Darkmode
 import { ColContext} from "@/AppType/ColType";
 import { ContentContext } from "@/AppType/ContentType";
 import { useContext } from "react";
-
-//import for Router
 import { Link } from 'react-router-dom';
 
 const Searchbar = () => {
-  //Receive value from app.tsx
   const { darkMode } = useContext(ColContext);
-
-  //set state for input to check result of typing
   const { data, setData } = useContext(ContentContext);
-
-  //see result after click at serach-btn
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData(e.target.value);
   };
-
-  //sent data
+  
   const handleSubmit = async () => {
     return data
   };
 
   return (
-    <div>
+    <div className='my-[10px]'>
       <form className='flex items-center'>
         <Input
           id="searchInput" 
-          className={`
-            h-[50px]
-            border-2 border-zinc-300 rounded-[30px]
-            text-normal text-[16px]
-            xs:w-[130px] xs:text-[12px]
-            xr:w-[150px] xr:text-[14px]
-            sm:w-[155px]
-            md:w-[250px]
-            lg:w-[350px] 
-            xl:w-[450px]
-            2xl:w-[800px]
-          `}
+          className={`h-[50px] w-[450px] border-2 border-zinc-300 rounded-[30px] text-[14px]`}
           type="text"
           placeholder="Search BookQuest"
           value={data}

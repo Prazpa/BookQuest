@@ -1,19 +1,17 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
-
+import { useContext } from 'react';
+import { ColContext } from '@/AppType/ColType';
+import { BASE_URL } from '@/FetchData/BaseURL';
 
 function Shared_btn() {
-    
-    
-    const handleViewClick = () => {
-        fetchDetailData()
-    }
+
+    const { darkMode } = useContext(ColContext);
 
     return (
         <div>
             <Dialog>
                 <DialogTrigger
-                    className="bg-[white] rounded-full h-[50px] w-[80px] font-medium hover:bg-accent hover:text-accent-foreground"
-                    onClick={handleViewClick}
+                    className={`rounded-full text-[14px] ${darkMode ? 'bg-[#940D18] text-white hover:bg-[#d8aef6] hover:text-black' : 'bg-[#0D9488] text-white hover:bg-[#F6E7AE] hover:text-black'}`}
                 >
                     <span className='text-[16px]'>Shared</span>
                 </DialogTrigger>
@@ -21,12 +19,7 @@ function Shared_btn() {
                     <DialogHeader>
                         <DialogTitle>Shared</DialogTitle>
                         <DialogDescription>
-                            {loading && <div>Loading...</div>}
-                            {!loading && responseData.map((item, index) => (
-                                <div key={index}>
-                                    <a href={`${BASE_URL}${item.key}`} target="blank">{BASE_URL}{item.key}</a>
-                                </div>
-                            ))}
+                            <a href={`${BASE_URL}${book.key}`} target="blank">shared</a>
                         </DialogDescription>
                     </DialogHeader>
                 </DialogContent>

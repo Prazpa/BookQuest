@@ -1,38 +1,33 @@
-//Component
 import { BASE_URL } from '@/FetchData/BaseURL';
 import axios from "axios";
 import { Book } from '../../Page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
 import { BookKeyType } from './BookKeyType';
-
-//useContext
 import { useState, useContext, useEffect } from 'react';
 import { SelectedContext } from "@/AppType/SelectedType";
-
-//shadcn/ui component
 import { Button } from "@/components/ui/button";
 import Loader from '../2_Loader/Loader';
+import { ColContext } from '@/AppType/ColType';
+import Shared_btn from './Shared_btn';
 
 const Cover_btn = ({ book }: { book: Book }) => {
-    //useContext
+    const { darkMode } = useContext(ColContext);
     const { pick, setPick } = useContext(SelectedContext);
-    
-
-    //state
     const [responseData, setResponseData] = useState<BookKeyType[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
+    const [picked, setPicked] = useState(false);
+
     const fetchDetailData = async () => {
-        setLoading(true); // Set loading to true while fetching data
+        setLoading(true);
         try {
             const url = `${BASE_URL}${book.key}.json`;
             const response = await axios.get(url);
             const item = response.data;
-            // console.log(item);
             setResponseData([item]);
         } catch (error) {
             console.error('Error fetching data:', error);
         } finally {
-            setLoading(false); // Set loading to false after fetching data
+            setLoading(false);
         }
     };
 
@@ -40,9 +35,10 @@ const Cover_btn = ({ book }: { book: Book }) => {
         fetchDetailData();
     }, [])
 
-    const handlePick = (item: object) => {
-        if (Array.isArray(pick) && !pick.includes(item)) {
-            setPick([...pick, item]);
+    const handlePick = () => {
+        if (Array.isArray(pick) && !pick.includes(book)) {
+            setPick([...pick, book]);
+            setPicked(true); // ตั้งค่าเป็น true เมื่อคลิกปุ่ม
         }
     };
 
@@ -54,27 +50,30 @@ const Cover_btn = ({ book }: { book: Book }) => {
                     <img
                         src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
                         alt={`Cover Image ${index + 1}`}
-                        className="cursor-pointer w-[250px] h-[400px]"
-                        
+                        className="cursor-pointer w-[250px] h-[350px]"
                     />
-                    <div className='px-[20px] w-[650px] text-[16px]'>
+                    <div className='px-[20px] w-[650px] text-[14px]'>
                         <h1><b>Title:</b> {book.title}</h1>
                         <h1><b>Years:</b> {book.first_publish_year}</h1>
                         <h1><b>Author:</b> {book.author_name}</h1>
 
                         <div>
                             {item.description ? (
-                                <h1><b>Description:</b>{item.description.value}</h1>
+                                <h1><b>Description:</b> {item.description.value}</h1>
                             ) : (
                                 <h1><b>Description:</b>-</h1>
                             )}
 
-                            {/* <h1><b>Subject:</b>{item.subjects.join(", ")}</h1> */}
-                        </div>  
+                        </div>
 
-                        <Button className="bg-[white]  rounded-full text-[16px] text-normal" onClick={() => handlePick(book)}>Pick</Button>
+                        <Button
+                            className={`rounded-full text-[14px] ${darkMode ? 'bg-[#940D18] text-white hover:bg-[#d8aef6] hover:text-black' : 'bg-[#0D9488] text-white hover:bg-[#F6E7AE] hover:text-black'}`}
+                            onClick={handlePick}
+                        >
+                            {picked ? "Picked" : "Pick"}
+                        </Button>
                         
-                        {/* shared-btn */}
+                        <Shared_btn/>
                     </div>
                 </div>
             ))}

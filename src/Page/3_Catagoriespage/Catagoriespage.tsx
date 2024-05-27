@@ -7,8 +7,8 @@ function Catagoriespage() {
   return (
     <div>
       <Topbar />
-      <div className="flex">
-        <LeftPanel />
+      <div className="flex py-2">
+        <LeftPanel/>
         <CatagoriesCover />
       </div>
       <Footer />
