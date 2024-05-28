@@ -80,7 +80,7 @@ function Cart() {
             </div>
 
             <div>
-              <Button className='bg-black text-white rounded' onClick={handleClear}>Clear all</Button>
+              <Button className='bg-[#940D18] hover:bg-[#FF5A67] text-white rounded' onClick={handleClear}>Clear all</Button>
             </div>
           </DialogDescription>
         </DialogHeader>

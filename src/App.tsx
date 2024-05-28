@@ -9,6 +9,7 @@ import { ColContext } from '@/AppType/ColType';
 import { ContentContext } from './AppType/ContentType';
 import { SelectedContext } from '@/AppType/SelectedType'
 import { UserContext } from '@/AppType/UserType'
+import Sign_Up from './Page/5_Signuppage/Sign_Up';
 
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
         {
             path: "/",
             element: <HomePage />,
+        },
+        
+        {
+            path: "/Login",
+            element: <Sign_Up />,
         },
 
         {

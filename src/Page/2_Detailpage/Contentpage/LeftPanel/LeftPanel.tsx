@@ -20,7 +20,7 @@ const LeftPanel = () => {
     return (
         <div className="mx-[35px] h-auto">
             <div>
-                <span className="text-[14px] font-semibold">Department</span>
+                <span className={`text-[14px] font-semibold ${darkMode ? 'text-white' :'text-black'}`}>Department</span>
                 {Object.entries(categories).map(([category, items]) => (
                     <Select key={category} onValueChange={onSelectChange}>
                         <SelectTrigger className={`w-[180px] rounded-full text-[12px] ${darkMode ? 'bg-[#AE0614] border-black hover:bg-[#d8aef6] hover:text-black text-white': 'hover:bg-[#F6E7AE]'}`}>

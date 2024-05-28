@@ -14,11 +14,11 @@ const Carousel1 = () => {
       />
 
       <div>
-        <span className={`font-bold font-['Overpass'] text-2xl ${darkMode ? 'text-[#F26B77]' : 'text-teal-600 '}`}>
+        <span className={`font-bold text-[24px] ${darkMode ? 'text-[#F26B77]' : 'text-teal-600 '}`}>
           BookQuest
         </span>
         <br />
-        <span className={`text-black  font-['Overpass'] text-xl`}>
+        <span className={`text-black text-[22px]`}>
           Platform for everyone who loves to read.<br/> Find a library of books and authors.
         </span>
       </div> 

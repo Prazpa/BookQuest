@@ -38,7 +38,7 @@ const Cover_btn = ({ book }: { book: Book }) => {
     const handlePick = () => {
         if (Array.isArray(pick) && !pick.includes(book)) {
             setPick([...pick, book]);
-            setPicked(true); // ตั้งค่าเป็น true เมื่อคลิกปุ่ม
+            setPicked(true); 
         }
     };
 
@@ -59,21 +59,24 @@ const Cover_btn = ({ book }: { book: Book }) => {
 
                         <div>
                             {item.description ? (
-                                <h1><b>Description:</b> {item.description.value}</h1>
+                                <h1><b>Description:</b>{item.description.value}</h1>
                             ) : (
-                                <h1><b>Description:</b>-</h1>
+                                <h1><b>Description:</b>{item.description}</h1>
                             )}
 
                         </div>
-
-                        <Button
-                            className={`rounded-full text-[14px] ${darkMode ? 'bg-[#940D18] text-white hover:bg-[#d8aef6] hover:text-black' : 'bg-[#0D9488] text-white hover:bg-[#F6E7AE] hover:text-black'}`}
-                            onClick={handlePick}
-                        >
-                            {picked ? "Picked" : "Pick"}
-                        </Button>
                         
-                        <Shared_btn/>
+                        <div className='flex'>
+                            <Button
+                                className={`rounded-full text-[14px] ${darkMode ? 'bg-[#940D18] text-white hover:bg-[#d8aef6] hover:text-black' : 'bg-[#0D9488] text-white hover:bg-[#F6E7AE] hover:text-black'}`}
+                                onClick={handlePick}
+                            >
+                                {picked ? "Picked" : "Pick"}
+                            </Button>
+
+                            <Shared_btn book={book} />
+                        </div>
+                        
                     </div>
                 </div>
             ))}

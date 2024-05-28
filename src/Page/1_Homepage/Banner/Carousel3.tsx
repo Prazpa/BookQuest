@@ -11,11 +11,11 @@ const Carousel3 = () => {
                 className={`w-[350px] h-[400px]`}
             />
             <div>
-                <span className={`font-bold font-['Overpass'] text-2xl ${darkMode ? 'text-[#F26B77]' : 'text-teal-600'}`}>
+                <span className={`font-bold text-[24px] ${darkMode ? 'text-[#F26B77]' : 'text-teal-600'}`}>
                     Discover
                 </span>
 
-                <p className="font-['Overpass'] text-xl">
+                <p className="text-black text-[22px]">
                     Discover Your Next Favorite Read: Dive into our Selection of Highly Recommended Books!
                 </p>
             </div>
