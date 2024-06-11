@@ -13,10 +13,16 @@ Happy Clonning!!
 Preview
 
 
-
+[Homepage]
 <img width="800" alt="Screenshot 2024-06-10 110835" src="https://github.com/Prazpa/BookQuest/assets/150646070/dae6b644-2162-49ba-a687-d624aaa141b9">
 
-![Uploading Screenshot 2024-06-11 154737.png…]()
+[Detailpage]
+<img width="800" alt="Screenshot 2024-06-11 154737" src="https://github.com/Prazpa/BookQuest/assets/150646070/d5f82f42-c36e-47bc-a47d-83834b9aec18">
+
+[BookDetail]
+<img width="956" alt="Screenshot 2024-06-11 155107" src="https://github.com/Prazpa/BookQuest/assets/150646070/857f3c9e-7022-4b58-9d8f-10f25fd9f29f">
+
+
 
 
 
