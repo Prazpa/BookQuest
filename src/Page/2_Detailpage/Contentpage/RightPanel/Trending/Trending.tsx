@@ -52,7 +52,7 @@ const Trending = () => {
                                         className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
                                     />
                                     <div className='text-[12px] text-center'>
-                                        <span className="font-semibold">{item.title}</span>
+                                        <span className={`font-semibold ${darkMode ? 'text-white' : 'text-black '}`}>{item.title}</span>
                                     </div>
                                 </div>
                             </DialogTrigger>

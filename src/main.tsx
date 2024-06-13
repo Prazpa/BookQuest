@@ -4,30 +4,40 @@ import './index.css'
 import App from './App'
 import { HASURA_ADMIN_SECRET } from "../header";
 
-
+// Initialize Apollo Client
 const client = new ApolloClient({
-  uri: 'https://bookquest.hasura.app/v1/graphql/',
+  uri: 'https://improved-mastodon-33.hasura.app/v1/graphql',
   cache: new InMemoryCache(),
   headers: {
     'x-hasura-admin-secret': HASURA_ADMIN_SECRET
   }
 });
 
+// Sample query to fetch LogInData
 client
   .query({
     query: gql`
-      query MyQuery {
-        user {
-          username
+      query GetAllLogInData {
+        LogInData {
+          user
           password
         }
       }
     `,
   })
-  .then((result) => {
-    console.log(result); 
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+    if (error.networkError) {
+      console.error("Network Error:", error.networkError);
+    }
+    if (error.graphQLErrors) {
+      error.graphQLErrors.forEach(({ message, locations, path }:any) =>
+        console.error(`GraphQL Error: Message: ${message}, Location: ${locations}, Path: ${path}`)
+      );
+    }
   });
 
+// Render the React application
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ApolloProvider client={client}>
     <App />

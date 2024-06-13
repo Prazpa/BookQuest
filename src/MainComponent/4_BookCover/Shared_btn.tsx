@@ -2,10 +2,36 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { useContext } from 'react';
 import { ColContext } from '@/AppType/ColType';
 import { BASE_URL } from '@/FetchData/BaseURL';
-
+import { Button } from '@/components/ui/button';
 
 function Shared_btn({ book }: any) {
     const { darkMode } = useContext(ColContext);
+    const link = `${BASE_URL}${book.key}`;
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(link)
+            .then(() => {
+                alert("Link copied to clipboard!");
+            })
+            .catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+    };
+
+    const shareOnFacebook = () => {
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}`;
+        window.open(facebookUrl, "_blank", "width=600,height=400");
+    };
+
+    const shareOnTwitter = () => {
+        const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(link)}`;
+        window.open(twitterUrl, "_blank", "width=600,height=400");
+    };
+
+    const shareOnInstagram = () => {
+        const instagramUrl = `https://www.instagram.com/?url=${encodeURIComponent(link)}`;
+        window.open(instagramUrl, "_blank", "width=600,height=400");
+    };
     return (
         <div>
             <Dialog>
@@ -18,7 +44,11 @@ function Shared_btn({ book }: any) {
                     <DialogHeader>
                         <DialogTitle>Shared</DialogTitle>
                         <DialogDescription>
-                            <a href={`${BASE_URL}${book.key}`} target="blank">{BASE_URL}{book.key}</a>
+                            <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
+                            <Button onClick={handleCopy} className="ml-2 bg-blue-500 text-white rounded-full hover:bg-blue-700">Copy Link</Button>
+                            <Button onClick={shareOnFacebook} className="ml-2 bg-blue-500 text-white rounded-full hover:bg-blue-700">Share on Facebook</Button>
+                            <Button onClick={shareOnTwitter} className="ml-2 bg-blue-500 text-white rounded-full hover:bg-blue-700">Share on Twitter</Button>
+                            <Button onClick={shareOnInstagram} className="ml-2 bg-blue-500 text-white rounded-full hover:bg-blue-700">Share on Instagram</Button>
                         </DialogDescription>
                     </DialogHeader>
                 </DialogContent>
@@ -27,4 +57,4 @@ function Shared_btn({ book }: any) {
     )
 }
 
-export default Shared_btn
+export default Shared_btn;

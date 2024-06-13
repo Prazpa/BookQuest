@@ -1,9 +1,9 @@
 import { createContext } from "react";
 
 interface SelectedType {
-    pick: [],
+    pick: any,
     setPick: React.Dispatch<React.SetStateAction<any>>,
-    keyBook: [],
+    keyBook: any,
     setKeyBook: React.Dispatch<React.SetStateAction<any>>,
 }
 

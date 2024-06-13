@@ -14,7 +14,7 @@ function Homepage() {
       <div className={`${darkMode ? 'bg-black' : 'bg-white'} h-auto`}>
         <Topbar />
 
-        <div className="py-[16px] bg-[url('src/assets/bg_img1.png')] ">
+        <div className="py-[16px]">
           <Banner />
           <div className="flex justify-center h-[200px]">
             <Button variant="link" className={`w-48 h-14 rounded-full my-[10px] ${darkMode ? 'bg-[#FBD0D4] text-black hover:bg-[rgb(255,90,103)]' : 'bg-[#042F2B] text-white hover:bg-[#14b8a9]'}`}>

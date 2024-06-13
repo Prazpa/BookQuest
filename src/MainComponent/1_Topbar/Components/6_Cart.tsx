@@ -27,13 +27,10 @@ function Cart() {
     <Dialog>
       <DialogTrigger className='my-[20px]'>
         <div className="flex self-center">
-          <img src={`${logopath}`} alt={`bookmark_btn`} width={'20px'} height={'30px'} className={`bg-white`} />
-          <div className={`
-              text-sm absolute top-[15px] mx-[-9px] w-[20px]
-              rounded-full
-              ${darkMode ? 'hover:text-[#FF5A67] bg-white text-black' : 'text-white bg-black hover:text-[#2DD4C5]'}
-              `
-          }>{pick.length}</div>
+          <img src={logopath} alt="bookmark_btn" width={'20px'} height={'30px'} className={`bg-white`} />
+          <div className={`text-sm absolute top-[15px] mx-[-9px] w-[20px] rounded-full ${darkMode ? 'hover:text-[#FF5A67] bg-white text-black' : 'text-white bg-black hover:text-[#2DD4C5]'}`}>
+            {pick.length}
+          </div>
           <span className={`text-[14px] font-bold ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>Saved</span>
         </div>
       </DialogTrigger>

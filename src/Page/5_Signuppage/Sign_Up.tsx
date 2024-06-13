@@ -6,23 +6,25 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SIGNUP_USER = gql`
-    mutation InsertUser($password: String, $username: String) {
-        insert_user(objects: {password: $password, username: $username}) {
+    mutation InsertUser($password: String, $user: String) {
+        insert_LogInData(objects: {password: $password, user: $user}) {
             affected_rows
             returning {
                 password
-                username
+                user
             }
         }
     }
 `;
+
 function Sign_Up() {
     const { setUsername } = useContext(UserContext);
-    const [ signupUser ] = useMutation(SIGNUP_USER);
+    const [signupUser] = useMutation(SIGNUP_USER);
     const [formData, setFormData] = useState({
         username: "",
         password: ""
     });
+    const [message, setMessage] = useState("");
 
     const handleInputChange = (e: any) => {
         const { id, value } = e.target;
@@ -32,10 +34,8 @@ function Sign_Up() {
         }));
     };
 
-
     const handleSaveChanges = async () => {
         try {
-            // Check if username or password is empty
             if (!formData.username || !formData.password) {
                 alert("Please fill in both username and password fields.");
                 return;
@@ -43,22 +43,28 @@ function Sign_Up() {
 
             const { data } = await signupUser({
                 variables: {
-                    username: formData.username,
+                    user: formData.username, 
                     password: formData.password
                 }
             });
 
-            setUsername(formData.username);
+            if (data.insert_LogInData.affected_rows > 0) {
+                setUsername(formData.username);
+                setMessage("User registered successfully!");
+            } else {
+                setMessage("Failed to register user.");
+            }
+
             console.log(formData.username);
             console.log(formData.password);
-        }
-        catch (error) {
+        } catch (error) {
             console.error("Error verifying user:", error);
+            setMessage("Error registering user.");
         }
     };
 
     return (
-        <div className={`flex justify-center items-center h-screen bg-[url('src/assets/bg_img1.png')]`}>
+        <div className={`flex justify-center items-center h-screen `}>
             <div className="w-[425px] h-auto bg-[#ffffffbb] border-white border-2">
                 <div className='flex justify-between'>
                     <span className='text-[24px]'>Sign up</span>
@@ -87,14 +93,13 @@ function Sign_Up() {
                         />
                     </div>
                 </form>
+                {message && <p>{message}</p>}
                 <Button id="saveButton" type="submit" className="bg-[#0D9488] text-white rounded-full hover:bg-[#2DD4C5]" onClick={handleSaveChanges}>
-                    <Link to={'/'}>Continue</Link>
+                    Continue
                 </Button>
-
             </div>
-
         </div>
-    )
+    );
 }
 
-export default Sign_Up
+export default Sign_Up;
