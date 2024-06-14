@@ -3,15 +3,13 @@ import { useContext } from 'react';
 
 const Carousel1 = () => {
   const { darkMode } = useContext(ColContext);
-  const style = 'flex items-center justify-center gap-5 h-[400px] w-full'
+  const style = 'xs:flex xs:flex-col xs:justify-center xr:flex xr:flex-col xr:px-[10px] sm:flex-row items-center justify-center gap-5 h-[400px] w-full'
   return (
     <div className={style}>
       <img 
         src={`${darkMode ? 'src/assets/logo_2.jpg' : 'src/assets/logo_1.jpg'}`} 
         alt="logo"
-        width={150}
-        height={160}
-        className='rounded-[28px]'
+        className='sm:h-[160px] sm:w-[150px] xr:w-[130px] xs:h-[140px] sm:px-[10px] rounded-[28px]'
       />
 
       <div>

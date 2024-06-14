@@ -10,7 +10,7 @@ function Searchpage() {
   return (
     <div className={`${darkMode ? 'bg-black' : 'bg-white'}`}>
       <Topbar />
-      <div className="flex">          
+      <div className='xr:flex xr:flex-col sm:flex-row py-2 xr:mx-[10px] sm:px-[35px] md:px-[10px]'>          
         <LeftPanel />
         <Cover />
       </div>

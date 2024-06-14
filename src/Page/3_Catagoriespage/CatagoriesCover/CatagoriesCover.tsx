@@ -41,15 +41,15 @@ function CatagoriesCover() {
     }
 
     return (
-        <div>
-            <div className="flex justify-between">
+        <div className="xs:mx-[10px] xr:mx-[10px] sm:px-[20px] md:px-[20px] xl:px-[0px]">
+            <div className="flex justify-between w-full">
                 <h1 className={`text-[24px] font-bold ${darkMode ? 'text-white' : 'text-black '}`}>Catagories: {catagoriesValue}</h1>
-                <a className={`mx-[22px] text-[24px] font-bold ${darkMode ? 'text-white' : 'text-black '}`}>
+                <a className={`2xl:mx-[55px] xl:mx-[30px] lg:mx-[10px] md:mx-[10px] text-[24px] font-bold ${darkMode ? 'text-white' : 'text-black '}`}>
                     <Link to={`/detailpage/`}>Back</Link>
                 </a>
             </div>
 
-            <div className="flex flex-wrap gap-3 w-[1000px]">
+            <div className="flex flex-wrap gap-3 w-full xr:flex xr:justify-center">
                 {loading ? (
                     <Loader />
                 ) : (
@@ -63,7 +63,7 @@ function CatagoriesCover() {
                                         className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
                                     />
                                     <div className='text-[12px] text-center'>
-                                        <span className="font-semibold">{item.title}</span>
+                                        <span className={`font-semibold ${darkMode ? 'text-white' : 'text-black '}`}>{item.title}</span>
                                     </div>
                                 </div>
                             </DialogTrigger>

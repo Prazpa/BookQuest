@@ -10,16 +10,19 @@ import { useContext } from 'react';
 
 const Topbar = () => {
   const { darkMode } = useContext(ColContext);
+  const dmStyle = `${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`
   return (
-    <div className={`w-full flex justify-around ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <div className={`w-full xs:grid xs:grid-cols-2 xs:px-[10px] xr:grid xr:grid-cols-2 xr:px-[10px] sm:grid sm:grid-rows-2 sm:grid-flow-col sm:row-span-2 sm:justify-around md:flex md:px-[5px] md:gap-3 lg:justify-around ${dmStyle}`}>
       <Logoname />
       <Searchbar />
       <Switch_Btn />
+
       <div className='flex gap-2'>
         <Account />
-        <Avartar/>  
+        <Avartar />
       </div>
-      <Cart/>
+      
+      <Cart />
     </div>
   );
 };

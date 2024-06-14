@@ -1,11 +1,11 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from "@/components/ui/button"
-import { BASE_URL } from '@/FetchData/BaseURL';
 import { ColContext } from '@/AppType/ColType';
 import { SelectedContext } from '@/AppType/SelectedType';
 import { UserContext } from '@/AppType/UserType';
 import { useContext } from 'react';
 import { Book } from '@/Page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
+import Shared_btn from '@/MainComponent/4_BookCover/Shared_btn';
 
 
 function Cart() {
@@ -28,13 +28,13 @@ function Cart() {
       <DialogTrigger className='my-[20px]'>
         <div className="flex self-center">
           <img src={logopath} alt="bookmark_btn" width={'20px'} height={'30px'} className={`bg-white`} />
-          <div className={`text-sm absolute top-[15px] mx-[-9px] w-[20px] rounded-full ${darkMode ? 'hover:text-[#FF5A67] bg-white text-black' : 'text-white bg-black hover:text-[#2DD4C5]'}`}>
+          <div className={`xs:absolute xs:top-[125px] xr:absolute xr:top-[125px] sm:relative sm:top-[-10px] sm:left-[-20px] text-sm absolute top-[15px] mx-[-9px] w-[20px] rounded-full ${darkMode ? 'hover:text-[#FF5A67] bg-white text-black' : 'text-white bg-black hover:text-[#2DD4C5]'}`}>
             {pick.length}
           </div>
           <span className={`text-[14px] font-bold ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}>Saved</span>
         </div>
       </DialogTrigger>
-      <DialogContent className="w-[800px] max-h-[500px] bg-white overflow-y-scroll">
+      <DialogContent className="w-[800px] max-h-[500px] bg-white overflow-y-auto">
         <DialogHeader>
           <DialogTitle>{username} Lists</DialogTitle>
           <DialogDescription>
@@ -63,9 +63,10 @@ function Cart() {
                           >
                             Remove
                           </Button>
-                          <Button className={`rounded-full text-[14px] bg-[#0D9488] text-white hover:bg-[#F6E7AE] hover:text-black`}>
-                            <a href={`${BASE_URL}${book.key}`} target="blank">shared</a>
-                          </Button>
+                          
+                          
+                          <Shared_btn book={book} />
+                          
                         </div>
 
                       </div>
@@ -76,8 +77,8 @@ function Cart() {
 
             </div>
 
-            <div>
-              <Button className='bg-[#940D18] hover:bg-[#FF5A67] text-white rounded' onClick={handleClear}>Clear all</Button>
+            <div className='py-2 flex justify-center'>
+              <Button className='bg-[#940D18] hover:bg-[#FF5A67] text-white rounded-full' onClick={handleClear}>Clear all</Button>
             </div>
           </DialogDescription>
         </DialogHeader>

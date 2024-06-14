@@ -12,7 +12,7 @@ function Detailpage() {
   return (
     <div className={`${darkMode ? 'bg-black': 'bg-white'}`}>
         <Topbar />
-        <div className='flex py-2'>
+        <div className='xr:flex xr:flex-col sm:flex-row py-2 xr:mx-[10px] sm:px-[35px] md:px-[10px]'>
           <LeftPanel />
           <RightPanel/>
         </div> 

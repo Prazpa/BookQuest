@@ -10,7 +10,7 @@ const Logoname = () => {
   const { darkMode } = useContext(ColContext);
   
   return (
-    <div className={`flex items-center text-[20px] font-bold w-[150px]`}>
+    <div className={`flex items-center justify-center text-[20px] font-bold w-[120px]`}>
       <Link to={`/`} className={`${darkMode ? 'text-[#940d18] hover:text-[#FF5A67]': 'text-[#0D9488] hover:text-[#2DD4C5]'}`}>
         BookQuest
       </Link>

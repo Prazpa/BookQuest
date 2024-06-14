@@ -2,7 +2,6 @@ import axios from "axios";
 import { BASE_URL } from "./BaseURL";
 
 const fetchCategory = async (category: string) => {
-    
     try {
         let fetchdataResponse;
         

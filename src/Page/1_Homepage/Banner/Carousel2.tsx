@@ -4,12 +4,11 @@ import { useContext } from 'react';
 const Carousel2 = () => {
     const { darkMode } = useContext(ColContext);
     return (
-        <div className={`flex items-center gap-5 w-full h-[400px]`}>
+        <div className={`xs:flex xs:flex-col xr:flex xr:flex-col xr:px-[10px] xr:overflow-y-auto sm:flex-row items-center gap-5 w-full h-[400px]`}>
             <img
                 src="src/assets/img_slider1.jpg"
                 alt="bookSlider1"
-                width={`400px`}
-                height={`auto`}
+                className='h-[400px] w-[400px] lg:w-[350px] md:w-[300px] sm:w-[200px] sm:h-[300px]'
             />
 
             <div>

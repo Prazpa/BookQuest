@@ -8,7 +8,7 @@ function Footer() {
     const srcGmail = "/src/assets/Gmail_Logo.png";
     const avatarClasses = `${darkMode ? 'hover:bg-[#FF5A67]' : 'hover:bg-[#2DD4C5]'}`;
     return (
-        <div className={`flex flex-col md:flex-row justify-center gap-8 w-full p-8 ${darkMode ? 'bg-[#fbccd0]' : 'bg-[#ccfbf7]'}`}>
+        <div className={`xs:grid xr:flex flex-col md:flex-row justify-center gap-8 w-full p-8 ${darkMode ? 'bg-[#fbccd0]' : 'bg-[#ccfbf7]'}`}>
             <div className="flex flex-col mb-8 items-center md:items-start">
                 <h2 className="text-[14px] font-semibold ">Contact Us</h2>
                 <div className="flex items-center space-x-4">
@@ -27,9 +27,9 @@ function Footer() {
                 </div>
             </div>
 
-            <div className="flex flex-col items-start text-[14px]">
+            <div className="xr;flex flex-col items-start text-[14px]">
                 <h2 className="font-semibold">Resources</h2>
-                <ul className="list-disc pl-6 grid grid-rows-3 grid-flow-col gap-x-10">
+                <ul className="xs:grid xs:grid-rows-6 xs:grid-flow-cols list-disc pl-6 xr:grid xr:grid-rows-3 xr:grid-flow-col gap-x-10">
                     <li>APIs: <a href="https://openlibrary.org/developers/api" target="blank" className="hover:underline">Openlibrary.org</a></li>
                     <li>Component UI: <a href="https://ui.shadcn.com/" target="blank" className="hover:underline">shadcn/ui</a></li>
                     <li>CSS: <a href="https://tailwindui.com/" target="blank" className="hover:underline">tailwindcss</a></li>

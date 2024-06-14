@@ -12,7 +12,6 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 function TrendingAny() {
     const { value } = useContext(ContentContext);
     const { darkMode } = useContext(ColContext);
-
     const [loading, setLoading] = useState<boolean>(true);
     const [response, setResponse] = useState<Book[]>([])
 
@@ -51,7 +50,7 @@ function TrendingAny() {
                 {loading ? (
                     <Loader />
                 ) : (
-                    <div className="flex flex-wrap gap-5">
+                    <div className="flex flex-wrap gap-3 w-[1000px]">
                         {response.map((item, index) => (
                             <Dialog key={index}>
                                 <DialogTrigger>

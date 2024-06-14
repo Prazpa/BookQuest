@@ -37,11 +37,11 @@ const Trending = () => {
     }, [response]);
 
     return (
-        <div className='flex items-center'>
+        <div className='flex items-center '>
             {loading ? (
                 <Loader />
             ) : (
-                <div className="flex flex-wrap gap-3 w-[1000px]">
+                <div className="flex flex-wrap gap-1 w-full xr:flex xr:justify-center md:justify-start">
                     {response.map((item, index) => (
                         <Dialog key={index}>
                             <DialogTrigger>
@@ -56,7 +56,7 @@ const Trending = () => {
                                     </div>
                                 </div>
                             </DialogTrigger>
-                            <DialogContent className="bg-white max-w-[1000px] h-[550px] overflow-y-scroll">
+                            <DialogContent className="bg-white max-w-[1000px] h-[500px] overflow-y-auto flex flex-wrap">
                                 <Cover_btn book={item}/> 
                             </DialogContent>
                         </Dialog>

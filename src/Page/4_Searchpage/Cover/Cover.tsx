@@ -37,19 +37,19 @@ function Cover() {
     };
 
     return (
-        <div>
-
-            <div className="flex justify-between">
+        <div className="xs:mx-[10px] xr:mx-[10px] sm:px-[20px] md:px-[20px] xl:px-[0px]">
+            <div className="flex flex-wrap justify-between w-full">
                 <h1 className={`text-[24px] font-bold ${darkMode ? 'text-white' : 'text-black '}`}>Result: {data}</h1>
-                <a className={`mx-[22px] text-[24px] font-bold ${darkMode ? 'text-white' : 'text-black '}`}>
+                <a className={`2xl:mx-[55px] xl:mx-[30px] lg:mx-[10px] md:mx-[10px] text-[24px] font-bold ${darkMode ? 'text-white' : 'text-black '}`}>
                     <Link to={`/detailpage/`}>Back</Link>
                 </a>
             </div>
-            {loading ? (
-                <Loader />
-            ) : (
-                <div className="scrollbar-container flex flex-wrap h-[600px] overflow-y-auto gap-2">
-                    {response.map((item: any, index: number) => (
+            
+            <div className="flex flex-wrap gap-1 w-full xr:flex xr:justify-center md:justify-start">
+                {loading ? (
+                    <Loader />
+                ) : (
+                    response.map((item: any, index: number) => (
                         <Dialog key={index}>
                             <DialogTrigger>
                                 <div className={`w-[150px] h-[220px] rounded align-middle overflow-hidden ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}`}>
@@ -59,20 +59,19 @@ function Cover() {
                                         className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
                                     />
                                     <div className='text-[12px] text-center'>
-                                        <span className="font-semibold">{item.title}</span>
+                                        <span className={`font-semibold ${darkMode ? 'text-white' : 'text-black '}`}>{item.title}</span>
                                     </div>
                                 </div>
                             </DialogTrigger>
                             <DialogContent className="bg-white max-w-[1000px] h-[550px] overflow-y-scroll">
-                                <Cover_btn book={item} />
+                                <Cover_btn book={item}/> 
                             </DialogContent>
-                        </Dialog>
-                    ))}
-                </div>
-            )}
-            <div>
-
+                        </Dialog>   
+                    ))
+                )}
             </div>
+            
+
 
         </div>
     );

@@ -24,10 +24,7 @@ const Banner = () => {
     <div>
       <Carousel
         plugins={[plugin.current]}
-        className={`
-          mx-[80px] h-[400px] flex content-center
-          border border-white  
-          ${darkMode ? 'bg-[rgba(255,255,255,0.9)]' : 'bg-[rgba(255,255,255,0.6)]'}` }
+        className={`mx-[80px] lg:mx-[60px] h-[400px] flex content-center border border-white ${darkMode ? 'bg-[rgba(255,255,255,0.9)]' : 'bg-[rgba(255,255,255,0.6)]'}` }
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >

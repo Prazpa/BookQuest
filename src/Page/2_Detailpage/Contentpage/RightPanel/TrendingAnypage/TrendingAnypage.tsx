@@ -10,7 +10,7 @@ function TrendingAnypage() {
     return (
         <div className={`${darkMode ? 'bg-black' : 'bg-white'}`}>
             <Topbar />
-            <div className="flex my-[10px] gap-2">
+            <div className="flex py-2">
                 <LeftPanel />
                 <TrendingAny/>
             </div>

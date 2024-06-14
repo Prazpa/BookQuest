@@ -50,7 +50,7 @@ const Cover_btn = ({ book }: { book: Book }) => {
                     <img
                         src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
                         alt={`Cover Image ${index + 1}`}
-                        className="cursor-pointer w-[250px] h-[350px]"
+                        className="cursor-pointer w-[200px] h-[300px]"
                     />
                     <div className='px-[20px] w-[650px] text-[14px]'>
                         <h1><b>Title:</b> {book.title}</h1>
@@ -66,7 +66,7 @@ const Cover_btn = ({ book }: { book: Book }) => {
 
                         </div>
                         
-                        <div className='flex'>
+                        <div className='flex py-2 gap-2'>
                             <Button
                                 className={`rounded-full text-[14px] ${darkMode ? 'bg-[#940D18] text-white hover:bg-[#d8aef6] hover:text-black' : 'bg-[#0D9488] text-white hover:bg-[#F6E7AE] hover:text-black'}`}
                                 onClick={handlePick}
