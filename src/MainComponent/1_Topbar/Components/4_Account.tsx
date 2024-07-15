@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 import { gql, useLazyQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 
+
 const SIGNIN_USER = gql`
   query SignInUser($username: String!, $password: String!) {
     LogInData(where: { user: { _eq: $username }, password: { _eq: $password } }) {
@@ -18,11 +19,14 @@ const SIGNIN_USER = gql`
 const Account = () => {
     const { darkMode } = useContext(ColContext);
     const { username, setUsername } = useContext(UserContext);
+
     const [signInUser] = useLazyQuery(SIGNIN_USER);
+
     const [formData, setFormData] = useState({
         username: "",
         password: ""
     });
+
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     const handleInputChange = (e: any) => {
@@ -32,6 +36,7 @@ const Account = () => {
             [id]: value
         }));
     };
+
 
     const handleSaveChanges = async () => {
         try {
@@ -45,7 +50,24 @@ const Account = () => {
             if (data && data.LogInData.length > 0) {
                 setUsername(formData.username);
                 console.log("User signed in:", data.LogInData[0].user);
-                setIsDialogOpen(false); // Close the dialog on successful login
+                setIsDialogOpen(false);
+
+                localStorage.setItem("user",JSON.stringify({
+                    firstname: "test1",
+                    lastname: "12345",
+                }))
+
+                // const user = {
+                //     id: 1,
+                //     job: "AE",
+                //     car: "" 
+                    // {
+                //         type: "toyota",
+                //         color: "red"
+                //     }
+                // }
+                // user.car
+
             } else {
                 console.error("Invalid username or password");
             }

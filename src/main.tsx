@@ -4,7 +4,6 @@ import './index.css'
 import App from './App'
 import { HASURA_ADMIN_SECRET } from "../header";
 
-// Initialize Apollo Client
 const client = new ApolloClient({
   uri: 'https://improved-mastodon-33.hasura.app/v1/graphql',
   cache: new InMemoryCache(),
@@ -13,7 +12,6 @@ const client = new ApolloClient({
   }
 });
 
-// Sample query to fetch LogInData
 client
   .query({
     query: gql`
@@ -37,7 +35,7 @@ client
     }
   });
 
-// Render the React application
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ApolloProvider client={client}>
     <App />
