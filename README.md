@@ -11,7 +11,7 @@ That's all of my project
 Happy Clonning!!
 
 # Preview
-
+Link(incomplete deployment): https://book-quest-two.vercel.app/
 
 [Homepage]
 <img width="800" alt="Screenshot 2024-06-10 110835" src="https://github.com/Prazpa/BookQuest/assets/150646070/dae6b644-2162-49ba-a687-d624aaa141b9">
