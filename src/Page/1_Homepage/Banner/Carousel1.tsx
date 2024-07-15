@@ -9,7 +9,7 @@ const Carousel1 = () => {
       <img 
         src={`${darkMode ? 'src/assets/logo_2.jpg' : 'src/assets/logo_1.jpg'}`} 
         alt="logo"
-        className='sm:h-[160px] sm:w-[150px] xr:w-[130px] xs:h-[140px] sm:px-[10px] rounded-[28px]'
+        className='sm:h-[160px] sm:w-[150px] xr:w-[130px] md:w-[180px] md:rounded-[40px] xs:h-[140px] sm:px-[10px] rounded-[28px]'
       />
 
       <div>

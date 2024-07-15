@@ -28,6 +28,6 @@
       ]
     }
   },
-  "include": ["src", "src/Page/Detailpage/Resizepage/Contentpage.tsx", "header.ts"],
+  "include": ["src", "src/Page/Detailpage/Resizepage/Contentpage.tsx", ".env"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
