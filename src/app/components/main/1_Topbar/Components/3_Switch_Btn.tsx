@@ -23,7 +23,7 @@ const Switch_Btn = () => {
             <Label
                 id="LabelofDarkmodeSwitch"
                 htmlFor="darkModeSwitch"
-                className={`sm:space-x-1 text-[14px] font-bold font-mono ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}
+                className={`sm:space-x-1 text-[14px] font-bold ${darkMode ? 'hover:text-[#FF5A67]' : 'hover:text-[#2DD4C5]'}`}
             >
                 {darkMode ? "Light mode" : "Dark mode"}
             </Label>

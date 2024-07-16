@@ -4,8 +4,8 @@ import { useContext } from "react";
 
 function Footer() {
     const { darkMode } = useContext(ColContext);
-    const srcGithub = "/src/assets/Github_Logo.png";
-    const srcGmail = "/src/assets/Gmail_Logo.png";
+    const srcGithub = "/src/app/assets/Github_Logo.png";
+    const srcGmail = "/src/app/assets/Gmail_Logo.png";
     const avatarClasses = `${darkMode ? 'hover:bg-[#FF5A67]' : 'hover:bg-[#2DD4C5]'}`;
     return (
         <div className={`xs:grid xr:flex flex-col md:flex-row justify-center gap-8 w-full p-8 ${darkMode ? 'bg-[#fbccd0]' : 'bg-[#ccfbf7]'}`}>

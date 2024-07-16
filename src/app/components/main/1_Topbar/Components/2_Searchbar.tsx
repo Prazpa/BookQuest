@@ -10,8 +10,8 @@ const Searchbar = () => {
   const { darkMode } = useContext(ColContext);
   const { data, setData } = useContext(ContentContext);
   
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData(e.target.value);
+  const handleInputChange =  async (e: React.ChangeEvent<HTMLInputElement>) => {
+    await setData(e.target.value);
   };
   
   const handleSubmit = async () => {
@@ -40,8 +40,6 @@ const Searchbar = () => {
           </button>
         </Link>
       </form>
-
-
     </div>
   );
 };

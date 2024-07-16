@@ -21,7 +21,7 @@ function Cart() {
     setPick([]);
   };
 
-  const logopath = "src/app/assets/bookmark.png";
+  const logopath = "/src/app/assets/bookmark.png";
 
   return (
     <Dialog>

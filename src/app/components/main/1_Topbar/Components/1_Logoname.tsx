@@ -9,7 +9,7 @@ const Logoname = () => {
   return (
     <Link
       to={`/`}
-      className={`${setDarkmode} flex items-center font-mono text-[25px] font-bold`}
+      className={`${setDarkmode} flex items-center text-[25px] font-bold`}
     >
       BookQuest
     </Link>
