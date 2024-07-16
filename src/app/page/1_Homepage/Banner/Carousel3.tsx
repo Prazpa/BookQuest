@@ -6,9 +6,9 @@ const Carousel3 = () => {
     return (
         <div className="xs:flex xs:flex-col xr:flex xr:flex-col xr:px-[10px] xr:overflow-y-auto sm:flex-row items-center gap-5 w-full h-[400px]">
             <img
-                src="src/assets/img_slider2.jpg"
+                src="src/app/assets/img_slider2.jpg"
                 alt="bookSlider2"
-                className='h-[400px] w-[400px] lg:w-[350px] md:w-[300px] sm:w-[200px] sm:h-[300px]'
+                className='md:h-[400px] w-[400px] lg:w-[350px] md:w-[300px] sm:w-[200px] sm:h-[300px]'
             />
             <div>
                 <span className={`font-bold text-[24px] ${darkMode ? 'text-[#F26B77]' : 'text-teal-600'}`}>
