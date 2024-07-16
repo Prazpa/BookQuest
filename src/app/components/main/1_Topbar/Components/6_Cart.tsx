@@ -3,15 +3,25 @@ import { Button } from "@/app/components/ui/button"
 import { ColContext } from '@/app/settype/ColType';
 import { SelectedContext } from '@/app/settype/SelectedType';
 import { UserContext } from '@/app/settype/UserType';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Book } from '@/app/page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
 import Shared_btn from '@/app/components/main/4_BookCover/Shared_btn';
-
 
 function Cart() {
   const { darkMode } = useContext(ColContext);
   const { pick, setPick } = useContext(SelectedContext);
   const { username } = useContext(UserContext);
+
+  useEffect(() => {
+    const storedPick = localStorage.getItem("pick");
+    if (storedPick) {
+      setPick(JSON.parse(storedPick));
+    }
+  }, [setPick]);
+
+  useEffect(() => {
+    localStorage.setItem("pick", JSON.stringify(pick));
+  }, [pick]);
 
   const handleRemoveBook = (indexToRemove: number) => {
     setPick((prevPick: any) => prevPick.filter((_: any, index: number) => index !== indexToRemove));
@@ -88,3 +98,4 @@ function Cart() {
 }
 
 export default Cart;
+  

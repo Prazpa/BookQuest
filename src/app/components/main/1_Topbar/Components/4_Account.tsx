@@ -3,7 +3,7 @@ import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { ColContext } from '@/app/settype/ColType';
 import { UserContext } from '@/app/settype/UserType';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { gql, useLazyQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 
@@ -28,6 +28,14 @@ const Account = () => {
 
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            const userData = JSON.parse(storedUser);
+            setUsername(userData.username);
+        }
+    }, [setUsername]);
+
     const handleInputChange = (e: any) => {
         const { id, value } = e.target;
         setFormData(prevState => ({
@@ -35,7 +43,6 @@ const Account = () => {
             [id]: value
         }));
     };
-
 
     const handleSaveChanges = async () => {
         try {
@@ -51,22 +58,9 @@ const Account = () => {
                 console.log("User signed in:", data.LogInData[0].user);
                 setIsDialogOpen(false);
 
-                localStorage.setItem("user",JSON.stringify({
-                    firstname: "test1",
-                    lastname: "12345",
-                }))
-
-                // const user = {
-                //     id: 1,
-                //     job: "AE",
-                //     car: "" 
-                    // {
-                //         type: "toyota",
-                //         color: "red"
-                //     }
-                // }
-                // user.car
-
+                localStorage.setItem("user", JSON.stringify({
+                    username: formData.username
+                }));
             } else {
                 console.error("Invalid username or password");
             }
