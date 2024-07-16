@@ -1,5 +1,5 @@
 import { Link, useNavigate, } from "react-router-dom";
-import { Button } from '@/app/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { ColContext } from '@/app/settype/ColType'; 
 import { ContentContext  } from '@/app/settype/ContentType';
 import { useContext } from 'react';

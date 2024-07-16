@@ -1,6 +1,6 @@
 import { UserContext } from '@/app/settype/UserType';
-import { Button } from '@/app/components/ui/button';
-import { Input } from '@/app/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { gql, useMutation } from '@apollo/client';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';

@@ -10,8 +10,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/app/components/ui/carousel";
-import { Card, CardContent } from "@/app/components/ui/card";
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 import { ColContext } from '@/app/settype/ColType';
 import { useContext } from 'react';
 

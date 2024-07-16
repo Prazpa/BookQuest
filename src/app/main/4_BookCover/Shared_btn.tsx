@@ -1,8 +1,8 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/app/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { useContext } from 'react';
 import { ColContext } from '@/app/settype/ColType';
-import { BASE_URL } from '@/app/lib/fetchData/BaseURL';
-import { Button } from '@/app/components/ui/button';
+import { BASE_URL } from '@/app/fetchData/BaseURL';
+import { Button } from '@/components/ui/button';
 
 function Shared_btn({ book }: any) {
     const { darkMode } = useContext(ColContext);

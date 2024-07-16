@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from '@/app/components/ui/input';
+import { Input } from '@/components/ui/input';
 import { ColContext } from '@/app/settype/ColType';
 import { ContentContext } from "@/app/settype/ContentType";
 import { useContext } from "react";

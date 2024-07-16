@@ -1,10 +1,10 @@
-import { BASE_URL } from '@/app/lib/fetchData/BaseURL';
+import { BASE_URL } from '@/app/fetchData/BaseURL';
 import axios from "axios";
 import { Book } from '@/app/page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
 import { BookKeyType } from './BookKeyType';
 import { useState, useContext, useEffect } from 'react';
 import { SelectedContext } from "@/app/settype/SelectedType";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Loader from '../2_Loader/Loader';
 import { ColContext } from '@/app/settype/ColType';
 import Shared_btn from './Shared_btn';

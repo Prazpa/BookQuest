@@ -1,11 +1,11 @@
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/app/components/ui/dialog';
-import { Button } from "@/app/components/ui/button"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from "@/components/ui/button"
 import { ColContext } from '@/app/settype/ColType';
 import { SelectedContext } from '@/app/settype/SelectedType';
 import { UserContext } from '@/app/settype/UserType';
 import { useContext, useEffect } from 'react';
 import { Book } from '@/app/page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
-import Shared_btn from '@/app/components/main/4_BookCover/Shared_btn';
+import Shared_btn from '@/app/main/4_BookCover/Shared_btn';
 
 function Cart() {
   const { darkMode } = useContext(ColContext);

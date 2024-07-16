@@ -1,12 +1,12 @@
 import axios from "axios";
-import Loader from '@/app/components/main/2_Loader/Loader';
-import Cover_btn from '@/app/components/main/4_BookCover/Cover_btn';
-import { BASE_URL } from "@/app/lib/fetchData/BaseURL";
+import Loader from '@/app/main/2_Loader/Loader';
+import Cover_btn from '@/app/main/4_BookCover/Cover_btn';
+import { BASE_URL } from "@/app/fetchData/BaseURL";
 import { Book } from './BookType';
 import { ColContext } from '@/app/settype/ColType';
 import { SelectedContext } from "@/app/settype/SelectedType";
 import { useEffect, useState, useContext } from 'react';
-import { Dialog, DialogContent, DialogTrigger } from "@/app/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const Trending = () => {
     const { darkMode } = useContext(ColContext);

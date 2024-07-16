@@ -1,6 +1,6 @@
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/app/components/ui/dialog';
-import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
-import { Button } from '@/app/components/ui/button';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import { ColContext } from '@/app/settype/ColType';
 import { UserContext } from '@/app/settype/UserType';
 import { useContext } from 'react';

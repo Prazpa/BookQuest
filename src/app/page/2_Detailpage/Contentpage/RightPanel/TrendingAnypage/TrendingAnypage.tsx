@@ -1,5 +1,5 @@
-import Topbar from '@/app/components/main/1_Topbar/Topbar'
-import Footer from '@/app/components/main/3_Footer/Footer'
+import Topbar from '@/app/main/1_Topbar/Topbar'
+import Footer from '@/app/main/3_Footer/Footer'
 import LeftPanel from '../../LeftPanel/LeftPanel';
 import { useContext } from 'react';
 import { ColContext } from '@/app/settype/ColType';

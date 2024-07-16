@@ -1,5 +1,5 @@
-import { Label } from "@/app/components/ui/label"
-import { Switch } from "@/app/components/ui/switch"
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
 import { ColContext } from '@/app/settype/ColType';
 import { useContext } from 'react';
 

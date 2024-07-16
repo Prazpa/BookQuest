@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ColContext } from "@/app/settype/ColType";
 import { useContext } from "react";
 

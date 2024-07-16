@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { ColContext } from '@/app/settype/ColType';
 import { ContentContext } from "@/app/settype/ContentType";
-import categories, { Art, Animal, Fiction, Mathematic, BusinessAndFinance, GeneratedType, History, Wellness, Biography, Science, Place, Textbook, Language } from "@/app/lib/fetchData/Catagories"; 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger } from "@/app/components/ui/select";
+import categories, { Art, Animal, Fiction, Mathematic, BusinessAndFinance, GeneratedType, History, Wellness, Biography, Science, Place, Textbook, Language } from "@/app/fetchData/Catagories"; 
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { Link, useNavigate} from "react-router-dom";
 
 const LeftPanel = () => {

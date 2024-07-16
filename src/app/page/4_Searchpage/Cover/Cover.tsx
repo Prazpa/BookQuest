@@ -1,12 +1,12 @@
 import axios from "axios";
-import { BASE_URL } from "@/app/lib/fetchData/BaseURL";
-import Loader from "@/app/components/main/2_Loader/Loader";
+import { BASE_URL } from "@/app/fetchData/BaseURL";
+import Loader from "@/app/main/2_Loader/Loader";
 import { ColContext } from '@/app/settype/ColType';
 import { ContentContext } from "@/app/settype/ContentType";
 import { useContext, useEffect, useState } from "react";
 import { Doc } from "./SearchBook";
-import { Dialog, DialogContent, DialogTrigger } from "@/app/components/ui/dialog";
-import Cover_btn from "@/app/components/main/4_BookCover/Cover_btn";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import Cover_btn from "@/app/main/4_BookCover/Cover_btn";
 import { Link } from "react-router-dom";
 
 function Cover() {
