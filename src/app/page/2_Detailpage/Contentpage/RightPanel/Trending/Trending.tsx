@@ -19,11 +19,14 @@ const Trending = () => {
         const fetchTrendingData = async () => {
             try {
                 const response = await axios.get(`${BASE_URL}/trending/now.json`);
-                const trendingBooksData = response.data;
-                setResponse(trendingBooksData.works)
+                if (response.status === 200) {
+                    const trendingBooksData = response.data;
+                    setResponse(trendingBooksData.works)
+                } else {
+                    console.error('Unexpected response status:', response.status);
+                }
             } catch (error) {
                 console.error('Error fetching data:', error);
-                return undefined;
             } finally {
                 setLoading(false);
             }
@@ -45,19 +48,21 @@ const Trending = () => {
                     {response.map((item, index) => (
                         <Dialog key={index}>
                             <DialogTrigger>
-                                <div className={`w-[150px] h-[220px] rounded align-middle overflow-hidden ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}`}>
-                                    <img
-                                        src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
-                                        alt={`Cover Image ${index + 1}`}
-                                        className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
-                                    />
-                                    <div className='text-[12px] text-center'>
-                                        <span className={`font-semibold ${darkMode ? 'text-white' : 'text-black '}`}>{item.title}</span>
+                                {item.cover_i ? ( // Check if cover_i exists
+                                    <div className={`w-[150px] h-[220px] rounded align-middle overflow-hidden ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}`}>
+                                        <img
+                                            src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
+                                            alt={`Cover Image ${index + 1}`}
+                                            className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
+                                        />
+                                        <div className='text-[12px] text-center'>
+                                            <span className={`font-semibold ${darkMode ? 'text-white' : 'text-black '}`}>{item.title}</span>
+                                        </div>
                                     </div>
-                                </div>
+                                ) : null}
                             </DialogTrigger>
                             <DialogContent className="bg-white max-w-[1000px] h-[500px] overflow-y-auto flex flex-wrap">
-                                <Cover_btn book={item}/> 
+                                {item.cover_i && <Cover_btn book={item}/>} 
                             </DialogContent>
                         </Dialog>
                     ))}

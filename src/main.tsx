@@ -22,6 +22,11 @@ client
       }
     `,
   })
+  .then((e) => {
+    console.log(e);
+    
+  })
+  
   .catch((error) => {
     console.error("Error fetching data:", error);
     if (error.networkError) {
