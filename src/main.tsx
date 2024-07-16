@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
-import './index.css';
-import App from './App';
+import './app/index.css';
+import App from './app/App';
 
 const client = new ApolloClient({
   uri: 'https://improved-mastodon-33.hasura.app/v1/graphql',
