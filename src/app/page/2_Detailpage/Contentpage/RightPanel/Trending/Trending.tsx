@@ -48,7 +48,7 @@ const Trending = () => {
                     {response.map((item, index) => (
                         <Dialog key={index}>
                             <DialogTrigger>
-                                {item.cover_i ? ( // Check if cover_i exists
+                                {item.cover_i ? ( 
                                     <div className={`w-[150px] h-[220px] rounded align-middle overflow-hidden ${darkMode ? 'bg-black hover:bg-[#d8aef6]' : 'bg-[#F7F7F7] hover:bg-[#F6E7AE]'}`}>
                                         <img
                                             src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}

@@ -17,47 +17,24 @@ function App() {
 
     const [darkMode, setDarkMode] = useState(false);
 
-    const [data, setData] = useState(""); 
-    const [catagoriesValue, setCatagoriesValue] = useState("") 
+    const [data, setData] = useState("");
+    const [catagoriesValue, setCatagoriesValue] = useState("")
     const [value, setValue] = useState("");
 
-    const [username, setUsername] = useState(""); 
+    const [username, setUsername] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
-    const [pick, setPick] = useState([]); 
-    const [keyBook, setKeyBook] = useState({}); 
-   
-      
+    const [pick, setPick] = useState([]);
+    const [keyBook, setKeyBook] = useState({});
+
+
     const router = createBrowserRouter([
-        {
-            path: "/",
-            element: <HomePage />,
-        },
-        
-        {
-            path: "/Login",
-            element: <Sign_Up />,
-        },
-
-        {
-            path: "/detailpage/",
-            element: <DetailPage />,
-        },
-
-        {
-            path: "/detailpage/:time",
-            element: <TrendingAnypage />,
-        },
-
-        {
-            path: "/catagoriespage/:catagory",
-            element: <Catagoriespage />,
-        },
-
-        {
-            path: "/searchpage/:q",
-            element: <Searchpage />,
-        },
+        { path: "/", element: <HomePage /> },
+        { path: "/Login", element: <Sign_Up /> },
+        { path: "/detailpage/", element: <DetailPage /> },
+        { path: "/detailpage/:time", element: <TrendingAnypage /> },
+        { path: "/catagoriespage/:catagory", element: <Catagoriespage /> },
+        { path: "/searchpage/:q", element: <Searchpage /> }
     ]);
 
     return (
@@ -65,7 +42,7 @@ function App() {
             <ColContext.Provider value={{ darkMode, setDarkMode }}>
                 <ContentContext.Provider value={{ data, setData, catagoriesValue, setCatagoriesValue, value, setValue }}>
                     <UserContext.Provider value={{ username, setUsername, imageUrl, setImageUrl }}>
-                        <SelectedContext.Provider value={{ pick, setPick, keyBook, setKeyBook}}>
+                        <SelectedContext.Provider value={{ pick, setPick, keyBook, setKeyBook }}>
                             <RouterProvider router={router} />
                         </SelectedContext.Provider>
                     </UserContext.Provider>

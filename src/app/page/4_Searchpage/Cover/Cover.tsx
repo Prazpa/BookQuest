@@ -13,8 +13,8 @@ function Cover() {
 
     const { data } = useContext(ContentContext);
     const { darkMode } = useContext(ColContext);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [response, setResponse] = useState<Doc[]>([]);
+    const [ loading, setLoading ] = useState<boolean>(true);
+    const [ response, setResponse ] = useState<Doc[]>([]);
 
     const fetchSearchData = async (): Promise<void> => {
         try {
