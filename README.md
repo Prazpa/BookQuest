@@ -14,8 +14,11 @@ To run this project locally, follow these steps:
 
 2. **Set Up the Database:**
    2.1 Create a database using Hasura
+   
    2.2 Create a project in Hasura Cloud
+   
    2.3 Launch the project and add the following GraphQL code in the Hasura Console:
+   
     ```graphql
     mutation InsertUser($password: String, $user: String) {
       insert_LogInData(objects: {password: $password, user: $user}) {
@@ -34,17 +37,20 @@ To run this project locally, follow these steps:
       }
     }
 
-3. **Create Environment Variables:**
+4. **Create Environment Variables:**
+   
     3.1 Create a file named .env.local
+   
     3.2 Copy the x-hasura-admin-secret value from the Hasura Console and add it to the .env.local file:
+   
     ```sh
     VITE_HASURA_ADMIN_SECRET=x-hasura-admin-secret
 
-4. **Install Dependencies:**
+6. **Install Dependencies:**
     ```sh
     npm install
 
-5. **Run the Development Server:**
+7. **Run the Development Server:**
    ```sh
    npm run dev
 
