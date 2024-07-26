@@ -46,7 +46,7 @@ To run this project locally, follow these steps:
 
 5. **Run the Development Server:**
    ```sh
-    npm run dev
+   npm run dev
 
 That's it! You should now have BookQuest running locally.
 
