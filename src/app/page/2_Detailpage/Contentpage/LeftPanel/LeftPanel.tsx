@@ -23,7 +23,7 @@ const LeftPanel = () => {
     return (
         <div className="sm:mx-[-30px] 2xl:mx-[40px] xl:mx-[0px] lg:mx-[-5px] md:mx-[10px] h-auto xr:flex xr:justify-center xs:flex xs:justify-center">
             <div className="xr:grid xr:grid-cols-2 xr:gap-x-2 xs:grid xs:grid-cols-2 xs:gap-x-2 xs:px-[10px] sm:flex sm:flex-col">
-                <span className={`text-[14px] font-semibold ${darkMode ? 'text-white' :'text-black'}`}>Department</span>
+                <span className={`text-[24px] font-normal ${darkMode ? 'text-white' :'text-black'}`}>Department</span>
                 {Object.entries(categories).map(([category, items]) => (
                     <Select key={category} onValueChange={onSelectChange}>
                         <SelectTrigger className={`sm:flex sm:flex-row w-[200px] rounded-xl text-[12px] my-0.5 ${setDarkmode}`}>

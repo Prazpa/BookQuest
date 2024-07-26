@@ -13,7 +13,7 @@ function RightPanel() {
                 Trending
             </span>
             <Trending_btn />
-            <div className="flex my-[10px] gap-2">
+            <div className="flex my-[10px] gap-1">
                 <Trending />
             </div>
         </div>

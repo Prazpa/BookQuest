@@ -1,5 +1,7 @@
 import { ColContext } from '@/app/settype/ColType';
-import { useContext } from 'react'; 
+import { useContext } from 'react';
+import logo_1 from '@/app/assets/logo_1.jpg' 
+import logo_2 from '@/app/assets/logo_2.jpg' 
 
 const Carousel1 = () => {
   const { darkMode } = useContext(ColContext);
@@ -7,7 +9,7 @@ const Carousel1 = () => {
   return (
     <div className={style}>
       <img 
-        src={`${darkMode ? 'src/app/assets/logo_2.jpg' : 'src/app/assets/logo_1.jpg'}`} 
+        src={`${darkMode ? `${logo_2}` : `${logo_1}`}`} 
         alt="logo"
         className='sm:h-[160px] sm:w-[150px] xr:w-[130px] md:w-[180px] md:rounded-[40px] xs:h-[140px] sm:px-[10px] rounded-[28px]'
       />

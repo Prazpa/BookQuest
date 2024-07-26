@@ -6,7 +6,7 @@ import { UserContext } from '@/app/settype/UserType';
 import { useContext, useEffect } from 'react';
 import { Book } from '@/app/page/2_Detailpage/Contentpage/RightPanel/Trending/BookType';
 import Shared_btn from '@/app/main/4_BookCover/Shared_btn';
-
+import logopath  from '@/app//assets/bookmark.png'
 function Cart() {
   const { darkMode } = useContext(ColContext);
   const { pick, setPick } = useContext(SelectedContext);
@@ -30,8 +30,6 @@ function Cart() {
   const handleClear = () => {
     setPick([]);
   };
-
-  const logopath = "/src/app/assets/bookmark.png";
 
   return (
     <Dialog>

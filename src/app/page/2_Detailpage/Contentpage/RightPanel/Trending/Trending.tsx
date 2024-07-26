@@ -44,7 +44,7 @@ const Trending = () => {
             {loading ? (
                 <Loader />
             ) : (
-                <div className="flex flex-wrap gap-1 w-full xr:flex xr:justify-center md:justify-start">
+                <div className="flex flex-wrap gap-2 w-full xr:flex xr:justify-center md:justify-start">
                     {response.map((item, index) => (
                         <Dialog key={index}>
                             <DialogTrigger>

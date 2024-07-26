@@ -1,11 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ColContext } from "@/app/settype/ColType";
 import { useContext } from "react";
+import srcGithub from '@/app/assets/Github_Logo.png'
+import srcGmail from  '@/app/assets/Gmail_Logo.png'
 
 function Footer() {
     const { darkMode } = useContext(ColContext);
-    const srcGithub = "/src/app/assets/Github_Logo.png";
-    const srcGmail = "/src/app/assets/Gmail_Logo.png";
     const avatarClasses = `${darkMode ? 'hover:bg-[#FF5A67]' : 'hover:bg-[#2DD4C5]'}`;
     return (
         <div className={`xs:grid xr:flex flex-col md:flex-row justify-center gap-8 w-full p-8 ${darkMode ? 'bg-[#fbccd0]' : 'bg-[#ccfbf7]'}`}>

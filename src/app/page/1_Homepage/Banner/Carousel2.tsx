@@ -1,12 +1,13 @@
 import { ColContext } from '@/app/settype/ColType';
 import { useContext } from 'react'; 
+import slider1 from '@/app/assets/img_slider1.jpg'
  
 const Carousel2 = () => {
     const { darkMode } = useContext(ColContext);
     return (
         <div className={`xs:flex xs:flex-col xr:flex xr:flex-col xr:px-[10px] xr:overflow-y-auto sm:flex-row items-center gap-5 w-full h-[400px]`}>
             <img
-                src="src/app/assets/img_slider1.jpg"
+                src={slider1}
                 alt="bookSlider1"
                 className='md:h-[400px] w-[400px] lg:w-[350px] md:w-[300px] sm:w-[200px] sm:h-[300px]'
             />
