@@ -1,58 +1,82 @@
-# BookQuest, Platform for everyone who want to find a book 
-This project made by using openlibrary for fetching detail about book in library.
-You can explore, search and share the book that you want.
-To see all of detail, You can clone and install node-module first by using
-1. git clone https://github.com/Prazpa/BookQuest.git
-2. npm install 
-3. npm run dev BookQuest
+# BookQuest: Platform for Book Enthusiasts
 
-That's all of my project
+Welcome to **BookQuest**, a platform for everyone who wants to find and share books. This project utilizes the Open Library API to fetch details about books. You can explore, search, and share books that interest you. 
 
-Happy Clonning!!
+Visit our live demo: [BookQuest](https://book-quest-fawn.vercel.app)
 
-# Preview
-Link(incomplete deployment): [https://book-quest-two.vercel.app/](https://book-quest-fawn.vercel.app/)
+## Getting Started
 
-[Homepage]
-<img width="800" alt="Screenshot 2024-06-10 110835" src="https://github.com/Prazpa/BookQuest/assets/150646070/dae6b644-2162-49ba-a687-d624aaa141b9">
+To run this project locally, follow these steps:
 
-[Detailpage]
-<img width="800" alt="Screenshot 2024-06-11 154737" src="https://github.com/Prazpa/BookQuest/assets/150646070/d5f82f42-c36e-47bc-a47d-83834b9aec18">
+1. **Clone the Repository:**
+   ```sh
+   git clone https://github.com/Prazpa/BookQuest.git
 
-[BookDetail]
-<img width="800" alt="Screenshot 2024-06-11 155107" src="https://github.com/Prazpa/BookQuest/assets/150646070/857f3c9e-7022-4b58-9d8f-10f25fd9f29f">
+2. **Set Up the Database:**
+   2.1 Create a database using Hasura
+   
+   2.2 Create a project in Hasura Cloud
+   
+   2.3 Launch the project and add the following GraphQL code in the Hasura Console:
+   
+    ```graphql
+    mutation InsertUser($password: String, $user: String) {
+      insert_LogInData(objects: {password: $password, user: $user}) {
+        affected_rows
+        returning {
+          password
+          user
+        }
+      }
+    }
 
+    query SignInUser($username: String!, $password: String!) {
+      LogInData(where: { user: { _eq: $username }, password: { _eq: $password } }) {
+        user
+        password
+      }
+    }
 
+4. **Create Environment Variables:**
+   
+    3.1 Create a file named .env.local
+   
+    3.2 Copy the x-hasura-admin-secret value from the Hasura Console and add it to the .env.local file:
+   
+    ```sh
+    VITE_HASURA_ADMIN_SECRET=x-hasura-admin-secret
 
+6. **Install Dependencies:**
+    ```sh
+    npm install
 
+7. **Run the Development Server:**
+   ```sh
+   npm run dev
 
-# React + TypeScript + Vite
+That's it! You should now have BookQuest running locally.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Development Setup
+This project is built using React, TypeScript, and Vite. Below are some details on how to expand the ESLint configuration for a production application.
 
-Currently, two official plugins are available:
+ESLint Configuration
+To enable type-aware lint rules, update your configuration:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Configure the top-level parserOptions property:
+   ```js
+   export default {
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: ['./tsconfig.json', './tsconfig.node.json'],
+        tsconfigRootDir: __dirname,
+      },
+   }
+   
+2. Replace plugin:@typescript-eslint/recommended with plugin:@typescript-eslint/recommended-type-checked or plugin:@typescript-eslint/strict-type-checked.
 
-## Expanding the ESLint configuration
+3. Optionally, add plugin:@typescript-eslint/stylistic-type-checked.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+4. Install eslint-plugin-react and add plugin:react/recommended and plugin:react/jsx-runtime to the extends list.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Happy Cloning!
