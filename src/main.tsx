@@ -1,14 +1,19 @@
-import ReactDOM from 'react-dom/client';
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
-import './app/index.css';
-import App from './app/App';
+import ReactDOM from "react-dom/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+} from "@apollo/client";
+import "./app/index.css";
+import App from "./app/App";
 
 const client = new ApolloClient({
-  uri: 'https://improved-mastodon-33.hasura.app/v1/graphql',
+  uri: "https://improved-mastodon-33.hasura.app/v1/graphql",
   cache: new InMemoryCache(),
   headers: {
-    'x-hasura-admin-secret': import.meta.env.VITE_HASURA_ADMIN_SECRET
-  }
+    "x-hasura-admin-secret": import.meta.env.VITE_HASURA_ADMIN_SECRET,
+  },
 });
 
 client
@@ -24,9 +29,8 @@ client
   })
   .then((e) => {
     console.log(e);
-    
   })
-  
+
   .catch((error) => {
     console.error("Error fetching data:", error);
     if (error.networkError) {
@@ -34,12 +38,14 @@ client
     }
     if (error.graphQLErrors) {
       error.graphQLErrors.forEach(({ message, locations, path }: any) =>
-        console.error(`GraphQL Error: Message: ${message}, Location: ${locations}, Path: ${path}`)
+        console.error(
+          `GraphQL Error: Message: ${message}, Location: ${locations}, Path: ${path}`
+        )
       );
     }
   });
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>
