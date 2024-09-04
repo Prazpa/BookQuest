@@ -6,10 +6,10 @@ import {
   gql,
 } from "@apollo/client";
 import "./app/index.css";
-import App from "./app/App";
+import App from "./app/type/App";
 
 const client = new ApolloClient({
-  uri: "https://improved-mastodon-33.hasura.app/v1/graphql",
+  uri: "https://notable-finch-62.hasura.app/v1/graphql",
   cache: new InMemoryCache(),
   headers: {
     "x-hasura-admin-secret": import.meta.env.VITE_HASURA_ADMIN_SECRET,
@@ -20,8 +20,8 @@ client
   .query({
     query: gql`
       query GetAllLogInData {
-        LogInData {
-          user
+        user {
+          username
           password
         }
       }

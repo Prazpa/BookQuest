@@ -7,7 +7,7 @@ import { useContext } from 'react';
 function Trending_btn() {
     const { darkMode } = useContext(DarkmodeContext);
     const { setValue } = useContext(ContentContext);
-
+    
     const router = useNavigate();
 
     const handleButtonClick = (newValue: string) => {

@@ -1,23 +1,22 @@
 import Topbar from "@/app/component/Topbar/Topbar";
 import Footer from "@/app/component/Footer/Footer";
-import LeftPanel from "@/app/component/LeftPanel/LeftPanel";
-import RightPanel from "@/app/component/RightPanel/RightPanel";
+import LeftPanel from "../../LeftPanel/LeftPanel";
 import { useContext } from "react";
 import { DarkmodeContext } from "@/app/type/DarkmodeType";
+import TrendingAny from "./TrendingAny";
 
-function Detailpage() {
+function TrendingOther() {
   const { darkMode } = useContext(DarkmodeContext);
-
   return (
-    <div className={darkMode ? "bg-black" : "bg-white"}>
+    <div className={`${darkMode ? "bg-black" : "bg-white"} `}>
       <Topbar />
-      <div className="flex flex-col sm:flex-row py-2 sm:px-10 md:px-5">
+      <div className="xr:flex xr:flex-col sm:flex-row py-2 xr:mx-[10px] sm:px-[35px] md:px-[10px]">
         <LeftPanel />
-        <RightPanel />
+        <TrendingAny />
       </div>
       <Footer />
     </div>
   );
 }
 
-export default Detailpage;
+export default TrendingOther;

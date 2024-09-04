@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Cover_btn from "@/app/component/BookCover/Cover_btn";
 
 
-function CatagoriesCover() {
+function CatagoriesPanel() {
     const { darkMode } = useContext(DarkmodeContext);
     const { catagoriesValue } = useContext(ContentContext);
     const [ saveData, setSavedata ] = useState([])
@@ -79,4 +79,4 @@ function CatagoriesCover() {
     );
 }
 
-export default CatagoriesCover;
+export default CatagoriesPanel;

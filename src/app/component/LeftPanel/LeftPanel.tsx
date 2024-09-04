@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { DarkmodeContext } from '@/app/type/DarkmodeType';
 import { ContentContext } from "@/app/type/ContentType";
-import categories, { Art, Animal, Fiction, Mathematic, BusinessAndFinance, GeneratedType, History, Wellness, Biography, Science, Place, Textbook, Language } from "@/app/providers/Catagories"; 
+import categories, { Art, Animal, Fiction, Mathematic, BusinessAndFinance, GeneratedType, History, Wellness, Biography, Science} from "@/app/providers/Catagories"; 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { Link, useNavigate} from "react-router-dom";
 
@@ -32,7 +32,7 @@ const LeftPanel = () => {
                         
                         <SelectContent className={`${darkMode ? 'bg-[#AE0614] text-white': 'bg-[white] text-black'}`}>
                             <SelectGroup>
-                                {items.map((item: Art | Animal | Fiction | Mathematic | BusinessAndFinance | GeneratedType | History | Wellness | Biography | Science | Place | Textbook | Language) => (
+                                {items.map((item: Art | Animal | Fiction | Mathematic | BusinessAndFinance | GeneratedType | History | Wellness | Biography | Science) => (
                                     <SelectItem key={item.value} value={item.value} className="flex px-1  justify-start">
                                         <Link to={`Catagoriespage/${item.title}`} className={`text-[12px] ${setDarkmode}`}>
                                             {item.title}

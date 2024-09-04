@@ -4,59 +4,53 @@ import { Input } from '@/components/ui/input';
 import { gql, useMutation } from '@apollo/client';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import bcrypt from 'bcryptjs';
 
 const SIGNUP_USER = gql`
-    mutation InsertUser($password: String, $user: String) {
-        insert_LogInData(objects: {password: $password, user: $user}) {
+    mutation InsertUser($password: String!, $username: String!) {
+        insert_user(objects: {password: $password, username: $username}) {
             affected_rows
             returning {
                 password
-                user
+                username
             }
         }
     }
 `;
 
+interface FormData {
+    username: string;
+    password: string;
+}
+
 function Sign_Up() {
     const { setUsername } = useContext(UserContext);
     const [signupUser] = useMutation(SIGNUP_USER);
-    const [formData, setFormData] = useState({
-        username: "",
-        password: ""
-    });
     const [message, setMessage] = useState("");
 
-    const handleInputChange = (e: any) => {
-        const { id, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [id]: value
-        }));
-    };
+    // Initialize react-hook-form with FormData type
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
-    const handleSaveChanges = async () => {
+    // Handle form submission with SubmitHandler
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
         try {
-            if (!formData.username || !formData.password) {
-                alert("Please fill in both username and password fields.");
-                return;
-            }
-
-            const { data } = await signupUser({
+            // Hash the password before sending it to the server
+            const hashedPassword = bcrypt.hashSync(data.password, 10);
+    
+            const { data: result } = await signupUser({
                 variables: {
-                    user: formData.username, 
-                    password: formData.password
+                    username: data.username,
+                    password: hashedPassword
                 }
             });
-
-            if (data.insert_LogInData.affected_rows > 0) {
-                setUsername(formData.username);
+    
+            if (result.insert_user.affected_rows > 0) {
+                setUsername(data.username);
                 setMessage("User registered successfully!");
             } else {
                 setMessage("Failed to register user.");
             }
-
-            console.log(formData.username);
-            console.log(formData.password);
         } catch (error) {
             console.error("Error verifying user:", error);
             setMessage("Error registering user.");
@@ -70,33 +64,31 @@ function Sign_Up() {
                     <span className='text-[24px]'>Sign up</span>
                     <Link to={`/`} className='text-[24px]'>Back</Link>
                 </div>
-                <form id="testform2" className="flex flex-col gap-4 py-4">
+                <form id="testform2" className="flex flex-col gap-4 py-4" onSubmit={handleSubmit(onSubmit)}>
                     <div className="items-center gap-4">
                         <Input
-                            id="username"
-                            value={formData.username}
-                            onChange={handleInputChange}
+                            {...register('username', { required: "Username is required" })}
                             className="rounded-full text-[14px]"
                             placeholder='Username'
                             autoComplete="username"
                         />
+                        {errors.username && <p className="text-red-500">{errors.username.message}</p>}
                     </div>
                     <div className="items-center gap-4">
                         <Input
-                            id="password"
-                            value={formData.password}
-                            onChange={handleInputChange}
+                            {...register('password', { required: "Password is required" })}
                             className="rounded-full text-[14px]"
                             placeholder='Password'
                             type='password'
                             autoComplete="current-password"
                         />
+                        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
                     </div>
+                    <Button id="saveButton" type="submit" className="bg-[#0D9488] text-white rounded-full hover:bg-[#2DD4C5]">
+                        Continue
+                    </Button>
                 </form>
                 {message && <p>{message}</p>}
-                <Button id="saveButton" type="submit" className="bg-[#0D9488] text-white rounded-full hover:bg-[#2DD4C5]" onClick={handleSaveChanges}>
-                    Continue
-                </Button>
             </div>
         </div>
     );

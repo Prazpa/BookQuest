@@ -11,9 +11,10 @@ import { DarkmodeContext } from "@/app/type/DarkmodeType";
 import { SelectedContext } from "@/app/type/SelectedType";
 import { UserContext } from "@/app/type/UserType";
 import { useContext, useEffect } from "react";
-import { Book } from "@/app/page/Detailpage/Contentpage/RightPanel/Trending/BookType";
+import { Book } from "@/app/component/RightPanel/Trending/BookType";
 import Shared_btn from "@/app/component/BookCover/Shared_btn";
 import logopath from "@/app/assets/bookmark.png";
+
 function Cart() {
   const { darkMode } = useContext(DarkmodeContext);
   const { pick, setPick } = useContext(SelectedContext);
@@ -52,7 +53,7 @@ function Cart() {
             className={`bg-white`}
           />
           <div
-            className={`xs:absolute xs:top-[125px] xr:absolute xr:top-[125px] sm:relative sm:top-[-10px] sm:left-[-20px] text-sm absolute top-[15px] mx-[-9px] w-[20px] rounded-full ${
+            className={`absolute xs:top-[145px] xr:top-[155px]sm:top-[-10px] sm:left-[-20px] text-sm top-[15px] mx-[-9px] w-[20px] rounded-full ${
               darkMode
                 ? "hover:text-[#FF5A67] bg-white text-black"
                 : "text-white bg-black hover:text-[#2DD4C5]"

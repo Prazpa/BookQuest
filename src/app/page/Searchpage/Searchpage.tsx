@@ -1,6 +1,6 @@
 import Footer from "@/app/component/Footer/Footer";
 import Topbar from "@/app/component/Topbar/Topbar";
-import LeftPanel from "../Detailpage/Contentpage/LeftPanel/LeftPanel";
+import LeftPanel from "../../component/LeftPanel/LeftPanel";
 import Cover from "@/app/component/Cover/Cover";
 import { DarkmodeContext } from "@/app/type/DarkmodeType";
 import { useContext } from "react";

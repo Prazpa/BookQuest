@@ -9,9 +9,6 @@ export interface catagoriesListType {
   "Health and Wellness": Wellness[]
   Biography: Biography[]
   "Social Sciences": Science[]
-  Places: Place[]
-  Textbooks: Textbook[]
-  Language: Language[]
 }
 
 export interface Art {
@@ -60,21 +57,6 @@ export interface Biography {
 }
 
 export interface Science {
-  title: string
-  value: string
-}
-
-export interface Place {
-  title: string
-  value: string
-}
-
-export interface Textbook {
-  title: string
-  value: string
-}
-
-export interface Language {
   title: string
   value: string
 }
@@ -169,37 +151,7 @@ const catagories : catagoriesListType = {
     { "title": "Political Science", "value": "political_science" },
     { "title": "Psychology", "value": "psychology" }
   ],
-  "Places": [
-    { "title": "Brazil", "value": "place%3Abrazil" },
-    { "title": "India", "value": "place%3Aindia" },
-    { "title": "Indonesia", "value": "place%3Aindonesia" },
-    { "title": "United States", "value": "place%3Aunited_states" }
-  ],
-  "Textbooks": [
-    { "title": "History", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=History" },
-    { "title": "Mathematics", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Mathematics" },
-    { "title": "Geography", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Geography" },
-    { "title": "Psychology", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Psychology" },
-    { "title": "Algebra", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Algebra" },
-    { "title": "Education", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Education" },
-    { "title": "Business & Economics", "value": "search.json?q=subject%3ATextbook+subject%3ABusiness&subject_facet=Textbooks" },
-    { "title": "Science", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Science" },
-    { "title": "Chemistry", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Chemistry" },
-    { "title": "English Language", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=English+language" },
-    { "title": "Physics", "value": "search.json?q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Physics" },
-    { "title": "Computer Science", "value": "search.json?q=subject%3A%22Computer+science%22&sort=editions&subject_facet=Computer+science" }
-  ],
-  "Language": [
-    { "title": "English", "value": "search.json?q=language%3Aeng" },
-    { "title": "French", "value": "search.json?q=language%3Afre" },
-    { "title": "Spanish", "value": "search.json?q=language%3Aspa" },
-    { "title": "German", "value": "search.json?q=language%3Ager" },
-    { "title": "Russian", "value": "search.json?q=language%3Arus" },
-    { "title": "Italian", "value": "search.json?q=language%3Aita" },
-    { "title": "Chinese", "value": "search.json?q=language%3Achi" },
-    { "title": "Japanese", "value": "search.json?q=language%3Ajpn" },
-    { "title": "See more...", "value": "languages" }
-  ]
+
 }
 
 export default catagories

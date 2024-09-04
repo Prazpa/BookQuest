@@ -32,7 +32,7 @@ const Searchbar = () => {
         <div className="flex flex-col relative">
           <Input
             id="searchInput"
-            className={`h-[50px] lg:w-[450px] md:w-[250px] sm:w-[250px] border-2 border-zinc-300 rounded-[30px] text-[14px]`}
+            className={`h-[50px] lg:w-[450px] md:w-[250px] sm:w-[180px] border-2 border-zinc-300 rounded-[30px] text-[14px]`}
             type="text"
             placeholder="Search BookQuest"
             {...register("searchInput", { required: true })}
@@ -48,7 +48,7 @@ const Searchbar = () => {
 
         <Button
           type="submit"
-          className={`flex items-center ml-2`}
+          className={`flex items-center sm:px-1`}
           aria-label="Search"
         >
           <SearchIcon />

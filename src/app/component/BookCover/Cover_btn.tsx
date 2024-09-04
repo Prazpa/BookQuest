@@ -1,7 +1,7 @@
 import { BASE_URL } from "@/app/providers/BaseURL";
 import axios from "axios";
-import { Book } from "@/app/page/Detailpage/Contentpage/RightPanel/Trending/BookType";
-import { BookKeyType } from "./BookKeyType";
+import { Book } from "@/app/type/BookType";
+import { DetailBookType } from "@/app/type/DetailBookType";
 import { useState, useContext, useEffect } from "react";
 import { SelectedContext } from "@/app/type/SelectedType";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ import Shared_btn from "./Shared_btn";
 const Cover_btn = ({ book }: { book: Book }) => {
   const { darkMode } = useContext(DarkmodeContext);
   const { pick, setPick } = useContext(SelectedContext);
-  const [responseData, setResponseData] = useState<BookKeyType[]>([]);
+  const [responseData, setResponseData] = useState<DetailBookType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const [picked, setPicked] = useState(false);

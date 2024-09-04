@@ -1,6 +1,6 @@
 import HomePage from "@/app/page/Homepage/Homepage";
 import DetailPage from "@/app/page/Detailpage/Detailpage";
-import TrendingAnypage from "@/app/page/Detailpage/Contentpage/RightPanel/TrendingAnypage/TrendingAnypage";
+import TrendingOther from "@/app/component/RightPanel/TrendingOther/TrendingOther";
 import Catagoriespage from "@/app/page/Catagoriespage/Catagoriespage";
 import Searchpage from "@/app/page/Searchpage/Searchpage";
 import Sign_Up from "@/app/page/Signuppage/Sign_Up";
@@ -29,7 +29,7 @@ function App() {
     { path: "/", element: <HomePage /> },
     { path: "/Login", element: <Sign_Up /> },
     { path: "/detailpage/", element: <DetailPage /> },
-    { path: "/detailpage/:time", element: <TrendingAnypage /> },
+    { path: "/detailpage/:time", element: <TrendingOther /> },
     { path: "/catagoriespage/:catagory", element: <Catagoriespage /> },
     { path: "/searchpage/:q", element: <Searchpage /> },
   ]);
