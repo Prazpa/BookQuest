@@ -4,7 +4,7 @@ import Loader from "@/app/component/Loader/Loader";
 import { DarkmodeContext } from "@/app/type/DarkmodeType";
 import { ContentContext } from "@/app/type/ContentType";
 import { useContext, useEffect, useState } from "react";
-import { Doc } from "./SearchBook";
+import { Book } from "@/app/type/BookType";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Cover_btn from "@/app/component/BookCover/Cover_btn";
 import { Link } from "react-router-dom";
@@ -14,13 +14,13 @@ function Cover() {
   const { darkMode } = useContext(DarkmodeContext);
 
   const [loading, setLoading] = useState<boolean>(true);
-  const [response, setResponse] = useState<Doc[]>([]);
+  const [response, setResponse] = useState<Book[]>([]);
 
   useEffect(() => {
     const fetchSearchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/search.json?q=${data}&limit=20`);
-        setResponse(response.data.docs);
+        const result = await axios.get(`${BASE_URL}/search.json?q=${data}&limit=20`);
+        setResponse(result.data.docs);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -56,42 +56,48 @@ function Cover() {
         {loading ? (
           <Loader />
         ) : (
-          response.map((item) => (
-            <Dialog key={item.key}>
-              <DialogTrigger>
-                <div
-                  className={`w-[150px] h-[220px] rounded align-middle overflow-hidden ${
-                    darkMode
-                      ? "bg-black hover:bg-[#d8aef6]"
-                      : "bg-[#F7F7F7] hover:bg-[#F6E7AE]"
-                  }`}
-                >
-                  <img
-                    src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
-                    alt={`Cover Image ${item.key}`}
-                    className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
-                  />
-                  <div className="text-[12px] text-center">
-                    <span
-                      className={`font-semibold ${
-                        darkMode ? "text-white" : "text-black "
-                      }`}
-                    >
-                      {item.title}
-                    </span>
+          response.map((item) => {
+            const book: Book = {
+              ...item,
+              author_key: item.author_key ?? [], // Fallback to an empty array if undefined
+            };
+
+            return (
+              <Dialog key={book.key}>
+                <DialogTrigger>
+                  <div
+                    className={`w-[150px] h-[220px] rounded align-middle overflow-hidden ${
+                      darkMode
+                        ? "bg-black hover:bg-[#d8aef6]"
+                        : "bg-[#F7F7F7] hover:bg-[#F6E7AE]"
+                    }`}
+                  >
+                    <img
+                      src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+                      alt={`Cover Image ${book.key}`}
+                      className="cursor-pointer w-[100px] h-[150px] mx-[23px] my-[15px]"
+                    />
+                    <div className="text-[12px] text-center">
+                      <span
+                        className={`font-semibold ${
+                          darkMode ? "text-white" : "text-black "
+                        }`}
+                      >
+                        {book.title}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </DialogTrigger>
-              <DialogContent className="bg-white max-w-[1000px] h-[550px] overflow-y-scroll">
-                <Cover_btn book={item} />
-              </DialogContent>
-            </Dialog>
-          ))
+                </DialogTrigger>
+                <DialogContent className="bg-white max-w-[1000px] h-[550px] overflow-y-scroll">
+                  <Cover_btn book={book} />
+                </DialogContent>
+              </Dialog>
+            );
+          })
         )}
       </div>
     </div>
   );
 }
-
 
 export default Cover;

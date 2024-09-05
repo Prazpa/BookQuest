@@ -11,7 +11,7 @@ import { DarkmodeContext } from "@/app/type/DarkmodeType";
 import { SelectedContext } from "@/app/type/SelectedType";
 import { UserContext } from "@/app/type/UserType";
 import { useContext, useEffect } from "react";
-import { Book } from "@/app/component/RightPanel/Trending/BookType";
+import { Book } from "@/app/type/BookType";
 import Shared_btn from "@/app/component/BookCover/Shared_btn";
 import logopath from "@/app/assets/bookmark.png";
 
