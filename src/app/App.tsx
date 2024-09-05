@@ -33,7 +33,7 @@ function App() {
     { path: "/catagoriespage/:catagory", element: <Catagoriespage /> },
     { path: "/searchpage/:q", element: <Searchpage /> },
   ]);
-
+  
   return (
     <div>
       <DarkmodeContext.Provider value={{ darkMode, setDarkMode }}>
