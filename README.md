@@ -13,6 +13,8 @@ To run this project locally, follow these steps:
    git clone https://github.com/Prazpa/BookQuest.git
 
 2. **Set Up the Database:**
+
+
    2.1 Create a database using Hasura
    
    2.2 Create a project in Hasura Cloud
@@ -20,22 +22,25 @@ To run this project locally, follow these steps:
    2.3 Launch the project and add the following GraphQL code in the Hasura Console:
    
     ```graphql
-    mutation InsertUser($password: String, $user: String) {
-      insert_LogInData(objects: {password: $password, user: $user}) {
-        affected_rows
-        returning {
-          password
-          user
-        }
-      }
-    }
+   mutation InsertUser($password: String!, $username: String!, $profile_picture_url: String!) {
+       insert_user(objects: {password: $password, username: $username, profile_picture_url: $profile_picture_url}) {
+          affected_rows
+             returning {
+               username
+               password
+               profile_picture_url
+             }
+       }
+   }
 
-    query SignInUser($username: String!, $password: String!) {
-      LogInData(where: { user: { _eq: $username }, password: { _eq: $password } }) {
-        user
-        password
-      }
-    }
+   query SignInUser($username: String!, $password: String!) {
+       user(
+          where: { username: { _eq: $username }, password: { _eq: $password } }
+       ) {
+          username
+          profile_picture_url
+         }
+   }
 
 4. **Create Environment Variables:**
    
