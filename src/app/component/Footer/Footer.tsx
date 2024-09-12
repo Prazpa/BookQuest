@@ -41,6 +41,7 @@ function Footer() {
                     <li>Database Connection: <a href="https://www.apollographql.com/docs/react/" target="blank" className="hover:underline">Apollo Client</a></li>
                     <li>Website Test: <a href="https://developer.chrome.com/docs/lighthouse/overview" target="blank" className="hover:underline">Lighthouse</a></li>
                     <li>Image Compressors: <a href="https://imageoptim.com/online" target="blank" className="hover:underline">ImageOptim</a></li>
+                    <li>Deployment:  <a href="https://vercel.com" target="blank" className="hover:underline">Vercel</a></li>
                 </ul>
             </div>
         </div>
