@@ -13,6 +13,8 @@ To run this project locally, follow these steps:
    git clone https://github.com/Prazpa/BookQuest.git
 
 2. **Set Up the Database:**
+
+
    2.1 Create a database using Hasura
    
    2.2 Create a project in Hasura Cloud
